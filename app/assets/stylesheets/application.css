@@ -21,10 +21,14 @@ body {
     height: 100vw;
 }
 
+.logo {
+    font-family: 'Quattrocento Sans', sans-serif;
+}
+
 
 .nav-bar {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     padding: 20px;
     background: lightblue;
     align-items: center;
