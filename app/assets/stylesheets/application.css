@@ -15,34 +15,45 @@
  */
 
 body {
-    color: white;
+    color: black;
     font-family: 'PT Sans', sans-serif;
-    background: linear-gradient(#64e6d0, #91e5c9) no-repeat;
+    background-color: #F9F9FB;
     height: 100vw;
 }
 
 .logo {
     font-family: 'Quattrocento Sans', sans-serif;
+    color: #006AFF;
+    text-decoration: none;
+    font-size: 40px;
+}
+
+.headline {
+    font-family: 'Lora', serif;
+}
+
+.subheader {
+    font-family: 'Open Sans', sans-serif;
 }
 
 
 .nav-bar {
     display: flex;
-    justify-content: space-around;
+    flex-direction: column;
+    justify-content: space-between;
     padding: 20px;
-    background: lightblue;
+    background: #FFF;
     align-items: center;
+    font-family: 'Open Sans', sans-serif;
+    border-bottom: 1px solid lightgray;
 }
 
-.nav-bar .btn {
-      background-color: white;
+.nav-bar-link {
       padding: 10px;
-      box-shadow: 3px 3px 3px darkblue;
       text-decoration: none;
 }
 
-.nav-bar .btn:hover {
-    background-color: rgb(240, 240, 240);
-    box-shadow: 1px 1px 1px darkblue;
+.nav-bar-link:hover {
+    color: #006AFF;
 }
  

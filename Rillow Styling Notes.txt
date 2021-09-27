@@ -1,0 +1,5 @@
+Zillow Styling Colors - 
+Main Blue - 006AFF
+Light Blue Background - F2FAFF
+Nav Bar - FFFFFF
+Background - F9F9FB
