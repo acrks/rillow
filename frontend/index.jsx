@@ -1,7 +1,9 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
+import createStore from './store/store';
+import Root from './components/root'
 
 document.addEventListener("DOMContentLoaded", () => {
     const root = document.getElementById("root")
-    ReactDOM.render(<h1>My super awesome app is on it's way...</h1>, root)
+    ReactDOM.render(<Root />, root)
 })

@@ -17,7 +17,7 @@ export default ({ currentUser, logout }) => {
 
   return (
     <header className="nav-bar">
-      <h1 className="logo">BLUEBIRD</h1>
+      <h1 className="logo">Rillow</h1>
       <div>
         {display}
       </div>
