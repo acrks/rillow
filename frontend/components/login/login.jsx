@@ -4,7 +4,6 @@ class Login extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            username: 'default',
             email: '',
             password: '',
         };
@@ -21,7 +20,8 @@ class Login extends React.Component {
 
     handleSubmit(e) {
         e.preventDefault();
-        this.props.createNewUser(this.state)
+        const user = Object.assign({}, this.state);
+        this.props.login(user)
         .then(() => this.props.history.push('/listings'))
     }
 

@@ -19,8 +19,8 @@ class Signup extends React.Component {
         
     handleSubmit(e) {
         e.preventDefault();
-        console.log(this.state)
-        this.props.createNewUser(this.state)
+        const user = Object.assign({}, this.state);
+        this.props.createNewUser(user)
         .then(() => this.props.history.push('/listings'))
     }
 
@@ -48,7 +48,7 @@ class Signup extends React.Component {
                     <br/>
                     <br/>
                     </div>
-                    <button onClick ={this.handleSubmit} className = 'sign-in-button'>Sign in</button>
+                    <button onClick ={this.handleSubmit} className = 'sign-in-button'>Sign up</button>
                 </form>
             </div>
         )

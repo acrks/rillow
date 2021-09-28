@@ -9,3 +9,9 @@
 Listing.destroy_all
 
 User.destroy_all
+
+user = User.create!(email: "guest@gmail.com", password: "password")
+user1 = User.create!(email: "demo@gmail.com", password: "password")
+user2 = User.create!(email: "ashe1@gmail.com", password: "password")
+user3 = User.create!(email: "alistar1@gmail.com", password: "password")
+user4 = User.create!(email: "ryze1@gmail.com", password: "password")
