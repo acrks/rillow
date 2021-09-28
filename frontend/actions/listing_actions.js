@@ -27,6 +27,6 @@ export const fetchListing = id => dispatch => (
 
 export const createListing = listing => dispatch => (
   APIUtil.createListing(listing).then(listing => (
-    dispatch(receiveBench(listing))
+    dispatch(receiveListing(listing))
   ))
 );

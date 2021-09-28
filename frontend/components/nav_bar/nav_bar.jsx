@@ -20,7 +20,8 @@ export default ({ currentUser, logout }) => {
       <Link to = "/" className = "nav-bar-link">Manage Rentals</Link>
       <Link to = "/" className = "nav-bar-link">Advertise</Link>
       <Link to = "/" className = "nav-bar-link">Help</Link>
-      <Link to="/signup" className = "nav-bar-link">Sign in</Link>
+      <Link to="/signup" className = "nav-bar-link">Sign up</Link>
+      <Link to="/login" className = "nav-bar-link">Log In</Link>
     </div>
   );
 
