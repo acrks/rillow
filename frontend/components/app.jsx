@@ -8,7 +8,7 @@ import { AuthRoute, ProtectedRoute } from '../utils/route_utils';
 import { Route } from 'react-router-dom';
 
 export default () => (
-  <div>
+  <div className = "body">
     <Route path="/" component={NavBarContainer} />
     <Route exact path="/" component={Home} />
     {/* Will be replaced with listings index */}

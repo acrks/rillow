@@ -28,18 +28,28 @@ class Signup extends React.Component {
     render() {
         return (
             <div className = "session-form">
-                <h2>Sign Up!</h2>
+                <div className = "headline-container">
+                <h2 className = "headline">Welcome to Rillow</h2>
+                </div>
+                <div className = "tabs-container">
+                <span className = "subheader tab-header signin">Sign in</span>
+                <span className = "subheader tab-header newaccount">New Account</span>
+                </div>
                 <form>
-                    <label>Username
-                        <input type = "text" value = {this.state.username} onChange = {this.handleInput('username')}/>
+                    <div className = "label-container">
+                    <label className = "label-header">Email
+                    <br/>
+                        <input type = "text" value = {this.state.email} onChange = {this.handleInput('email')} placeholder = "Enter email" className = "subheader input-field"/>
                     </label>
-                    <label>Email
-                        <input type = "text" value = {this.state.email} onChange = {this.handleInput('email')}/>
+                    </div>
+                    <div className = "label-container">
+                    <label className = "label-header">Password
+                        <input type = "password" value = {this.state.password} onChange = {this.handleInput('password')} placeholder = "Enter password" className = "subheader input-field"/>
                     </label>
-                    <label>Password <br/>Minimum six characters long<br/>
-                        <input type = "password" value = {this.state.password} onChange = {this.handleInput('password')}/>
-                    </label>
-                    <button onClick ={this.handleSubmit}>Sign Up</button>
+                    <br/>
+                    <br/>
+                    </div>
+                    <button onClick ={this.handleSubmit} className = 'sign-in-button'>Sign in</button>
                 </form>
             </div>
         )

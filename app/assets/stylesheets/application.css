@@ -19,21 +19,31 @@ body {
     font-family: 'PT Sans', sans-serif;
     background-color: #F9F9FB;
     height: 100vw;
+
+    border: 1px solid green;
+}
+
+.body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .logo {
     font-family: 'Quattrocento Sans', sans-serif;
     color: #006AFF;
     text-decoration: none;
-    font-size: 40px;
+    font-size: 30px;
 }
 
 .headline {
     font-family: 'Lora', serif;
+    letter-spacing: 0.5px;
 }
 
 .subheader {
     font-family: 'Open Sans', sans-serif;
+
 }
 
 
@@ -48,12 +58,81 @@ body {
     border-bottom: 1px solid lightgray;
 }
 
+.input-field {
+    background-color: #F6F6FA;
+    border-radius: 3px;
+    border: 1px solid lightgray;
+    font-size: 18px;
+    padding: 10px;
+    width: calc(100% - 25px);
+    margin-top: 15px;
+}
+
+.input-field:hover {
+    border: 1px solid #006AFF;
+}
+
 .nav-bar-link {
       padding: 10px;
       text-decoration: none;
 }
 
-.nav-bar-link:hover {
+.nav-bar-link:hover, .tab-header:hover {
     color: #006AFF;
+}
+
+.sign-in-button {
+    background-color: #006AFF;
+    font-family: 'Open Sans', sans-serif;
+    color: white;
+    padding: 10px 20px 10px 20px;
+    border-radius: 3px;
+    border: none;
+    font-size: 15px;
+    width: 100%;
+    letter-spacing: 0.5px;
+    cursor: pointer;
+}
+
+.headline-container {
+    text-align: center;
+}
+
+.tabs-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    color: #45454D;
+    font-weight: 100;
+    border-bottom: 1px solid lightgray;
+    padding-bottom: 10px;
+}
+
+.label-container {
+    margin-top: 20px;
+}
+
+.label-header {
+    font-weight: 600;
+    color: #45454D;
+}
+
+.tab-header {
+    cursor: pointer;
+}
+
+.tab-header-selected {
+    border-bottom: 3px solid #0D4599;
+}
+
+.sign-in-button:hover {
+    background-color: #0D4599;
+}
+
+.session-form {
+    width: 30%;
+    border: 1px solid red;
+    text-align: justify;
+    margin-top: 10%;
 }
  

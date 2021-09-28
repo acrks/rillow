@@ -2,6 +2,6 @@ import React from 'react';
 
 export default () => (
   <div>
-    <h1>If I was any good at coding, there'd be a better message here</h1>
+    <h1>If I had any imagination, there'd be something clever and witty here. Alas :(</h1>
   </div>
 )
