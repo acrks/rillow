@@ -21,7 +21,7 @@ class Signup extends React.Component {
         e.preventDefault();
         const user = Object.assign({}, this.state);
         this.props.createNewUser(user)
-        .then(() => this.props.history.push('/listings'))
+        .then(() => this.props.history.push('/'))
     }
 
     render() {
