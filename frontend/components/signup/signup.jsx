@@ -4,7 +4,7 @@ class Signup extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            username: '',
+            username: 'default',
             email: '',
             password: '',
         };
@@ -22,7 +22,7 @@ class Signup extends React.Component {
     handleSubmit(e) {
         e.preventDefault();
         this.props.createNewUser(this.state)
-        .then(() => this.props.history.push('/chirps'))
+        .then(() => this.props.history.push('/listings'))
     }
 
     render() {
