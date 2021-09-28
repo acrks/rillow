@@ -4,11 +4,9 @@ class Signup extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            username: 'default',
             email: '',
             password: '',
         };
-
         this.handleInput = this.handleInput.bind(this)
         this.handleSubmit = this.handleSubmit.bind(this)
     }
@@ -16,11 +14,12 @@ class Signup extends React.Component {
     handleInput(type) {
         return (e) => (
             this.setState({ [type]: e.currentTarget.value })
-        )
-    }
-
+            )
+        }
+        
     handleSubmit(e) {
         e.preventDefault();
+        console.log(this.state)
         this.props.createNewUser(this.state)
         .then(() => this.props.history.push('/listings'))
     }

@@ -6,5 +6,5 @@ import uiReducer from './ui_reducer'
 export default combineReducers({
   entities: entitiesReducer,
   session: sessionReducer,
-  ui: uiReducer
+  ui: uiReducer,
 });

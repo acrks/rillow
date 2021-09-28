@@ -1,14 +1,14 @@
-export const postUser = user => {
-    return $.ajax({
-        url: '/api/users',
+export const postUser = user => (
+    $.ajax({
+        url: 'api/users',
         method: 'POST',
         data: {user}
     })
-}
+)
 
 export const postSession = user => {
     return $.ajax({
-        url: '/api/session',
+        url: 'api/session',
         method: 'POST',
         data: {user}
     })

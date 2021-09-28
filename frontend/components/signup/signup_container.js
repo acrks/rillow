@@ -3,7 +3,7 @@ import { createsNewUser } from '../../actions/session'
 import Signup from './signup'
 
 const mapDispatchToProps = dispatch => ({
-    createNewUser: formUser => dispatch(createsNewUser(formUser))
+    createNewUser: user => dispatch(createsNewUser(user))
 })
 
 export default connect(null, mapDispatchToProps)(Signup)

@@ -14,8 +14,4 @@ const mapDispatchToProps = dispatch => ({
   logout: () => dispatch(logout()),
 });
 
-// Comment this out when you have built the login functionality
-// const mapStateToProps = null;
-// const mapDispatchToProps = null;
-
 export default connect(mapStateToProps, mapDispatchToProps)(NavBar);
