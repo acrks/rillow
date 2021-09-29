@@ -13,3 +13,7 @@ User.destroy_all
 user1 = User.create!(email: "chumbawumba@gmail.com", password: "password")
 user2 = User.create!(email: "alexcrooks@gmail.com", password: "Th1sI$IMp0$si3Le")
 user3 = User.create!(email: "demo@gmail.com", password: "greatasset")
+
+listing1 = Listing.create(
+    
+)

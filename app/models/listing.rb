@@ -17,4 +17,9 @@
 #  updated_at    :datetime         not null
 #
 class Listing < ApplicationRecord
+    validates :creator, :purchase, :price, :num_bedrooms, :num_bathrooms, :street_number, :street_name, :city_name, :state, :zipcode, presence: true
+    
+    has one creator:
+
+
 end

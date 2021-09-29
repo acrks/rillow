@@ -1,6 +1,7 @@
 import {
   RECEIVE_LISTINGS,
-  RECEIVE_LISTING
+  RECEIVE_LISTING,
+  REMOVE_LISTING
 } from '../actions/listing_actions';
 
 const listingsReducer = (state = {}, action) => {
@@ -11,6 +12,9 @@ const listingsReducer = (state = {}, action) => {
     case RECEIVE_LISTING:
       const newListing = { [action.listing.id]: action.listing };
       return merge({}, state, newListing);
+    case REMOVE_LISTING:
+      delete nextState[action.listingId]
+      return nextState
     default:
       return state;
   }

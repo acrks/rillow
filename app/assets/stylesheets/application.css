@@ -19,7 +19,7 @@ body {
     font-family: 'PT Sans', sans-serif;
     background-color: #F9F9FB;
     height: 100vw;
-
+    z-index: 15;
     border: 1px solid green;
 }
 
@@ -46,6 +46,13 @@ body {
 
 }
 
+header {
+    width: calc(100% - 40px);
+}
+
+h1 {
+    position: relative;
+}
 
 .nav-bar {
     display: flex;
@@ -160,5 +167,28 @@ body {
 
   .close-x {
       text-align: right;
+  }
+
+  .main-bg-image {
+      left: 0%;
+      z-index: 8;
+      width: 100%;
+  }
+  
+  .home_page {
+    width: 100%;
+    height: 750px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background: url('main_bg.png') no-repeat;
+    background-size: cover;
+  }
+
+  .home_page_text {
+      color: white;
+      z-index: 9;
   }
  
