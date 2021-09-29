@@ -10,6 +10,7 @@ class Login extends React.Component {
 
         this.handleInput = this.handleInput.bind(this)
         this.handleSubmit = this.handleSubmit.bind(this)
+        this.demoLogin = this.demoLogin.bind(this)
     }
 
     handleInput(type) {
@@ -25,6 +26,15 @@ class Login extends React.Component {
         .then(() => this.props.history.push('/'))
     }
 
+    demoLogin() {
+        const user = {
+            email: 'demo@gmail.com',
+            password: 'greatasset'
+        }
+        this.props.login(user)
+        .then(() => this.props.history.push('/'))
+    }
+
     render() {
         return (
             <div className = "session-form">
@@ -32,7 +42,6 @@ class Login extends React.Component {
                 <h2 className = "headline">Welcome to Rillow</h2>
                 </div>
                 <div className = "tabs-container">
-                <span className = "subheader tab-header signin">Sign in</span>
                 <span className = "subheader tab-header newaccount">New Account</span>
                 </div>
                 <form>
@@ -50,6 +59,8 @@ class Login extends React.Component {
                     <br/>
                     </div>
                     <button onClick ={this.handleSubmit} className = 'sign-in-button'>Sign in</button>
+                    <br/>
+                    <button onClick = {this.demoLogin} className = 'sign-in-button'>Demo User</button>
                 </form>
             </div>
         )

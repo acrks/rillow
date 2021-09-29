@@ -4,23 +4,40 @@ class Signup extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
+            error: null,
             email: '',
             password: '',
         };
         this.handleInput = this.handleInput.bind(this)
         this.handleSubmit = this.handleSubmit.bind(this)
+        this.demoLogin = this.demoLogin.bind(this)
     }
 
     handleInput(type) {
-        return (e) => (
-            this.setState({ [type]: e.currentTarget.value })
-            )
+        try{
+            return (e) => (
+                this.setState({ [type]: e.currentTarget.value })
+                )
+            }
+            catch(error) {
+                console.log(error)
+                    this.setState({ error });
+                }
         }
         
     handleSubmit(e) {
         e.preventDefault();
         const user = Object.assign({}, this.state);
         this.props.createNewUser(user)
+        .then(() => this.props.history.push('/'))
+    }
+
+    demoLogin() {
+        const user = {
+            email: 'demo@gmail.com',
+            password: 'greatasset'
+        }
+        this.props.login(user)
         .then(() => this.props.history.push('/'))
     }
 
@@ -32,7 +49,6 @@ class Signup extends React.Component {
                 </div>
                 <div className = "tabs-container">
                 <span className = "subheader tab-header signin">Sign in</span>
-                <span className = "subheader tab-header newaccount">New Account</span>
                 </div>
                 <form>
                     <div className = "label-container">
@@ -49,6 +65,8 @@ class Signup extends React.Component {
                     <br/>
                     </div>
                     <button onClick ={this.handleSubmit} className = 'sign-in-button'>Sign up</button>
+                    <br/>
+                    <button onClick = {this.demoLogin} className = 'sign-in-button'>Demo User</button>
                 </form>
             </div>
         )
