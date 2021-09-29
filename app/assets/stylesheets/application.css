@@ -14,9 +14,13 @@
  *= require_self
  */
 
+ * {
+    box-sizing: border-box;
+  }
+
 body {
     color: black;
-    font-family: 'PT Sans', sans-serif;
+    font-family: 'Open Sans', sans-serif;
     background-color: #F9F9FB;
     height: 100vw;
     z-index: 15;
@@ -152,6 +156,7 @@ h1 {
     left: 0;
     background: rgba(0, 0, 0, 0.7);
     z-index: 10;
+
   }
  
   .modal-child {
@@ -163,32 +168,74 @@ h1 {
     padding: 50px;
     width: 35%;
     height: 40%;
+    border-radius: 3px;
   }
 
   .close-x {
       text-align: right;
   }
-
-  .main-bg-image {
-      left: 0%;
-      z-index: 8;
-      width: 100%;
-  }
   
   .home_page {
+    position: relative; 
+    height: 500px;
     width: 100%;
-    height: 750px;
     display: flex;
-    flex-direction: row;
-    justify-content: center;
     align-items: center;
-    text-align: center;
+    justify-content: center;
+    z-index: 5;
     background: url('main_bg.png') no-repeat;
+    background-position: 0% 100%;
     background-size: cover;
   }
 
   .home_page_text {
       color: white;
-      z-index: 9;
   }
+
+  .fa fa-search {
+    border: none
+  }
+
+  .search-bar {
+    background: #F9F9FB;
+    width: 33%;
+    height: calc(10%-25px);
+  }
+
+  form.search-bar input[type=text] {
+    padding: 10px;
+    font-size: 17px;
+    color: #45454D;
+    border: none;
+    float: left;
+    width: 89%;
+    background: #F9F9FB;
+    text-align: center;
+    padding: 5%;
+    font-size: 100%;
+  }
+
+  form.search-bar button {
+    height: auto;
+    width: 11%;
+    padding: 5%;
+    background: #F9F9FB;
+    color: #45454D;
+    font-size: 17px;
+    border: none; /* Prevent double borders */
+    cursor: pointer;
+  }
+
+  form.search-bar button,
+  form.search-bar input[type=text],
+  .search-bar  {
+    border-radius: 10px;
+  }
+
+  form.search-bar::after {
+    content: "";
+    clear: both;
+    display: table;
+  }
+
  

@@ -15,5 +15,14 @@ user2 = User.create!(email: "alexcrooks@gmail.com", password: "Th1sI$IMp0$si3Le"
 user3 = User.create!(email: "demo@gmail.com", password: "greatasset")
 
 listing1 = Listing.create(
-    
+    #  creator       :integer          not null
+#  purchase      :boolean          not null
+#  price         :integer          not null
+#  num_bedrooms  :integer          not null
+#  num_bathrooms :float            not null
+#  street_number :integer          not null
+#  street_name   :string           not null
+#  city_name     :string           not null
+#  state         :string           not null
+#  zipcode       :integer          not null
 )

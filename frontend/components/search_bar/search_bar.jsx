@@ -3,7 +3,10 @@ import React from 'react'
 class SearchBar extends React.Component {
     render() {
         return (
-            <h1>A search bar will go here</h1>
+            <form className = "search-bar">
+                <input type = "text" placeholder = "Enter an address, neighborhood, or ZIP Code"/>
+                <button type="submit"><i className="fa fa-search"></i></button>
+            </form>
         )
     }
 }
