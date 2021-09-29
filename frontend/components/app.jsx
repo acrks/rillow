@@ -15,9 +15,9 @@ export default () => (
     <header>
       <NavBarContainer />
     </header>
-    <Route exact path="/" component={Home} />
     
     <Switch>
+      <Route exact path="/" component={Home} />
       {/* <ProtectedRoute exact path="/benches/new" component={BenchFormContainer} />
       <Route path="/benches/:benchId" component={BenchShowContainer} /> */}
       <Route render={() => <Redirect to={{pathname: "/"}} />} />
