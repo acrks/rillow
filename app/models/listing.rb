@@ -19,7 +19,13 @@
 class Listing < ApplicationRecord
     validates :creator, :purchase, :price, :num_bedrooms, :num_bathrooms, :street_number, :street_name, :city_name, :state, :zipcode, presence: true
     
-    has one creator:
+    belongs_to :creator,
+        foreign_key: :creator,
+        class_name: :User
+    
+    has_many :likes,
+        foreign_key: :listing_id,
+        class_name: :Favorite
 
 
 end

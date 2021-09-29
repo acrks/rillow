@@ -198,7 +198,7 @@ h1 {
 
   .search-bar {
     background: #F9F9FB;
-    width: 33%;
+    width: 66%;
     height: calc(10%-25px);
   }
 
@@ -229,7 +229,7 @@ h1 {
   form.search-bar button,
   form.search-bar input[type=text],
   .search-bar  {
-    border-radius: 10px;
+    border-radius: 3px;
   }
 
   form.search-bar::after {
