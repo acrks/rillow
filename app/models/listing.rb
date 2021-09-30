@@ -29,6 +29,6 @@ class Listing < ApplicationRecord
         class_name: :Favorite
 
     
-
+    
 
 end
