@@ -202,6 +202,10 @@ h1 {
     height: calc(10%-25px);
   }
 
+  .search-bar:hover {
+    border: 1px solid #006AFF;
+  }
+
   form.search-bar input[type=text] {
     padding: 10px;
     font-size: 17px;

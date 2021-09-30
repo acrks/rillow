@@ -17,7 +17,8 @@
 #  updated_at    :datetime         not null
 #
 class Listing < ApplicationRecord
-    validates :creator, :purchase, :price, :num_bedrooms, :num_bathrooms, :street_number, :street_name, :city_name, :state, :zipcode, presence: true
+    validates :creator, :price, :num_bedrooms, :num_bathrooms, :street_number, :street_name, :city_name, :state, :zipcode, presence: true
+    validates :purchase, inclusion: { in: [true, false] }
     
     belongs_to :creator,
         foreign_key: :creator,
@@ -26,6 +27,8 @@ class Listing < ApplicationRecord
     has_many :likes,
         foreign_key: :listing_id,
         class_name: :Favorite
+
+    
 
 
 end

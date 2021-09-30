@@ -18,6 +18,10 @@ class User < ApplicationRecord
     validates :password, length: { minimum: 8 }, allow_nil: true
   
     after_initialize :ensure_session_token
+
+    has_many :listings,
+      foreign_key: :creator,
+      class_name: :Listing
   
     # has_many :favorites
     # has_many :favorite_benches,
