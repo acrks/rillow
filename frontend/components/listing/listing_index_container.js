@@ -4,12 +4,12 @@ import { asArray } from '../../reducers/selector';
 import { fetchListings } from '../../actions/listing_actions';
 
 const mapStateToProps = state => ({
-    listings: asArray(state.entities)
+    listings: Object.values(state.entities.listings)
 })
 
 const mapDispatchToProps = dispatch => ({
+    getListings: listings => dispatch(fetchListings(listings)),
     createListing: listing => dispatch(createListing(listing)),
-    getListings: () => dispatch(fetchListings())
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(ListingIndex)

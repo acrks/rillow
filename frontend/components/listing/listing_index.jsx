@@ -1,6 +1,6 @@
 import React from 'react'
 
-import ListingItemContainer from './listing_item'
+import ListingItem from './listing_item'
 
 class ListingIndex extends React.Component {
     componentDidMount() {
@@ -9,12 +9,14 @@ class ListingIndex extends React.Component {
 
     render() {
         const {listings, createListing} = this.props
-        console.log(listings)
+        console.log("The listings: " + listings)
         return (
-            <div className = "testing">
+            <div className = "list_index">
+                <ul>
                 {listings.map(listing =>(
-                    <ListingItemContainer />
+                    <ListingItem key = {listing.id} createListing = {createListing} listing = {listing}/>
                 ))}
+                </ul>
             </div>
         )
     }
