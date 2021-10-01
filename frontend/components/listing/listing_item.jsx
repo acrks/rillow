@@ -14,11 +14,14 @@ import React from 'react'
 // )
 
 const PostIndexItem = ({listing}) => (
-    <li>
-        {/* <Link to = {`/posts/${post.id}`}>{post.title}</Link>
-        <Link to = {`/posts/${post.id}/edit`}>Edit</Link>
-        <button onClick = {() => deletePost(post.id)}>Delete Post</button> */}
-        {listing}
+    <li className = "listing-index-item">
+        <h3>{listing.purchase ? null : 'Leasing ' }
+            Agent: {listing.creator.email}</h3>
+            <h3>${listing.price} {listing.purchase ? null : 'per month' }</h3>
+            <p className = "index-item-address">{listing.street_number} {listing.street_name}
+            <br/>
+            {listing.city_name}, {listing.zipcode}
+            </p>
     </li>
 )
 

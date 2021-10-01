@@ -21,8 +21,7 @@ export const removeListing = (listingId) => ({
 
 export const fetchListings = () => dispatch => (
   APIUtil.fetchListings()
-  .then(listings => (
-    dispatch(receiveListings(listings))
+  .then(payload => (dispatch(receiveListings(payload))
   ))
 );
 

@@ -242,4 +242,19 @@ h1 {
     display: table;
   }
 
+  .listing_index {
+    border: 1px solid purple;
+    list-style: none;
+  }
+
+  .listing-index-item {
+      border: 1px solid black;
+      text-decoration: none;
+  }
+
+  .options-links {
+      text-decoration: none;
+      color: white;
+  }
+
  
