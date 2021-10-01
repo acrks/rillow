@@ -23,10 +23,7 @@ class User < ApplicationRecord
       foreign_key: :creator,
       class_name: :Listing
   
-    # has_many :favorites
-    # has_many :favorite_benches,
-    #   through: :favorites,
-    #   source: :bench
+    
   
     def self.find_by_credentials(email, password)
       user = User.find_by(email: email)
@@ -67,6 +64,9 @@ class User < ApplicationRecord
       end
       self.session_token
     end
-  
+
+    def addFavorite(newListing)
+      
+    end
   end
   

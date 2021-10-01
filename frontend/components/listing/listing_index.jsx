@@ -1,22 +1,29 @@
 import React from 'react'
 import CreateListingForm from './listing_form_container'
 import ListingItem from './listing_item'
-import { useHistory } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 class ListingIndex extends React.Component {
     constructor(props) {
         super(props)
 
-        this.routeChange = this.routeChange.bind(this)
+        this.routeChangeCreate = this.routeChangeCreate.bind(this)
+        this.routeChangeShow = this.routeChangeShow.bind(this)
     }
+
     componentDidMount() {
         this.props.getListings()
     }
 
-    routeChange() {
+    routeChangeCreate() {
         let path = `/listings/create`;
         this.props.history.push(path);
-      }
+    }
+
+    routeChangeShow(id) {
+        let path = `/listings/${id}`;
+        this.props.history.push(path);
+    }
 
     render() {
         const { listings, updateListing} = this.props
@@ -24,9 +31,15 @@ class ListingIndex extends React.Component {
         return (
             <div>
                 <ul className = "listing_index">
-                    {listings.map(listing =>( <ListingItem key = {listing.id} listing = {listing} updateListing = {updateListing} />))}
+                    {listings.map(listing =>( 
+                    <ListingItem 
+                    key = {listing.id} 
+                    listing = {listing} 
+                    updateListing = {updateListing} 
+                    />
+                    ))}
                 </ul>
-                <button onClick = {this.routeChange} >Create A Listing</button>
+                <button onClick = {this.routeChangeCreate} >Create A Listing</button>
             </div>
         )
     }

@@ -5,10 +5,10 @@ export const fetchListings = () => (
     })
   );
   
-  export const fetchListing = id => (
+  export const fetchListing = listingId => (
     $.ajax({
       method: 'GET',
-      url: `/api/listings/${id}`
+      url: `api/listings/${listingId}`
     })
   );
   

@@ -6,12 +6,13 @@ import {
 
 const listingsReducer = (state = {}, action) => {
   Object.freeze(state)
+  const nextState = Object.assign({}, state)
   switch(action.type) {
     case RECEIVE_LISTINGS:
       return {...state, ...action.listings}
     case RECEIVE_LISTING:
-      const newListing = { [action.listing.id]: action.listing };
-      return merge({}, state, newListing);
+      nextState[action.listing.id] = action.listing
+      return nextState
     case REMOVE_LISTING:
       delete nextState[action.listingId]
       return nextState
