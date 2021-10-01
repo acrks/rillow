@@ -6,4 +6,8 @@ const mapStateToProps = state => ({
     currentUser: state.session.currentUser
 })
 
-export default connect(mapStateToProps, null)(Home)
+const mapDispatchToProps = dispatch => ({
+
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(Home)

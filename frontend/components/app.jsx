@@ -1,10 +1,11 @@
 import React from 'react';
+import ListingIndexContainer from './listing/listing_index_container'
+import HomeContainer from './home/home_container';
 import NavBarContainer from './nav_bar/nav_bar_container';
 // import ChirpIndexContainer from './chirps/chirp_index_container';
-import HomeContainer from './home/home_container';
 import Modal from './modal/modal';
 import SignupContainer from './signup/signup_container'
-import ListingIndexContainer from './listing/listing_index_container'
+
 import { AuthRoute, ProtectedRoute } from '../utils/route_utils';
 import { Route, Redirect, Switch } from 'react-router-dom';
 

@@ -1,5 +1,3 @@
-const selectAllPokemon = (state) =>{
-    return Object.values(state)
-}
-
-export default selectAllPokemon
+export const asArray = ({ listings }) => (
+    Object.values(listings)
+);

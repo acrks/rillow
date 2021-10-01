@@ -11,8 +11,12 @@ class Api::ListingsController < ApplicationController
     end
 
     def index
-        @listings = Listings.all
+        @listings = Listing.all
         render :index
+    end
+
+    def delete
+        
     end
 
     private
