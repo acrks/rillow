@@ -33,7 +33,7 @@ class ListingShow extends React.Component {
             Favorite will go here<br/>
             Picture will go here<br/>
             Schedule tour here
-            {this.props.currentUser === listing.creator ? 
+            {this.props.currentUser.email === listing.creator.email ? 
             <button onClick={this.routeChangeEdit}></button>: null} 
             </div>
         )
