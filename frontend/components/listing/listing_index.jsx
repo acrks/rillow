@@ -1,5 +1,5 @@
 import React from 'react'
-import CreateListingForm from './listing_form_container'
+import CreateListingForm from './listing_form/listing_form_container'
 import ListingItem from './listing_item'
 import { Link } from "react-router-dom";
 
@@ -8,7 +8,6 @@ class ListingIndex extends React.Component {
         super(props)
 
         this.routeChangeCreate = this.routeChangeCreate.bind(this)
-        this.routeChangeShow = this.routeChangeShow.bind(this)
     }
 
     componentDidMount() {
@@ -17,11 +16,6 @@ class ListingIndex extends React.Component {
 
     routeChangeCreate() {
         let path = `/listings/create`;
-        this.props.history.push(path);
-    }
-
-    routeChangeShow(id) {
-        let path = `/listings/${id}`;
         this.props.history.push(path);
     }
 

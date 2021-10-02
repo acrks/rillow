@@ -1,5 +1,5 @@
 import {connect} from 'react-redux'
-import { openModal } from '../../actions/modal_actions';
+import { openModal } from '../../../actions/modal_actions';
 import ListingForm from './listing_form'
 
 const mapStateToProps = (state) => ({
@@ -17,7 +17,6 @@ const mapStateToProps = (state) => ({
     },
     formType: 'Create Listing',
     currentUser: state.session.currentUser
-
 })
 
 const mapDispatchToProps = (dispatch) => ({
