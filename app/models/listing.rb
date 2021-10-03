@@ -28,7 +28,9 @@ class Listing < ApplicationRecord
         foreign_key: :listing_id,
         class_name: :Favorite
 
-    
+    has_many :favorite_users,
+        through: :favorites,
+        source: :favoriter
     
 
 end

@@ -7,8 +7,8 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 Listing.destroy_all
-
 User.destroy_all
+Favorite.destroy_all
 
 user1 = User.create!(email: "chumbawumba@gmail.com", password: "password")
 user2 = User.create!(email: "alexcrooks@gmail.com", password: "Th1sI$IMp0$si3Le")
@@ -50,4 +50,6 @@ zipcode: 91950)
 usersArr = [user1, user2, user3]
 listingsArr = [listing1, listing2, listing3]
 
-favorite1 = Favorite.create!()
+favorite1 = Favorite.create!(listing_id: listingsArr.sample().id, favoriter_id: usersArr.sample().id)
+favorite2 = Favorite.create!(listing_id: listingsArr.sample().id, favoriter_id: usersArr.sample().id)
+favorite3 = Favorite.create!(listing_id: listingsArr.sample().id, favoriter_id: usersArr.sample().id)
