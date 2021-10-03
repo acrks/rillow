@@ -22,17 +22,18 @@ class SessionForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     const user = Object.assign({}, this.state);
-    this.props.processForm(user).then(this.props.closeModal);
+    this.props.login(user).then(this.props.closeModal);
   }
 
-  demoLogin() {
+  demoLogin(e) {
+    e.preventDefault();
     const user = {
         email: 'demo@gmail.com',
         password: 'greatasset'
     }
     this.props.login(user)
     .then(this.props.closeModal)
-    .then(() => this.props.history.push('/'))
+    // .then(() => this.props.history.push('/'))
 }
 
   renderErrors() {

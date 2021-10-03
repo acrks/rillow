@@ -257,4 +257,6 @@ h1 {
       color: white;
   }
 
- 
+ .listing-show {
+     border: 1px solid orange;
+ }

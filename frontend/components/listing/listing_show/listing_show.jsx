@@ -1,5 +1,6 @@
 import React from 'react'
 import EditListingFormContainer from '../listing_form/edit_listing_form_container'
+import { deleteListing } from '../../../actions/listing_actions'
 
 class ListingShow extends React.Component {
     constructor(props) {
@@ -34,7 +35,12 @@ class ListingShow extends React.Component {
             Picture will go here<br/>
             Schedule tour here
             {this.props.currentUser.email === listing.creator.email ? 
-            <button onClick={this.routeChangeEdit}></button>: null} 
+            <>
+            <br/>
+            <button onClick={this.routeChangeEdit}>Edit Listing</button>
+            <br/>
+            <button onClick={() => deleteListing(listing.id)}>Delete Listing</button>
+            </>: null} 
             </div>
         )
     }
