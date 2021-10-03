@@ -183,7 +183,7 @@ h1 {
     align-items: center;
     justify-content: center;
     z-index: 5;
-    background: url('main_bg.png') no-repeat;
+    background: url('https://raw.githubusercontent.com/acrks/rillow/main/app/assets/images/main_bg.png') no-repeat;
     background-position: 0% 100%;
     background-size: cover;
   }
