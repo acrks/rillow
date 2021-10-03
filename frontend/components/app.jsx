@@ -2,9 +2,7 @@ import React from 'react';
 import ListingIndexContainer from './listing/listing_index_container'
 import HomeContainer from './home/home_container';
 import NavBarContainer from './nav_bar/nav_bar_container';
-// import ChirpIndexContainer from './chirps/chirp_index_container';
 import Modal from './modal/modal';
-import SignupContainer from './signup/signup_container'
 import EditListingFormContainer from './listing/listing_form/edit_listing_form_container';
 import ListingFormContainer from './listing/listing_form/listing_form_container'
 import ListingShowContainer from './listing/listing_show/listing_show_container'
@@ -20,7 +18,6 @@ export default () => (
     </header>
     <Switch>
       <Route exact path="/" component={HomeContainer} />
-      <Route exact path="/signup" component={SignupContainer} />
       <Route exact path="/listings/create" component={ListingFormContainer} />
       <Route exact path="/listings/:id/edit" component={EditListingFormContainer} />
       <Route exact path="/listings/:id" component={ListingShowContainer} />

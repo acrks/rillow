@@ -12,7 +12,9 @@ class Api::ListingsController < ApplicationController
 
     def index
         @listings = Listing.all
+        # @listings = listings.includes(:favorite_users)
         render :index
+
     end
 
     def delete

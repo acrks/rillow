@@ -178,7 +178,7 @@ h1 {
   .home_page {
     position: relative; 
     height: 500px;
-    width: 100%;
+    width: 100vw;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -255,6 +255,12 @@ h1 {
   .options-links {
       text-decoration: none;
       color: white;
+      display: flex;
+      flex-direction: row;
+      /* text-align: center; */
+      justify-content: space-around;
+      align-items: center;
+
   }
 
  .listing-show {
