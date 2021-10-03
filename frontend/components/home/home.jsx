@@ -1,17 +1,15 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import Options from '../options/options';
 
 import SearchBarContainer from '../search_bar/search_bar_container';
 
 export default ({currentUser}) => (
   <div>
-  <div className = "home_page">
+  <div className = "home-page">
     <SearchBarContainer />
   </div>
-    <div className = "options-links">
-      <Link to = "/listings">See All Listings</Link>
-      {currentUser ? 
-      <Link to = "/listings/create">Create A Listing</Link> : null}
-      </div>
+  <span className = "headline home-subheadline">Whether you’re buying, selling or renting,<br/>we can help you move forward.</span>
+      <Options />
   </div>
 )
