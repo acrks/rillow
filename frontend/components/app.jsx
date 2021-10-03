@@ -20,11 +20,11 @@ export default () => (
     </header>
     <Switch>
       <Route exact path="/" component={HomeContainer} />
-      <Route path="/signup" component={SignupContainer} />
-      <Route path="/listings/create" component={ListingFormContainer} />
-      <Route path="/listings/:id/edit" component={EditListingFormContainer} />
-      <Route path="/listings/:id" component={ListingShowContainer} />
-      <Route path="/listings" component={ListingIndexContainer} />
+      <Route exact path="/signup" component={SignupContainer} />
+      <Route exact path="/listings/create" component={ListingFormContainer} />
+      <Route exact path="/listings/:id/edit" component={EditListingFormContainer} />
+      <Route exact path="/listings/:id" component={ListingShowContainer} />
+      <Route exact path="/listings" component={ListingIndexContainer} />
       <Route render={() => <Redirect to={{pathname: "/"}} />} />    
     </Switch>
     

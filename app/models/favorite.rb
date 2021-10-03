@@ -1,6 +1,6 @@
 class Favorite < ApplicationRecord
-    validates :favoriter_id, :listing_id, presence: true
-    
+    validates :favoriter_id, uniqueness: { scope: :listing_id }
+
     belongs_to :listing,
         foreign_key: :listing_id,
         class_name: :Listing

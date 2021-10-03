@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_10_02_000149) do
+ActiveRecord::Schema.define(version: 2021_10_02_182310) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -20,7 +20,9 @@ ActiveRecord::Schema.define(version: 2021_10_02_000149) do
     t.integer "listing_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["favoriter_id", "listing_id"], name: "index_favorites_on_favoriter_id_and_listing_id", unique: true
+    t.index ["favoriter_id"], name: "index_favorites_on_favoriter_id"
+    t.index ["listing_id", "favoriter_id"], name: "index_favorites_on_listing_id_and_favoriter_id", unique: true
+    t.index ["listing_id"], name: "index_favorites_on_listing_id"
   end
 
   create_table "listings", force: :cascade do |t|

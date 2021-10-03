@@ -46,3 +46,8 @@ street_name: 'Mile of Cars Way',
 city_name: 'National City',
 state: 'California',
 zipcode: 91950)
+
+usersArr = [user1, user2, user3]
+listingsArr = [listing1, listing2, listing3]
+
+favorite1 = Favorite.create!()
