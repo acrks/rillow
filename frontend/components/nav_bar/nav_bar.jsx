@@ -14,9 +14,9 @@ export default ({ currentUser, logout, openModal }) => {
     <Link to = "/" className = "nav-bar-link">Manage Rentals</Link>
     <Link to = "/https://alexcrooks.net/" className = "nav-bar-link">Advertise</Link>
     <Link to = "/https://stackoverflow.com/" className = "nav-bar-link">Help</Link>
-    {currentUser ? <button onClick = {logout}>Log Out</button> : 
-    <><button onClick={() => openModal('signup')}>Sign up</button>
-    <button onClick={() => openModal('login')}>Login</button></>} 
+    {currentUser ? <button onClick = {logout} className = "session-button">Log Out</button> : 
+    <><button onClick={() => openModal('signup')} className = "session-button">Sign up</button>
+    <button onClick={() => openModal('login')} className = "session-button">Login</button></>} 
   </div>
   );
 };
