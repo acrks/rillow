@@ -38,9 +38,9 @@ class SessionForm extends React.Component {
 
   renderErrors() {
     return(
-      <ul>
+      <ul className = "error-list">
         {this.props.errors.map((error, i) => (
-          <li key={`error-${i}`}>
+          <li className = "error-message" key={`error-${i}`}>
             {error}
           </li>
         ))}
@@ -49,8 +49,17 @@ class SessionForm extends React.Component {
   }
 
   render() {
-    let message = "";
-    if(this.props.formType === 'signup' ? message = "New Account" : message = "Sign in")
+    let tab = "Not an object";
+    const {otherForm} = this.props
+    // if(this.props.formType !== 'signup') {
+    //   tab = <span className = "subheader tab-header signin">Sign in</span>
+    //   tab += this.props.otherForm
+    //     }
+    // else {
+    //   tab = this.props.otherForm
+    //   tab += <span className = "subheader tab-header signin">New Account</span>
+    // }
+    console.log({otherForm})
     return (
       <div className = "session-form">
         <div onClick={this.props.closeModal} className="close-x">X</div>
@@ -58,7 +67,16 @@ class SessionForm extends React.Component {
           <h2 className = "headline">Welcome to Rillow</h2>
         </div>
         <div className = "tabs-container">
-          <span className = "subheader tab-header signin">{message}</span>
+          {this.props.formType !== 'signup' ? 
+          <>
+          <span className = "subheader tab-header tab-header-selected signin">Sign in</span>
+          {this.props.otherForm}
+          </>
+          :
+          <>
+          {this.props.otherForm}
+          <span className = "subheader tab-header tab-header-selected signin">New Account</span>
+          </>}
         </div>
       <form>
           <div className = "label-container">

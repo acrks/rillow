@@ -122,7 +122,6 @@ h1 {
 
 .nav-bar-link:hover, .tab-header:hover, .session-button:hover {
     color: #006AFF;
-
 }
 
 .sign-in-button {
@@ -146,7 +145,7 @@ h1 {
 .tabs-container {
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    align-items: flex-start;
     color: #45454D;
     font-weight: 100;
     border-bottom: 1px solid lightgray;
@@ -163,11 +162,13 @@ h1 {
 }
 
 .tab-header {
+    margin-right: 20px;
     cursor: pointer;
 }
 
 .tab-header-selected {
-    border-bottom: 3px solid #0D4599;
+    padding-bottom: 3px;
+    border-bottom: 3px solid #006AFF;
 }
 
 .sign-in-button:hover {
@@ -205,6 +206,22 @@ h1 {
 
   .close-x {
       text-align: right;
+  }
+
+  .change-modal-tab {
+      border: none;
+      cursor: pointer;
+      background-color: white;
+      color: #45454D;
+      font-size: 16px;
+  }
+
+  .error-list {
+      padding: 0;
+  }
+
+  .error-message {
+    list-style-type: none;
   }
   
   .home-page {
