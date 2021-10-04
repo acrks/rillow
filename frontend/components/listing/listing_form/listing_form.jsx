@@ -12,6 +12,10 @@ class ListingForm extends React.Component {
         this.handleSubmit = this.handleSubmit.bind(this)
         this.formRender = this.formRender.bind(this)
     }
+
+    componentDidMount() {
+        window.scrollTo(0, 0)
+    }
     
     handleChange(field) {
         return e => {this.setState({[field] : e.currentTarget.value})}
@@ -48,8 +52,6 @@ class ListingForm extends React.Component {
     }
     
     render() {
-        console.log(this.state.creator.email)
-        console.log(this.props.currentUser)
         //If the formType is update listing
         if(this.props.formType === 'Update Listing') {
             //If the user is logged in
