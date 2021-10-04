@@ -7,7 +7,7 @@ import SessionForm from './session_form';
 const mapStateToProps = ({ errors }) => {
   return {
     errors: errors.session,
-    type: 'login',
+    formType: 'login',
   };
 };
 
@@ -16,7 +16,7 @@ const mapDispatchToProps = dispatch => {
     processForm: (user) => dispatch(login(user)),
     otherForm: (
       <button className = "subheader tab-header change-modal-tab" onClick={() => dispatch(openModal('signup'))}>
-        New Account
+        New account
       </button>
     ),
     login: formUser => dispatch(login(formUser)),

@@ -49,16 +49,14 @@ class SessionForm extends React.Component {
   }
 
   render() {
-    let tab = "Not an object";
+    let currentTab = ""
+    if(this.props.formType === 'login') {
+      currentTab = <button className = "subheader tab-header tab-header-selected change-modal-tab">Sign in</button>
+    }
+    else {
+      currentTab = <button className = "subheader tab-header tab-header-selected change-modal-tab">New account</button>
+    }
     const {otherForm} = this.props
-    // if(this.props.formType !== 'signup') {
-    //   tab = <span className = "subheader tab-header signin">Sign in</span>
-    //   tab += this.props.otherForm
-    //     }
-    // else {
-    //   tab = this.props.otherForm
-    //   tab += <span className = "subheader tab-header signin">New Account</span>
-    // }
     console.log({otherForm})
     return (
       <div className = "session-form">
@@ -66,16 +64,17 @@ class SessionForm extends React.Component {
         <div className = "headline-container">
           <h2 className = "headline">Welcome to Rillow</h2>
         </div>
+        {/* Consider changing to button */}
         <div className = "tabs-container">
           {this.props.formType !== 'signup' ? 
           <>
-          <span className = "subheader tab-header tab-header-selected signin">Sign in</span>
+          {currentTab}
           {this.props.otherForm}
           </>
           :
           <>
           {this.props.otherForm}
-          <span className = "subheader tab-header tab-header-selected signin">New Account</span>
+          {currentTab}
           </>}
         </div>
       <form>

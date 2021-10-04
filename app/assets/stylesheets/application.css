@@ -149,7 +149,7 @@ h1 {
     color: #45454D;
     font-weight: 100;
     border-bottom: 1px solid lightgray;
-    padding-bottom: 10px;
+    /* padding-bottom: 10px; */
 }
 
 .label-container {
@@ -164,12 +164,9 @@ h1 {
 .tab-header {
     margin-right: 20px;
     cursor: pointer;
+    padding-bottom: 10px;
 }
 
-.tab-header-selected {
-    padding-bottom: 3px;
-    border-bottom: 3px solid #006AFF;
-}
 
 .sign-in-button:hover {
     background-color: #0D4599;
@@ -215,6 +212,12 @@ h1 {
       color: #45454D;
       font-size: 16px;
   }
+
+  .tab-header-selected {
+    /* padding-bottom: 3px; */
+    border-bottom: 3px solid #006AFF;
+}
+
 
   .error-list {
       padding: 0;
