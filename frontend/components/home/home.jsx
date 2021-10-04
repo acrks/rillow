@@ -9,7 +9,9 @@ export default ({currentUser}) => (
   <div className = "home-page">
     <SearchBarContainer />
   </div>
+  <div className = "inspirational-message">
   <span className = "headline home-subheadline">Whether you’re buying, selling or renting,<br/>we can help you move forward.</span>
+  </div>
       <Options />
   </div>
 )

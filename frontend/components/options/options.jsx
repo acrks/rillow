@@ -22,13 +22,22 @@ class Options extends React.Component {
         return(
         <div className = "options-links">
             <div className = "option-link" onClick = {this.handleIndexClick}>
-                Buy A Home
-            </div>
-            <div className = "option-link" onClick = {this.handleIndexClick}>
-                Rent A Home
+                <div className = "buy-home">
+                </div>
+                <p className = "headline option-block">Buy a home</p>
+                <p className = "option-block-text">Find your place with an immersive photo experience and the most listings, including things you won’t find anywhere else.</p>
             </div>
             <div className = "option-link" onClick = {this.handleCreateClick}>
-                Sell A Home
+                <div className = "sell-home">
+                </div>
+                <p className = "headline option-block">Sell A Home</p>
+                <p className = "option-block-text">We’re creating a seamless online experience – from shopping on the largest rental network, to applying, to paying rent.</p>
+            </div>
+            <div className = "option-link" onClick = {this.handleIndexClick}>
+                <div className = "rent-home">
+                </div>
+                <p className = "headline option-block">Rent A Home</p>
+                <p className = "option-block-text">Whether you get a cash offer through Zillow Offers® or choose to sell traditionally, we can help you navigate a successful sale.</p>
             </div>
         </div>)
     }

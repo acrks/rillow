@@ -6,7 +6,7 @@ class SearchBar extends React.Component {
             <div className = "search-bar">
                 <span className = "headline home-headline">Change starts here</span>
             <form className = "search-bar-element">
-                <input type = "text" placeholder = "Enter an address, neighborhood, or ZIP code"/>
+                <input type = "text" placeholder = "Enter an address, neighborhood, city, or ZIP code"/>
                 <button type="submit"><i className="fa fa-search"></i></button>
             </form>
             </div>

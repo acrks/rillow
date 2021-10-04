@@ -45,7 +45,6 @@ body {
 
 .headline {
     font-family: 'Lora', serif;
-    /* letter-spacing: 0.5px; */
 }
 
 .home-headline {
@@ -55,9 +54,15 @@ body {
 }
 
 .home-subheadline {
-    font-size: 20px;
-    font-weight: 900;
+    font-size: 115%;
+}
 
+.inspirational-message {
+    font-weight: 900;
+    border: 1px solid pink;
+    margin-top: 80px;
+    margin-bottom: 20px;
+    height: 75px;
 }
 
 .subheader {
@@ -196,14 +201,11 @@ h1 {
     position: relative; 
     height: 500px;
     width: 100vw;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
     z-index: 5;
     background: url('https://raw.githubusercontent.com/acrks/rillow/main/app/assets/images/main_bg.png') no-repeat;
     background-position: 0% 100%;
     background-size: cover;
+    padding-top: 40px;
   }
 
   .home_page_text {
@@ -214,15 +216,20 @@ h1 {
     border: none
   }
 
-  .search-bar-container {
-    
+  .search-bar {
+      width: 100vw;
+      height: 50%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
   }
 
   .search-bar-element {
     background: #F9F9FB;
-    width: 100%;
-    height: 15%;
-    border: 1px solid white;
+    width: 40%;
+    height: 30%;
+    margin-top: 2%; 
   }
 
   .search-bar-element:hover {
@@ -230,7 +237,7 @@ h1 {
   }
 
   form.search-bar-element input[type=text] {
-    font-size: 17px;
+    font-size: 100%;
     font-family: 'Open Sans', sans-serif;
     color: #45454D;
     border: none;
@@ -259,7 +266,7 @@ h1 {
   form.search-bar-element button,
   form.search-bar-element input[type=text],
   .search-bar-element  {
-    border-radius: 3px;
+    border-radius: 5px;
   }
 
   form.search-bar-element::after {
@@ -283,20 +290,52 @@ h1 {
       display: flex;
       flex-direction: row; 
       border: 1px solid magenta;
-      justify-content: space-evenly;
+      justify-content: space-around;
       align-items: center;
       width: 100%;
-      margin-top: 100px;
+      height: 500px;
   }
 
   .option-link {
         color: #45454D;
         border: 1px solid khaki;
         cursor: pointer;
-        width: 25%;
+        width: 32%;
         text-align: center;
-        height: 200px;
+        height: 100%;
+        background-color: white;
   }
+
+    .buy-home {
+        background: url('https://raw.githubusercontent.com/acrks/rillow/main/app/assets/images/buy_a_home.png') no-repeat;
+    }
+
+    .sell-home {
+        background: url('https://raw.githubusercontent.com/acrks/rillow/main/app/assets/images/buy_a_home.png') no-repeat;
+    }
+
+    .rent-home {
+        background: url('https://raw.githubusercontent.com/acrks/rillow/main/app/assets/images/buy_a_home.png') no-repeat;
+    }
+
+    .buy-home,
+    .sell-home,
+    .rent-home {
+        background-size: contain;
+        background-position: center;
+        width: 100%;
+        height: 50%;
+        border: 1px solid blue;
+    }
+
+    .option-block {
+        font-size: 20px;
+        font-weight: 700;
+    }
+
+    .option-block-text {
+        padding: 10px;
+    }
 
  .listing-show {
      border: 1px solid orange;
