@@ -32,7 +32,7 @@ class ListingForm extends React.Component {
         const listing = Object.assign({}, this.state)
         console.log(listing)
         this.props.action(listing)
-        .then(() => this.props.history.push('/listings'))
+        .then(() => this.props.history.push(`/listings/${listing.id}`))
     }
 
     formRender() {
