@@ -17,7 +17,7 @@
 #  updated_at    :datetime         not null
 #
 class Listing < ApplicationRecord
-    validates :creator, :price, :num_bedrooms, :num_bathrooms, :street_number, :street_name, :city_name, :state, :zipcode, presence: true
+    validates :creator, :price, :sqft, :num_bedrooms, :num_bathrooms, :street_number, :street_name, :city_name, :state, :zipcode, presence: true
     validates :purchase, inclusion: { in: [true, false] }
     
     belongs_to :creator,
@@ -31,6 +31,4 @@ class Listing < ApplicationRecord
     has_many :favorite_users,
         through: :favorites,
         source: :favoriter
-    
-
 end

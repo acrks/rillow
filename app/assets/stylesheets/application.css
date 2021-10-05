@@ -374,6 +374,46 @@ h1 {
         padding: 10px;
     }
 
- .listing-show {
-     border: 1px solid orange;
+    
+    .listing-show {
+        border: 1px solid orange;
+        width: 80%;
+        display: flex;
+        flex-direction: row;
+
+    }
+    
+    .listing-show-page-pictures {
+        border: 1px solid lightblue;
+        width: 60%;
+    }
+
+    .listing-show-page-info {
+        border: 1px solid lightcoral;
+        padding: 5px;
+        width: 40%;
+        text-align: left;
+    }
+
+ .listing-show-page-banner {
+     border: 1px solid yellowgreen;
+     display: flex;
+     flex-direction: row;
+     justify-content: space-between;
+     align-items: center;
+     border-bottom: 1px solid lightgray;
+     padding: 5px;
+ }
+
+ .save-share-more {
+    color: #006AFF;
+ }
+
+ .listing-show-page-logo {
+     font-size: 30px;
+     margin: 0;
+ }
+
+ .listing-show-page-sizes {
+
  }

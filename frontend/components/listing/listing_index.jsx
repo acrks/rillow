@@ -12,6 +12,7 @@ class ListingIndex extends React.Component {
 
     componentDidMount() {
         this.props.getListings()
+        window.scrollTo(0, 0)
     }
 
     routeChangeCreate() {
