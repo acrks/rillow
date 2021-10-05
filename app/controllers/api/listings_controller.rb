@@ -33,9 +33,9 @@ class Api::ListingsController < ApplicationController
 
     def destroy
         @listing = Listing.find(params[:id])
-        @listings = Listing.all
+        # @listings = Listing.all
         if @listing.destroy
-          render :index
+          render :show
         else
           render json: @listing.errors.full_messages, status: 422
         end

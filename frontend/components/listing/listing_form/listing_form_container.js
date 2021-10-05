@@ -11,7 +11,7 @@ const mapStateToProps = (state) => ({
         sqft: 0,
         num_bedrooms: 0,
         num_bathrooms: 0,
-        street_number: '',
+        street_number: 0,
         street_name: '',
         city_name: '',
         state: '',
