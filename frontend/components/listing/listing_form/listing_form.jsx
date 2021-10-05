@@ -18,8 +18,11 @@ class ListingForm extends React.Component {
     }
     
     handleChange(field) {
-        if(field === 'zipcode' || field === 'num_bedrooms' || field === 'num_bathrooms' || field === 'price' || field === 'street_number' ) {
+        if(field === 'zipcode' || field === 'num_bedrooms' || field === 'price' || field === 'street_number' ) {
             return e => {this.setState({[field] : parseInt(e.currentTarget.value)})}
+        }
+        if(field === 'num_bathrooms') {
+            return e => {this.setState({[field] : parseFloat(e.currentTarget.value)})}
         }
         return e => {this.setState({[field] : e.currentTarget.value})}
     }
@@ -68,7 +71,7 @@ class ListingForm extends React.Component {
             <input type = "number" value = {this.state.num_bedrooms} onChange = {this.handleChange('num_bedrooms')}/>
         </label>
         <label>Number of Bathrooms
-            <input type = "number" value = {this.state.num_bathrooms} onChange = {this.handleChange('num_bathrooms')}/>
+            <input type = "number" step="0.5" value = {this.state.num_bathrooms} onChange = {this.handleChange('num_bathrooms')}/>
         </label>
         <button>{this.props.formType}</button>
         </form>

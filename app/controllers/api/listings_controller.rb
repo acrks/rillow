@@ -20,6 +20,17 @@ class Api::ListingsController < ApplicationController
         render :index
     end
 
+    def update
+      @listing = Listing.find(params[:id])
+  
+      if @listing.update(listing_params)
+        render :show
+      else
+        render json: @listing.errors.full_messages, status: 422
+      end
+    end
+  
+
     def destroy
         @listing = Listing.find(params[:id])
         @listings = Listing.all
