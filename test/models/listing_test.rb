@@ -3,7 +3,7 @@
 # Table name: listings
 #
 #  id            :bigint           not null, primary key
-#  creator       :integer          not null
+#  creator_id    :integer          not null
 #  purchase      :boolean          not null
 #  price         :integer          not null
 #  num_bedrooms  :integer          not null
@@ -15,6 +15,7 @@
 #  zipcode       :integer          not null
 #  created_at    :datetime         not null
 #  updated_at    :datetime         not null
+#  sqft          :integer
 #
 require 'test_helper'
 

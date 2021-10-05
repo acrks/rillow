@@ -20,7 +20,8 @@ class User < ApplicationRecord
     after_initialize :ensure_session_token
 
     has_many :listings,
-      foreign_key: :creator,
+      primary_key: :id,
+      foreign_key: :creator_id,
       class_name: :Listing
   
     has_many :favorites,

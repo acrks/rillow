@@ -1,5 +1,5 @@
 import React from 'react'
-import { Route, Redirect, Switch } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 
 
 class ListingForm extends React.Component {
@@ -18,17 +18,25 @@ class ListingForm extends React.Component {
     }
     
     handleChange(field) {
+        if(field === 'zipcode' || field === 'num_bedrooms' || field === 'num_bathrooms' || field === 'price' || field === 'street_number' ) {
+            return e => {this.setState({[field] : parseInt(e.currentTarget.value)})}
+        }
         return e => {this.setState({[field] : e.currentTarget.value})}
     }
 
     handleSubmit(e) {
-        this.props.action(this.state)
+        e.preventDefault()
+        const listing = Object.assign({}, this.state)
+        console.log(listing)
+        this.props.action(listing)
+        .then(() => this.props.history.push('/listings'))
     }
 
     formRender() {
         return(
+            // Add place holders
         <div>
-        <form className = "listing_form" onSubmit = {this.handleSubmit}>
+        <form className = "listing-form" onSubmit = {this.handleSubmit}>
         <h1>{this.props.formType}</h1>
         <label>Street Number
             <input type = "text" value = {this.state.street_number} onChange = {this.handleChange('street_number')}/>
@@ -36,15 +44,31 @@ class ListingForm extends React.Component {
         <label>Street Name
             <input type = "text" value = {this.state.street_name} onChange = {this.handleChange('street_name')}/>
         </label>
-        <label>Zipcode
+        <label>City
             <input type = "text" value = {this.state.city_name} onChange = {this.handleChange('city_name')}/>
         </label>
+        {/* Consider a dropdown */}
+        <label>State
+            <input type = "text" value = {this.state.state} onChange = {this.handleChange('state')}/>
+        </label>
+        <label>Zipcode
+            <input type = "text" value = {this.state.zipcode} onChange = {this.handleChange('zipcode')}/>
+        </label>
         <label>For Purchase?
-            <input type = "radio" value = {true} onChange = {this.handleChange('purchase')}/>For Sale
-            <input type = "radio" value = {false} onChange = {this.handleChange('purchase')}/>For Rent
+            <input type = "radio" value = "true" onChange = {this.handleChange('purchase')}/>For Sale
+            <input type = "radio" value = "false" onChange = {this.handleChange('purchase')}/>For Rent
         </label>
         <label>Price
-            <input type = "text" value = {this.state.price} onChange = {this.handleChange('price')}/>
+            <input type = "number" value = {this.state.price} onChange = {this.handleChange('price')}/>
+        </label>
+        <label>Square Footage
+            <input type = "number" value = {this.state.sqft} onChange = {this.handleChange('sqft')}/>
+        </label>
+        <label>Number of Bedrooms
+            <input type = "number" value = {this.state.num_bedrooms} onChange = {this.handleChange('num_bedrooms')}/>
+        </label>
+        <label>Number of Bathrooms
+            <input type = "number" value = {this.state.num_bathrooms} onChange = {this.handleChange('num_bathrooms')}/>
         </label>
         <button>{this.props.formType}</button>
         </form>
@@ -87,4 +111,4 @@ class ListingForm extends React.Component {
     }
 }
 
-export default ListingForm
+export default withRouter(ListingForm)

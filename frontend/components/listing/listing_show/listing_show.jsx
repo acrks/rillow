@@ -1,6 +1,7 @@
 import React from 'react'
+import {withRouter} from 'react-router-dom'
 import EditListingFormContainer from '../listing_form/edit_listing_form_container'
-import { deleteListing } from '../../../actions/listing_actions'
+// import { deleteListing } from '../../../actions/listing_actions'
 
 class ListingShow extends React.Component {
     constructor(props) {
@@ -22,7 +23,9 @@ class ListingShow extends React.Component {
         if(!this.props.listing) {
             return null
         }
-        const {listing} = this.props
+        const {listing, deleteListing} = this.props
+        
+        console.log(this.props)
         return(
             <div className = "listing-show">
                 <div className = "listing-show-page-pictures">
@@ -34,9 +37,9 @@ class ListingShow extends React.Component {
                         <div className = "save-share-more">Save, Share will go here</div>
                     </div>
                 
-                    <span className = "listing-show-page-price">${listing.price} {listing.purchase ? null : 'per month' }</span>
+                    <span className = "listing-show-page-price">${listing.price} {listing.purchase ? null : 'per month ' }</span>
                     
-                    <span className = "listing-show-page-sizes">{listing.num_bedrooms} | {listing.num_bathrooms} | {listing.sqft} sqft</span>
+                    <span className = "listing-show-page-sizes">{listing.num_bedrooms} bd | {listing.num_bathrooms} ba | {listing.sqft} sqft</span>
                     {/* <h3>Agent: {listing.creator.email}</h3> */}
 
                     <p className = "index-item-address">{listing.street_number} {listing.street_name}, {listing.city_name}, {listing.state}, {listing.zipcode}
@@ -45,15 +48,15 @@ class ListingShow extends React.Component {
                     {this.props.currentUser ?
                     <>
                     <div className = "listing-show-outreach">
-                        <button>Contact Agent</button>
-                        <button>Schedule tour here</button>
+                        <button className = "show-page-outreach-button  sign-in-button white-zillow-button">Contact Agent</button>
+                        <button className = "show-page-outreach-button sign-in-button">Take a Tour</button>
                     </div>
                     <>{this.props.currentUser.email === listing.creator.email ? 
                     <>
                     <br/>
                     <button onClick={this.routeChangeEdit}>Edit Listing</button>
                     <br/>
-                    <button onClick={() => deleteListing(listing.id)}>Delete Listing</button>
+                    <button onClick={() => deleteListing(listing.id).then(() => this.props.history.push('/listings'))}>Delete Listing</button>
                     </> : null} 
                     </>
                     </> : `Please sign in to schedule a tour or make changes to the listing`}
@@ -63,4 +66,4 @@ class ListingShow extends React.Component {
     }
 }
 
-export default ListingShow
+export default withRouter(ListingShow)

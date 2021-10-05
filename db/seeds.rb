@@ -14,7 +14,8 @@ user1 = User.create!(email: "chumbawumba@gmail.com", password: "password")
 user2 = User.create!(email: "alexcrooks@gmail.com", password: "Th1sI$IMp0$si3Le")
 user3 = User.create!(email: "demo@gmail.com", password: "greatasset")
 
-listing1 = Listing.create!(creator: user1,
+listing1 = Listing.create!(
+creator_id: user1.id,
 purchase: 1,
 price: 5000000,
 num_bedrooms: 6,
@@ -26,7 +27,8 @@ city_name: 'San Francisco',
 state: 'California',
 zipcode: 94111)
 
-listing2 = Listing.create!(creator: user3,
+listing2 = Listing.create!(
+creator_id: user3.id,
 purchase: false,
 price: 3456,
 num_bedrooms: 6,
@@ -38,7 +40,8 @@ city_name: 'New York',
 state: 'New York',
 zipcode: 10011)
 
-listing3 = Listing.create!(creator: user2,
+listing3 = Listing.create!(
+creator_id: user2.id,
 purchase: 1,
 price: 18048,
 num_bedrooms: 2,

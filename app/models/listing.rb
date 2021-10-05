@@ -3,7 +3,7 @@
 # Table name: listings
 #
 #  id            :bigint           not null, primary key
-#  creator       :integer          not null
+#  creator_id    :integer          not null
 #  purchase      :boolean          not null
 #  price         :integer          not null
 #  num_bedrooms  :integer          not null
@@ -15,13 +15,15 @@
 #  zipcode       :integer          not null
 #  created_at    :datetime         not null
 #  updated_at    :datetime         not null
+#  sqft          :integer
 #
 class Listing < ApplicationRecord
-    validates :creator, :price, :sqft, :num_bedrooms, :num_bathrooms, :street_number, :street_name, :city_name, :state, :zipcode, presence: true
+    validates :creator_id, :price, :sqft, :num_bedrooms, :num_bathrooms, :street_number, :street_name, :city_name, :state, :zipcode, presence: true
     validates :purchase, inclusion: { in: [true, false] }
     
     belongs_to :creator,
-        foreign_key: :creator,
+        primary_key: :id,
+        foreign_key: :creator_id,
         class_name: :User
     
     has_many :likes,

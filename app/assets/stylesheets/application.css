@@ -305,6 +305,12 @@ h1 {
     display: table;
   }
 
+  .listing-form {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+  }
+
   .listing_index {
     border: 1px solid purple;
     list-style: none;
@@ -377,7 +383,7 @@ h1 {
     
     .listing-show {
         border: 1px solid orange;
-        width: 80%;
+        width: 90%;
         display: flex;
         flex-direction: row;
 
@@ -405,6 +411,15 @@ h1 {
      padding: 5px;
  }
 
+ .listing-show-outreach {
+     display: flex;
+     flex-direction: row;
+     justify-content: space-between;
+     border: 1px solid yellow;
+     padding: 1%;
+     height: auto;
+ }
+
  .save-share-more {
     color: #006AFF;
  }
@@ -414,6 +429,19 @@ h1 {
      margin: 0;
  }
 
- .listing-show-page-sizes {
+ .listing-show-page-price {
+     font-size: 30px;
+     font-weight: 900;
+     
+ }
 
+ .show-page-outreach-button {
+     width: 49%;
+     margin-bottom: 0px;
+ }
+
+ .white-zillow-button {
+     color:#006AFF;
+     border: 1px solid #006AFF;
+     background-color: white;
  }

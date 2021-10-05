@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_10_04_210813) do
+ActiveRecord::Schema.define(version: 2021_10_05_020023) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,7 +26,7 @@ ActiveRecord::Schema.define(version: 2021_10_04_210813) do
   end
 
   create_table "listings", force: :cascade do |t|
-    t.integer "creator", null: false
+    t.integer "creator_id", null: false
     t.boolean "purchase", null: false
     t.integer "price", null: false
     t.integer "num_bedrooms", null: false

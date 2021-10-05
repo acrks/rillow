@@ -2,8 +2,12 @@ class Api::ListingsController < ApplicationController
     before_action :require_logged_in, only: [:create, :delete]
 
     def create
-        @listing = Listing.create!(listing_params)
-        render :show
+        @listing = Listing.new(listing_params)
+        if @listing.save
+          render :show
+        else
+          render json: @listing.errors.full_messages, status: 422
+        end
       end
 
     def show
@@ -14,19 +18,25 @@ class Api::ListingsController < ApplicationController
         @listings = Listing.all
         # @listings = listings.includes(:favorite_users)
         render :index
-
     end
 
-    def delete
-        
+    def destroy
+        @listing = Listing.find(params[:id])
+        @listings = Listing.all
+        if @listing.destroy
+          render :index
+        else
+          render json: @listing.errors.full_messages, status: 422
+        end
     end
 
     private
     def listing_params
-        params(:listing).permit(
-            :creator,
+        params.require(:listing).permit(
+            :creator_id,
             :purchase,
             :price,
+            :sqft,
             :num_bedrooms,
             :num_bathrooms,
             :street_number,
