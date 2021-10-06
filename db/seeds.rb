@@ -8,15 +8,20 @@
 
 Listing.delete_all
 User.delete_all
-Favorite.destroy_all
+Favorite.delete_all
 
 user1 = User.create!(email: "chumbawumba@gmail.com", password: "password")
 user2 = User.create!(email: "alexcrooks@gmail.com", password: "Th1sI$IMp0$si3Le")
 user3 = User.create!(email: "demo@gmail.com", password: "greatasset")
+user4 = User.create!(email: "spencertest@aaopen.com", password: "cApta1nN3m0")
+user5 = User.create!(email: "peskyraccoon@gmail.com", password: "canIgetAn000000hy3h")
+user6 = User.create!(email: "chubbyboy@biggie.com", password: "0nTheSc3n3")
+
+usersArr = [user1, user2, user3]
 
 listing1 = Listing.create!(
 creator_id: user1.id,
-purchase: 1,
+purchase: true,
 price: 5000000,
 num_bedrooms: 6,
 num_bathrooms: 5.5,
@@ -42,7 +47,7 @@ zipcode: 10011)
 
 listing3 = Listing.create!(
 creator_id: user2.id,
-purchase: 1,
+purchase: true,
 price: 18048,
 num_bedrooms: 2,
 sqft: 5000,
@@ -53,9 +58,129 @@ city_name: 'National City',
 state: 'California',
 zipcode: 91950)
 
-usersArr = [user1, user2, user3]
-listingsArr = [listing1, listing2, listing3]
+listing4 = Listing.create!(
+creator_id: user1.id,
+purchase: true,
+price: 5000000,
+num_bedrooms: 4,
+sqft: 2500,
+num_bathrooms: 3,
+street_number: 742,
+street_name: 'Evergreen Terrace',
+city_name: 'Springfield',
+state: 'Oregon',
+zipcode: 97403)
+
+listing5 = Listing.create!(
+creator_id: user1.id,
+purchase: false,
+price: 5928,
+num_bedrooms: 3,
+sqft: 1793,
+num_bathrooms: 3,
+street_number: 2066,
+street_name: 'Crist Drive',
+city_name: 'Los Altos',
+state: 'California',
+zipcode: 94024)
+
+listing6 = Listing.create!(
+creator_id: user3.id,
+purchase: true,
+price: 4500000,
+num_bedrooms: 5,
+sqft: 6000,
+num_bathrooms: 5,
+street_number: 400,
+street_name: 'Broad St',
+city_name: 'Seattle',
+state: 'Washington',
+zipcode: 98109)
+
+listing7 = Listing.create!(
+creator_id: user2.id,
+purchase: true,
+price: 2950000,
+num_bedrooms: 3,
+sqft: 1600,
+num_bathrooms: 3,
+street_number: 1,
+street_name: 'Bowerton Drive',
+city_name: 'Beaverton',
+state: 'Oregon',
+zipcode: 97005)
+
+listing8 = Listing.create!(
+creator_id: user2.id,
+purchase: false,
+price: 3998,
+num_bedrooms: 6,
+sqft: 2136,
+num_bathrooms: 10,
+street_number: 175,
+street_name: 'Olive Avenue',
+city_name: 'Burbank',
+state: 'California',
+zipcode: 91502)
+
+listing9 = Listing.create!(
+creator_id: user2.id,
+purchase: false,
+price: 4687,
+num_bedrooms: 5,
+sqft: 2422,
+num_bathrooms: 8,
+street_number: 7650,
+street_name: 'Mission Valley Road',
+city_name: 'San Diego',
+state: 'California',
+zipcode: 92108)
+
+listing10 = Listing.create!(
+creator_id: user1.id,
+purchase: true,
+price: 1394700,
+num_bedrooms: 2,
+sqft: 1458,
+num_bathrooms: 1,
+street_number: 4406,
+street_name: 'Kingswell Avenue',
+city_name: 'Los Angeles',
+state: 'California',
+zipcode: 90027)
+
+listing11 = Listing.create!(
+creator_id: user3.id,
+purchase: false,
+price: 1877,
+num_bedrooms: 5,
+sqft: 1458,
+num_bathrooms: 5,
+street_number: 1526,
+street_name: 'H Street',
+city_name: 'Sacramento',
+state: 'California',
+zipcode: 95814)
+
+listing12 = Listing.create!(
+creator_id: user1.id,
+purchase: true,
+price: 2464000,
+num_bedrooms: 3,
+sqft: 1750,
+num_bathrooms: 3,
+street_number: 823,
+street_name: 'H Street',
+city_name: 'Austin',
+state: 'Texas',
+zipcode: 78701)
+
+
+listingsArr = [listing1, listing2, listing3, listing4, listing5, listing6, listing7, listing8, listing9, listing10, listing11, listing12]
 
 favorite1 = Favorite.create!(listing_id: listingsArr.sample().id, favoriter_id: usersArr.sample().id)
 favorite2 = Favorite.create!(listing_id: listingsArr.sample().id, favoriter_id: usersArr.sample().id)
 favorite3 = Favorite.create!(listing_id: listingsArr.sample().id, favoriter_id: usersArr.sample().id)
+favorite4 = Favorite.create!(listing_id: listingsArr.sample().id, favoriter_id: usersArr.sample().id)
+favorite5 = Favorite.create!(listing_id: listingsArr.sample().id, favoriter_id: usersArr.sample().id)
+favorite6 = Favorite.create!(listing_id: listingsArr.sample().id, favoriter_id: usersArr.sample().id)

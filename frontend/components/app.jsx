@@ -2,6 +2,7 @@ import React from 'react';
 import ListingIndexContainer from './listing/listing_index_container'
 import HomeContainer from './home/home_container';
 import NavBarContainer from './nav_bar/nav_bar_container';
+import FooterContainer from './footer/footer_container'
 import Modal from './modal/modal';
 import EditListingFormContainer from './listing/listing_form/edit_listing_form_container';
 import ListingFormContainer from './listing/listing_form/listing_form_container'
@@ -26,6 +27,8 @@ export default () => (
       <Route exact path="/listings" component={ListingIndexContainer} />
       <Route render={() => <Redirect to={{pathname: "/"}} />} />    
     </Switch>
-    
+    <footer>
+      <FooterContainer />
+    </footer>
   </div>
 );

@@ -26,20 +26,18 @@ class ListingIndex extends React.Component {
         return (
             <div className = "listing-index-container">
                 <div className = "index-map">
-                    Map will go here
+                <button onClick = {this.routeChangeCreate} className = "sign-in-button show-page-outreach-button">Create A Listing</button>
+                    <br/>Map will go here
                 </div>
-                <div className = "index-listings">
                 <ul className = "listing-index">
                     {listings.map(listing =>( 
-                    <ListingItem 
-                    key = {listing.id} 
-                    listing = {listing} 
-                    updateListing = {updateListing} 
-                    />
-                    ))}
+                        <ListingItem 
+                        key = {listing.id} 
+                        listing = {listing} 
+                        updateListing = {updateListing} 
+                        />
+                        ))}
                 </ul>
-                <button onClick = {this.routeChangeCreate} >Create A Listing</button>
-                </div>
             </div>
         )
     }

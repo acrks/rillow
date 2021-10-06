@@ -22,7 +22,7 @@ body {
     color: #45454D;
     font-family: 'Open Sans', sans-serif;
     background-color: #F9F9FB;
-    height: 100vw;
+    height: 100%;
     z-index: 15;
     border: 1px solid green;
     text-align: center;
@@ -69,10 +69,6 @@ body {
     font-family: 'Open Sans', sans-serif;
 }
 
-header {
-    width: calc(100% - 40px);
-}
-
 h1 {
     position: relative;
 }
@@ -87,6 +83,7 @@ h1 {
     border-bottom: 1px solid lightgray;
     padding: 10px;
     height: 75px;
+    width: 100vw;
 }
 
 .session-button {
@@ -306,12 +303,13 @@ h1 {
   }
 
   .listing-index-container {
-      display: flex;
-      flex-direction: row;
-      border: 1px solid black;
-      width: 100%;
-      background-color: white;
-  }
+    display: flex;
+    flex-direction: row;
+    border: 1px solid black;
+    width: 100%;
+    background-color: white;
+    height: 800px;
+}
 
   .index-map {
       width: 50%;
@@ -324,12 +322,8 @@ h1 {
       justify-content: center;
   }
 
-  .index-listings {
-    width: 50%;
-    border: 1px solid yellow;
-  }
-
   .listing-index {
+    width: 50%;
     border: 1px solid purple;
     list-style: none;
     display: flex;
@@ -337,6 +331,7 @@ h1 {
     flex-wrap: wrap;
     justify-content: space-around;
     padding: 0px;
+    overflow: scroll;
   }
 
   .listing-index-item-thumbnail {
@@ -487,4 +482,17 @@ h1 {
      color: #0D4599;
      border: 1px solid #0D4599;
      background-color: #f7fbff;
+ }
+
+ .footer {
+     background-color: white;
+     border-top: 1px solid lightgray;
+     border-bottom: 1px solid lightgray;
+     padding: 15px;
+     width: 100vw;
+     margin-top: 10%;
+     display:flex;
+     flex-direction: row;
+     align-items: center;
+     justify-content: space-around;
  }
