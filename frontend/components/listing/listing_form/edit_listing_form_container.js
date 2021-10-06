@@ -9,7 +9,7 @@ class EditListingForm extends React.Component {
   }
 
   render() {
-    const { action, formType, listing } = this.props;
+    const { action, formType, listing, currentUser } = this.props;
 
     if (!listing) return null;
     return (
@@ -24,7 +24,8 @@ class EditListingForm extends React.Component {
 
 const mapStateToProps = (state, ownProps) => ({
   listing: state.entities.listings[ownProps.match.params.id],
-  formType: 'Update Listing'
+  formType: 'Update Listing',
+  currentUser: state.session.currentUser
 })
 
 const mapDispatchToProps = (dispatch) => ({
