@@ -17,11 +17,11 @@ user4 = User.create!(email: "spencertest@aaopen.com", password: "cApta1nN3m0")
 user5 = User.create!(email: "peskyraccoon@gmail.com", password: "canIgetAn000000hy3h")
 user6 = User.create!(email: "chubbyboy@biggie.com", password: "0nTheSc3n3")
 
-usersArr = [user1, user2, user3]
+usersArr = [user1, user2, user3, user4, user5, user6]
 
 listing1 = Listing.create!(
 creator_id: user1.id,
-purchase: true,
+purchase: 'true',
 price: 5000000,
 num_bedrooms: 6,
 num_bathrooms: 5.5,
@@ -34,7 +34,7 @@ zipcode: 94111)
 
 listing2 = Listing.create!(
 creator_id: user3.id,
-purchase: false,
+purchase: 'false',
 price: 3456,
 num_bedrooms: 6,
 num_bathrooms: 5.5,
@@ -47,7 +47,7 @@ zipcode: 10011)
 
 listing3 = Listing.create!(
 creator_id: user2.id,
-purchase: true,
+purchase: 'true',
 price: 18048,
 num_bedrooms: 2,
 sqft: 5000,
@@ -60,7 +60,7 @@ zipcode: 91950)
 
 listing4 = Listing.create!(
 creator_id: user1.id,
-purchase: true,
+purchase: 'true',
 price: 5000000,
 num_bedrooms: 4,
 sqft: 2500,
@@ -73,7 +73,7 @@ zipcode: 97403)
 
 listing5 = Listing.create!(
 creator_id: user1.id,
-purchase: false,
+purchase: 'false',
 price: 5928,
 num_bedrooms: 3,
 sqft: 1793,
@@ -86,7 +86,7 @@ zipcode: 94024)
 
 listing6 = Listing.create!(
 creator_id: user3.id,
-purchase: true,
+purchase: 'true',
 price: 4500000,
 num_bedrooms: 5,
 sqft: 6000,
@@ -99,7 +99,7 @@ zipcode: 98109)
 
 listing7 = Listing.create!(
 creator_id: user2.id,
-purchase: true,
+purchase: 'true',
 price: 2950000,
 num_bedrooms: 3,
 sqft: 1600,
@@ -112,7 +112,7 @@ zipcode: 97005)
 
 listing8 = Listing.create!(
 creator_id: user2.id,
-purchase: false,
+purchase: 'false',
 price: 3998,
 num_bedrooms: 6,
 sqft: 2136,
@@ -125,7 +125,7 @@ zipcode: 91502)
 
 listing9 = Listing.create!(
 creator_id: user2.id,
-purchase: false,
+purchase: 'false',
 price: 4687,
 num_bedrooms: 5,
 sqft: 2422,
@@ -138,7 +138,7 @@ zipcode: 92108)
 
 listing10 = Listing.create!(
 creator_id: user1.id,
-purchase: true,
+purchase: 'true',
 price: 1394700,
 num_bedrooms: 2,
 sqft: 1458,
@@ -151,7 +151,7 @@ zipcode: 90027)
 
 listing11 = Listing.create!(
 creator_id: user3.id,
-purchase: false,
+purchase: 'false',
 price: 1877,
 num_bedrooms: 5,
 sqft: 1458,
@@ -164,7 +164,7 @@ zipcode: 95814)
 
 listing12 = Listing.create!(
 creator_id: user1.id,
-purchase: true,
+purchase: 'true',
 price: 2464000,
 num_bedrooms: 3,
 sqft: 1750,

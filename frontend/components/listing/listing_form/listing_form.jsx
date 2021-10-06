@@ -5,7 +5,6 @@ import { withRouter } from 'react-router-dom';
 class ListingForm extends React.Component {
     constructor(props) {
         super(props)
-
         this.state = this.props.listing
         this.stateList = ['Alabama',
         'Alaska',
@@ -76,6 +75,7 @@ class ListingForm extends React.Component {
     }
     
     handleChange(field) {
+        console.log(this.state)
         return e => {this.setState({[field] : e.currentTarget.value})}
     }
 
@@ -93,24 +93,38 @@ class ListingForm extends React.Component {
         }
     }
 
+    renderErrors() {
+        return(
+          <ul className = "error-list">
+            {this.props.errors.map((error, i) => (
+              <li className = "error-message" key={`error-${i}`}>
+                {error}
+              </li>
+            ))}
+          </ul>
+        );
+      }
+
     formRender() {
         return(
             // Add place holders
         <div>
         <form className = "listing-form" onSubmit = {this.handleSubmit}>
         <h1>{this.props.formType}</h1>
+        <div className = "listing-form-labels">
         <label>Street Number
-            <input type = "text" placeholder = {this.state.street_number} value = {this.state.street_number} onChange = {this.handleChange('street_number')}/>
+            <input type = "text" placeholder = "1000" value = {this.state.street_number} onChange = {this.handleChange('street_number')}/>
         </label>
         <label>Street Name
-            <input type = "text" placeholder = {this.state.street_name} value = {this.state.street_name} onChange = {this.handleChange('street_name')}/>
+            <input type = "text" placeholder = "Any Street" value = {this.state.street_name} onChange = {this.handleChange('street_name')}/>
         </label>
         <label>City
-            <input type = "text" placeholder = "Anytown" value = {this.state.city_name} onChange = {this.handleChange('city_name')}/>
+            <input type = "text" placeholder = "Any Town" value = {this.state.city_name} onChange = {this.handleChange('city_name')}/>
         </label>
         {/* Consider a dropdown */}
         <label>State
-            <select value = {this.state.state} onChange = {this.handleChange('state')}>
+            <select placeholder = "Any State" value = {this.state.state} onChange = {this.handleChange('state')}>
+                <option value="" disabled defaultValue>Select a state</option>
                 {this.stateList.map((state, index) => <option value={state} key = {index}>{state}</option>)}
             </select>
         </label>       
@@ -120,15 +134,15 @@ class ListingForm extends React.Component {
         <label>For Purchase?
             <input 
             type = "radio" 
-            value = "true"
-            checked={this.state.purchase === "true"}
+            value = {true}
+            checked={this.state.purchase === true || this.state.purchase === 'true'}
             onChange = {this.handleChange('purchase')}/>
         </label>
         <label>For Rental?
             <input 
             type = "radio"
-            value = "false"
-            checked={this.state.purchase === "false"}
+            value = {false}
+            checked={this.state.purchase === false || this.state.purchase === 'false'}
             onChange = {this.handleChange('purchase')}/>
         </label>
         <label>Price
@@ -148,7 +162,9 @@ class ListingForm extends React.Component {
 
             {/* <input type = "number" placeholder = "0" step="0.5" value = {this.state.num_bathrooms} onChange = {this.handleChange('num_bathrooms')}/> */}
         </label>
-        <button>{this.props.formType}</button>
+        </div>
+        {this.renderErrors()}
+        <button className = "sign-in-button listing-form-submit-button">{this.props.formType}</button>
         </form>
         </div>)
     }
