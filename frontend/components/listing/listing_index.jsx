@@ -24,8 +24,12 @@ class ListingIndex extends React.Component {
         const { listings, updateListing} = this.props
         console.log(listings)
         return (
-            <div>
-                <ul className = "listing_index">
+            <div className = "listing-index-container">
+                <div className = "index-map">
+                    Map will go here
+                </div>
+                <div className = "index-listings">
+                <ul className = "listing-index">
                     {listings.map(listing =>( 
                     <ListingItem 
                     key = {listing.id} 
@@ -35,6 +39,7 @@ class ListingIndex extends React.Component {
                     ))}
                 </ul>
                 <button onClick = {this.routeChangeCreate} >Create A Listing</button>
+                </div>
             </div>
         )
     }

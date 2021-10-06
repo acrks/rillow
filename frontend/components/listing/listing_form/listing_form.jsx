@@ -76,18 +76,6 @@ class ListingForm extends React.Component {
     }
     
     handleChange(field) {
-        if(field === 'zipcode' || field === 'num_bedrooms' || field === 'price' || field === 'street_number' ) {
-            return e => {
-                if(e.currentTarget.value === NaN) {
-                    this.setState({[field] : (e.currentTarget.value)})
-                }
-                else{
-                    this.setState({[field] : parseInt(e.currentTarget.value)})}
-                }
-        }
-        if(field === 'num_bathrooms') {
-            return e => {this.setState({[field] : parseFloat(e.currentTarget.value)})}
-        }
         return e => {this.setState({[field] : e.currentTarget.value})}
     }
 

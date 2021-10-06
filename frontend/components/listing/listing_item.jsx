@@ -18,13 +18,15 @@ render() {
     const {listing} = this.props
     return(
     <li className = "listing-index-item" onClick = {this.handleClick}>
-        <h3>{listing.purchase ? null : 'Leasing ' }
-            Agent: {listing.creator.email}</h3>
+            <div className = "listing-index-item-thumbnail">Show photo will go here</div>
+            <div className = "listing-index-item-info">
             <h3>${listing.price} {listing.purchase ? null : 'per month' }</h3>
+            <p>{listing.num_bedrooms} bd | {listing.num_bathrooms} ba | {listing.sqft} sqft</p>
             <p className = "index-item-address">{listing.street_number} {listing.street_name}
             <br/>
-            {listing.city_name}, {listing.zipcode}
+            {listing.city_name}, {listing.state}, {listing.zipcode}
             </p>
+            </div>
     </li>
         )
     }

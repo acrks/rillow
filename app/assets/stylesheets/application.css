@@ -305,20 +305,57 @@ h1 {
     display: table;
   }
 
+  .listing-index-container {
+      display: flex;
+      flex-direction: row;
+      border: 1px solid black;
+      width: 100%;
+      background-color: white;
+  }
+
+  .index-map {
+      width: 50%;
+      border: 1px solid salmon;
+  }
+
   .listing-form {
       display: flex;
       flex-direction: column;
       justify-content: center;
   }
 
-  .listing_index {
+  .index-listings {
+    width: 50%;
+    border: 1px solid yellow;
+  }
+
+  .listing-index {
     border: 1px solid purple;
     list-style: none;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding: 0px;
+  }
+
+  .listing-index-item-thumbnail {
+      width: 40%;
+      border: 1px solid navajowhite;
+  }
+
+  .listing-index-item-info {
+      width: 60%;
+      border: 1px solid royalblue;
   }
 
   .listing-index-item {
       border: 1px solid black;
       text-decoration: none;
+      width: 48%;
+      display: flex;
+      flex-direction: row;
+
   }
 
   .options-links {
