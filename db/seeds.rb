@@ -8,7 +8,7 @@
 
 Listing.delete_all
 User.delete_all
-Favorite.delete_all
+Favorite.destroy_all
 
 user1 = User.create!(email: "chumbawumba@gmail.com", password: "password")
 user2 = User.create!(email: "alexcrooks@gmail.com", password: "Th1sI$IMp0$si3Le")

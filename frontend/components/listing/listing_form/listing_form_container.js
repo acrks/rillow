@@ -5,7 +5,6 @@ import ListingForm from './listing_form'
 
 const mapStateToProps = (state) => ({
     listing: {
-        creator_id: state.session.currentUser.id,
         purchase: "true",
         price: 0,
         sqft: 0,

@@ -23,7 +23,7 @@ class Api::ListingsController < ApplicationController
 
     def update
       @listing = Listing.find(params[:id])
-  
+      @listing.creator_id = current_user.id
       if @listing.update(listing_params)
         render :show
       else
@@ -45,7 +45,6 @@ class Api::ListingsController < ApplicationController
     private
     def listing_params
         params.require(:listing).permit(
-            :creator_id,
             :purchase,
             :price,
             :sqft,
