@@ -311,9 +311,14 @@ h1 {
     height: 800px;
 }
 
-  .index-map {
+  .index-map-container {
       width: 50%;
       border: 1px solid salmon;
+  }
+
+  .index-map {
+      border: 1px solid lawngreen;
+      height: 90%;
   }
 
   .listing-form {

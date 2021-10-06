@@ -25,9 +25,10 @@ class ListingIndex extends React.Component {
         console.log(listings)
         return (
             <div className = "listing-index-container">
-                <div className = "index-map">
+                <div className = "index-map-container">
                 <button onClick = {this.routeChangeCreate} className = "sign-in-button show-page-outreach-button">Create A Listing</button>
-                    <br/>Map will go here
+                    <br/>
+                <div className = "index-map">Map will go here</div>
                 </div>
                 <ul className = "listing-index">
                     {listings.map(listing =>( 
