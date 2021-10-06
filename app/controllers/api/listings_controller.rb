@@ -3,7 +3,7 @@ class Api::ListingsController < ApplicationController
 
     def create
         @listing = Listing.new(listing_params)
-
+        @listing.creator_id = current_user.id
         if @listing.save
           render :show
         else
