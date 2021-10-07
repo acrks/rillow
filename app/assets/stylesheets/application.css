@@ -460,7 +460,7 @@ h1 {
         width: 90%;
         display: flex;
         flex-direction: row;
-
+        justify-content: center;
     }
     
     .listing-show-page-pictures {
@@ -469,14 +469,13 @@ h1 {
         
     }
 
-    listing-show-item-thumbnail {
-        object-fit: cover;
+    .listing-show > img:first-child {
         width: 60%;
     }
 
     .listing-show-page-info {
         border: 1px solid lightcoral;
-        padding: 5px;
+        padding: 20px;
         width: 40%;
         text-align: left;
     }
