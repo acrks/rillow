@@ -3,7 +3,6 @@ import ReactDOM from 'react-dom'
 import configureStore from './store/store';
 import Root from './components/root'
 import { receiveCurrentUser } from './actions/session_actions';
-// import { fetchListings } from './actions/listing_actions';
 import { createStore } from 'redux';
 
 document.addEventListener("DOMContentLoaded", () => {

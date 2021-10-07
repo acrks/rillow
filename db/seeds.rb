@@ -5,7 +5,7 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-#require 'open-uri'
+require 'open-uri'
 
 Listing.delete_all
 User.delete_all
@@ -71,9 +71,9 @@ city_name: 'National City',
 state: 'California',
 zipcode: 91950)
 
-#file = open('https://rillow-seeds.s3.us-west-1.amazonaws.com/itttechshowpic.png')
+file = open('https://rillow-seeds.s3.us-west-1.amazonaws.com/itttechshowpic.png')
 
-#listing3.picture.attach(io: file, filename: 'itttechshow.png')
+listing3.picture.attach(io: file, filename: 'itttechshow.png')
 
 listing3.save!
 
