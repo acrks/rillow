@@ -15,6 +15,7 @@ const mapStateToProps = (state) => ({
         city_name: '',
         state: '',
         zipcode: '',
+        picture: null,
     },
     formType: 'Create Listing',
     currentUser: state.session.currentUser,

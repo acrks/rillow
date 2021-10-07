@@ -321,15 +321,33 @@ h1 {
       height: 90%;
   }
 
-
-
   .listing-form {
-      width: 90vw;
+    width: 90vw;
+    display: flex;
+    flex-direction: row;
+  }
+
+  .listing-form-picture {
+      width: 40%;
+      background: rgb(102, 102, 102);
+  }
+
+  .listing-form-picture > img {
+      width: 100%;
+
+  }
+
+  .listing-form-info {
+      width: 60%;
+  }
+
+  .listing-form-forms {
       display: flex;
       flex-direction: column;
       justify-content: space-around;
       align-items: center;
-      border: 1px solid aquamarine;
+      background-color: white;
+      padding: 20px;
   }
 
   .listing-form-labels {
@@ -355,8 +373,9 @@ h1 {
   }
 
   .listing-form-labels > label > input[type=range] {
-    width: 100%;
-    height: 50px;
+        border: 1px solid yellow;
+        width: 100%;
+        height: 50px;
   }
 
   .listing-form-submit-button {

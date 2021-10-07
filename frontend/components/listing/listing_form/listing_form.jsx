@@ -79,12 +79,28 @@ class ListingForm extends React.Component {
         return e => {this.setState({[field] : e.currentTarget.value})}
     }
 
+    handleFile(e) {
+        this.setState({picture: e.currentTarget.files[0]})
+    }
+
     handleSubmit(e) {
         e.preventDefault()
+        const formData = new FormData();
+        formData.append('listing[street_number]', this.state.street_number)
+        formData.append('listing[street_name]', this.state.street_name)
+        formData.append('listing[city_name]', this.state.city_name)
+        formData.append('listing[zipcode]', this.state.zipcode)
+        formData.append('listing[purchase]', this.state.purchase)
+        formData.append('listing[state]', this.state.state)
+        formData.append('listing[num_bedrooms]', this.state.num_bedrooms)
+        formData.append('listing[num_bathrooms]', this.state.num_bathrooms)
+        formData.append('listing[sqft]', this.state.sqft)
+        formData.append('listing[price]', this.state.price)
+        formData.append('listing[picture]', this.state.picture)
+
         const listing = Object.assign({}, this.state)
-        console.log(listing)
         if(this.props.formType === 'Create Listing') {
-            this.props.action(listing)
+            this.props.action(formData)
             .then(() => this.props.history.push(`/listings`))
         }
         else {
@@ -108,8 +124,12 @@ class ListingForm extends React.Component {
     formRender() {
         return(
             // Add place holders
-        <div>
-        <form className = "listing-form" onSubmit = {this.handleSubmit}>
+        <div className = "listing-form">
+            <div className = "listing-form-picture">
+                <img src = {this.state.image_url} alt = "listing-form-picture"/>
+            </div>
+        <div className = "listing-form-info">
+        <form className = "listing-form-forms" onSubmit = {this.handleSubmit}>
         <h1>{this.props.formType}</h1>
         <div className = "listing-form-labels">
         <label>Street Number
@@ -162,10 +182,13 @@ class ListingForm extends React.Component {
 
             {/* <input type = "number" placeholder = "0" step="0.5" value = {this.state.num_bathrooms} onChange = {this.handleChange('num_bathrooms')}/> */}
         </label>
+        {this.props.formType === "Update Listing" ? null : <input type = 'file' onChange = {this.handleFile.bind(this)}/>} 
+        
         </div>
         {this.renderErrors()}
         <button className = "sign-in-button listing-form-submit-button">{this.props.formType}</button>
         </form>
+        </div>
         </div>)
     }
     

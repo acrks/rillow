@@ -23,7 +23,7 @@ class Api::ListingsController < ApplicationController
 
     def update
       @listing = Listing.find(params[:id])
-      @listing.creator_id = current_user.id
+      #@listing.creator_id = current_user.id
       if @listing.update(listing_params)
         render :show
       else
@@ -54,7 +54,8 @@ class Api::ListingsController < ApplicationController
             :street_name,
             :city_name,
             :state,
-            :zipcode
+            :zipcode,
+            :picture
         )
     end
 
