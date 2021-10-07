@@ -90,9 +90,9 @@ city_name: 'Springfield',
 state: 'Oregon',
 zipcode: 97403)
 
-#file = open('https://rillow-seeds.s3.us-west-1.amazonaws.com/evergreenshowpic.png')
+file = open('https://rillow-seeds.s3.us-west-1.amazonaws.com/evergreenshowpic.png')
 
-#listing4.picture.attach(io: file, filename: 'evergreenshow.png')
+listing4.picture.attach(io: file, filename: 'evergreenshow.png')
 
 listing4.save!
 
@@ -109,9 +109,9 @@ city_name: 'Los Altos',
 state: 'California',
 zipcode: 94024)
 
-#file = open('https://rillow-seeds.s3.us-west-1.amazonaws.com/applegarageshowpic.jpeg')
+file = open('https://rillow-seeds.s3.us-west-1.amazonaws.com/applegarageshowpic.jpeg')
 
-#listing5.picture.attach(io: file, filename: 'applegarageshow.jpg')
+listing5.picture.attach(io: file, filename: 'applegarageshow.jpg')
 
 listing5.save!
 
@@ -128,9 +128,9 @@ city_name: 'Seattle',
 state: 'Washington',
 zipcode: 98109)
 
-#file = open('https://rillow-seeds.s3.us-west-1.amazonaws.com/spaceneedleshowpic.jpeg')
+file = open('https://rillow-seeds.s3.us-west-1.amazonaws.com/spaceneedleshowpic.jpeg')
 
-#listing6.picture.attach(io: file, filename: 'spaceneedleshow.jpg')
+listing6.picture.attach(io: file, filename: 'spaceneedleshow.jpg')
 
 listing6.save!
 
@@ -147,9 +147,9 @@ city_name: 'Beaverton',
 state: 'Oregon',
 zipcode: 97005)
 
-#file = open('https://rillow-seeds.s3.us-west-1.amazonaws.com/nikeshowpic.jpeg')
+file = open('https://rillow-seeds.s3.us-west-1.amazonaws.com/nikeshowpic.jpeg')
 
-#listing7.picture.attach(io: file, filename: 'nikeshow.png')
+listing7.picture.attach(io: file, filename: 'nikeshow.png')
 
 listing7.save!
 
@@ -166,9 +166,9 @@ city_name: 'Burbank',
 state: 'California',
 zipcode: 91502)
 
-#file = open('https://rillow-seeds.s3.us-west-1.amazonaws.com/codingdojoshow.png')
+file = open('https://rillow-seeds.s3.us-west-1.amazonaws.com/codingdojoshow.png')
 
-#listing8.picture.attach(io: file, filename: 'codingdojo.png')
+listing8.picture.attach(io: file, filename: 'codingdojo.png')
 
 listing8.save!
 
@@ -185,9 +185,9 @@ city_name: 'San Diego',
 state: 'California',
 zipcode: 92108)
 
-#file = open('https://rillow-seeds.s3.us-west-1.amazonaws.com/artintshow.png')
+file = open('https://rillow-seeds.s3.us-west-1.amazonaws.com/artintshow.png')
 
-#listing9.picture.attach(io: file, filename: 'artint.png')
+listing9.picture.attach(io: file, filename: 'artint.png')
 
 listing9.save!
 
@@ -204,9 +204,9 @@ city_name: 'Los Angeles',
 state: 'California',
 zipcode: 90027)
 
-#file = open('https://rillow-seeds.s3.us-west-1.amazonaws.com/disneyfirstshow.jpeg')
+file = open('https://rillow-seeds.s3.us-west-1.amazonaws.com/disneyfirstshow.jpeg')
 
-#listing10.picture.attach(io: file, filename: 'disneyfirst.jpg')
+listing10.picture.attach(io: file, filename: 'disneyfirst.jpg')
 
 listing10.save!
 
@@ -223,9 +223,9 @@ city_name: 'Sacramento',
 state: 'California',
 zipcode: 95814)
 
-#file = open('https://rillow-seeds.s3.us-west-1.amazonaws.com/ca_gov_mansion.jpeg')
+file = open('https://rillow-seeds.s3.us-west-1.amazonaws.com/ca_gov_mansion.jpeg')
 
-#listing11.picture.attach(io: file, filename: 'cagovmansion.jpg')
+listing11.picture.attach(io: file, filename: 'cagovmansion.jpg')
 
 listing11.save!
 
@@ -244,9 +244,9 @@ zipcode: 78701)
 
 file = open('https://rillow-seeds.s3.us-west-1.amazonaws.com/kahootshow.png')
 
-#listing12.picture.attach(io: file, filename: 'kahootoffice.png')
+listing12.picture.attach(io: file, filename: 'kahootoffice.png')
 
-#listing12.save!
+listing12.save!
 
 listingsArr = [listing1, listing2, listing3, listing4, listing5, listing6, listing7, listing8, listing9, listing10, listing11, listing12]
 
