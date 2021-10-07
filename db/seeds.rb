@@ -5,11 +5,11 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-require 'open-uri'
+#require 'open-uri'
 
 Listing.delete_all
 User.delete_all
-Favorite.destroy_all
+Favorite.delete_all
 
 user1 = User.create!(email: "chumbawumba@gmail.com", password: "password")
 user2 = User.create!(email: "alexcrooks@gmail.com", password: "Th1sI$IMp0$si3Le")
@@ -33,9 +33,9 @@ city_name: 'San Francisco',
 state: 'California',
 zipcode: 94111)
 
-#file = open('https://rillow-seeds.s3.us-west-1.amazonaws.com/aasfshowpic.png')
+file = open('https://rillow-seeds.s3.us-west-1.amazonaws.com/aasfshowpic.png')
 
-#listing1.picture.attach(io: file, filename: 'aasf.png')
+listing1.picture.attach(io: file, filename: 'aasf.png')
 
 listing1.save!
 
@@ -52,9 +52,9 @@ city_name: 'New York',
 state: 'New York',
 zipcode: 10011)
 
-#file = open('https://rillow-seeds.s3.us-west-1.amazonaws.com/aanyshowpic.png')
+file = open('https://rillow-seeds.s3.us-west-1.amazonaws.com/aanyshowpic.png')
 
-#listing2.picture.attach(io: file, filename: 'aany.png')
+listing2.picture.attach(io: file, filename: 'aany.png')
 
 listing2.save!
 
@@ -250,9 +250,9 @@ file = open('https://rillow-seeds.s3.us-west-1.amazonaws.com/kahootshow.png')
 
 listingsArr = [listing1, listing2, listing3, listing4, listing5, listing6, listing7, listing8, listing9, listing10, listing11, listing12]
 
-favorite1 = Favorite.create!(listing_id: listingsArr.sample().id, favoriter_id: usersArr.sample().id)
-favorite2 = Favorite.create!(listing_id: listingsArr.sample().id, favoriter_id: usersArr.sample().id)
-favorite3 = Favorite.create!(listing_id: listingsArr.sample().id, favoriter_id: usersArr.sample().id)
-favorite4 = Favorite.create!(listing_id: listingsArr.sample().id, favoriter_id: usersArr.sample().id)
-favorite5 = Favorite.create!(listing_id: listingsArr.sample().id, favoriter_id: usersArr.sample().id)
-favorite6 = Favorite.create!(listing_id: listingsArr.sample().id, favoriter_id: usersArr.sample().id)
+favorite1 = Favorite.create!(listing_id: listingsArr.sample().id, favoriter_id: usersArr[1].id)
+favorite2 = Favorite.create!(listing_id: listingsArr.sample().id, favoriter_id: usersArr[2].id)
+favorite3 = Favorite.create!(listing_id: listingsArr.sample().id, favoriter_id: usersArr[3].id)
+favorite4 = Favorite.create!(listing_id: listingsArr.sample().id, favoriter_id: usersArr[4].id)
+favorite5 = Favorite.create!(listing_id: listingsArr.sample().id, favoriter_id: usersArr[5].id)
+favorite6 = Favorite.create!(listing_id: listingsArr.sample().id, favoriter_id: usersArr[0].id)
