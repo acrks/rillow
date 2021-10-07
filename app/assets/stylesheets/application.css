@@ -466,6 +466,12 @@ h1 {
     .listing-show-page-pictures {
         border: 1px solid lightblue;
         width: 60%;
+        
+    }
+
+    listing-show-item-thumbnail {
+        object-fit: cover;
+        width: 60%;
     }
 
     .listing-show-page-info {

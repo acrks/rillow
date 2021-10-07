@@ -28,9 +28,7 @@ class ListingShow extends React.Component {
         console.log(this.props)
         return(
             <div className = "listing-show">
-                <div className = "listing-show-page-pictures">
-                    Pictures will go here
-                </div>
+                <img className = "listing-show-item-thumbnail" src = {listing.image_url} alt = "index_item_thumbnail"></img>
                 <div className = "listing-show-page-info">
                     <div className = "listing-show-page-banner">
                         <span className = "listing-show-page-logo logo">Rillow</span>
