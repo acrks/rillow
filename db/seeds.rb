@@ -226,8 +226,8 @@ listing12.picture.attach(io: file, filename: 'kahootoffice.png')
 
 listingsArr = [listing1, listing2, listing3, listing4, listing5, listing6, listing7, listing8, listing9, listing10, listing11, listing12]
 
-[0...listingsArr.length].each do |listing|
-    listingsArr.save
+listingsArr.each do |listing|
+    listing.save
 end
 
 favorite1 = Favorite.create!(listing_id: listingsArr.sample().id, favoriter_id: usersArr.sample().id)
