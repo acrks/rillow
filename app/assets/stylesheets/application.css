@@ -377,7 +377,8 @@ h1 {
 
   .listing-index-item-thumbnail {
       width: 40%;
-      border: 1px solid navajowhite;
+
+      object-fit: cover;
   }
 
   .listing-index-item-info {

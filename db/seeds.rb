@@ -32,6 +32,8 @@ city_name: 'San Francisco',
 state: 'California',
 zipcode: 94111)
 
+listing1.picture.attach(io: File.open("/Users/aic/Desktop/Coding/rillow/app/assets/images/aasfshowpic.png"), filename: 'aasf.png')
+
 listing2 = Listing.create!(
 creator_id: user3.id,
 purchase: 'false',
@@ -44,6 +46,9 @@ street_name: '5th Avenue',
 city_name: 'New York',
 state: 'New York',
 zipcode: 10011)
+
+listing2.picture.attach(io: File.open("/Users/aic/Desktop/Coding/rillow/app/assets/images/aanyshowpic.png"), filename: 'aany.png')
+
 
 listing3 = Listing.create!(
 creator_id: user2.id,
@@ -58,6 +63,8 @@ city_name: 'National City',
 state: 'California',
 zipcode: 91950)
 
+listing3.picture.attach(io: File.open("/Users/aic/Desktop/Coding/rillow/app/assets/images/itttechshowpic.png"), filename: 'itttech.png')
+
 listing4 = Listing.create!(
 creator_id: user1.id,
 purchase: 'true',
@@ -70,6 +77,8 @@ street_name: 'Evergreen Terrace',
 city_name: 'Springfield',
 state: 'Oregon',
 zipcode: 97403)
+
+listing4.picture.attach(io: File.open("/Users/aic/Desktop/Coding/rillow/app/assets/images/evergreenshowpic.png"), filename: 'evergreen.png')
 
 listing5 = Listing.create!(
 creator_id: user1.id,
@@ -84,6 +93,8 @@ city_name: 'Los Altos',
 state: 'California',
 zipcode: 94024)
 
+listing5.picture.attach(io: File.open("/Users/aic/Desktop/Coding/rillow/app/assets/images/applegarageshowpic.jpeg"), filename: 'applegarage.jpg')
+
 listing6 = Listing.create!(
 creator_id: user3.id,
 purchase: 'true',
@@ -96,6 +107,9 @@ street_name: 'Broad St',
 city_name: 'Seattle',
 state: 'Washington',
 zipcode: 98109)
+
+listing6.picture.attach(io: File.open("/Users/aic/Desktop/Coding/rillow/app/assets/images/spaceneedleshowpic.jpeg"), filename: 'spaceneedle.jpg')
+
 
 listing7 = Listing.create!(
 creator_id: user2.id,
@@ -110,6 +124,8 @@ city_name: 'Beaverton',
 state: 'Oregon',
 zipcode: 97005)
 
+listing7.picture.attach(io: File.open("/Users/aic/Desktop/Coding/rillow/app/assets/images/nikeshowpic.jpeg"), filename: 'nikeshow.jpg')
+
 listing8 = Listing.create!(
 creator_id: user2.id,
 purchase: 'false',
@@ -122,6 +138,8 @@ street_name: 'Olive Avenue',
 city_name: 'Burbank',
 state: 'California',
 zipcode: 91502)
+
+listing8.picture.attach(io: File.open("/Users/aic/Desktop/Coding/rillow/app/assets/images/codingdojoshow.png"), filename: 'codingdojo.png')
 
 listing9 = Listing.create!(
 creator_id: user2.id,
@@ -136,6 +154,8 @@ city_name: 'San Diego',
 state: 'California',
 zipcode: 92108)
 
+listing9.picture.attach(io: File.open("/Users/aic/Desktop/Coding/rillow/app/assets/images/artintshow.png"), filename: 'artinthow.jpg')
+
 listing10 = Listing.create!(
 creator_id: user1.id,
 purchase: 'true',
@@ -148,6 +168,9 @@ street_name: 'Kingswell Avenue',
 city_name: 'Los Angeles',
 state: 'California',
 zipcode: 90027)
+
+listing10.picture.attach(io: File.open("/Users/aic/Desktop/Coding/rillow/app/assets/images/disneyfirstshow.jpeg"), filename: 'disneyshow.jpg')
+
 
 listing11 = Listing.create!(
 creator_id: user3.id,
@@ -162,6 +185,9 @@ city_name: 'Sacramento',
 state: 'California',
 zipcode: 95814)
 
+listing11.picture.attach(io: File.open("/Users/aic/Desktop/Coding/rillow/app/assets/images/ca_gov_mansion.jpeg"), filename: 'cagovshow.jpg')
+
+
 listing12 = Listing.create!(
 creator_id: user1.id,
 purchase: 'true',
@@ -175,6 +201,7 @@ city_name: 'Austin',
 state: 'Texas',
 zipcode: 78701)
 
+listing12.picture.attach(io: File.open("/Users/aic/Desktop/Coding/rillow/app/assets/images/kahootshow.png"), filename: 'kahootshow.png')
 
 listingsArr = [listing1, listing2, listing3, listing4, listing5, listing6, listing7, listing8, listing9, listing10, listing11, listing12]
 
