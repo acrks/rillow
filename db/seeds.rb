@@ -37,6 +37,8 @@ file = open('https://rillow-seeds.s3.us-west-1.amazonaws.com/aasfshowpic.png')
 
 listing1.picture.attach(io: file, filename: 'aasf.png')
 
+listing1.save!
+
 listing2 = Listing.new(
 creator_id: user3.id,
 purchase: 'false',
@@ -53,6 +55,8 @@ zipcode: 10011)
 file = open('https://rillow-seeds.s3.us-west-1.amazonaws.com/aanyshowpic.png')
 
 listing2.picture.attach(io: file, filename: 'aany.png')
+
+listing2.save!
 
 listing3 = Listing.new(
 creator_id: user2.id,
@@ -71,6 +75,8 @@ file = open('https://rillow-seeds.s3.us-west-1.amazonaws.com/itttechshowpic.png'
 
 listing3.picture.attach(io: file, filename: 'itttechshow.png')
 
+listing3.save!
+
 listing4 = Listing.new(
 creator_id: user1.id,
 purchase: 'true',
@@ -87,6 +93,8 @@ zipcode: 97403)
 file = open('https://rillow-seeds.s3.us-west-1.amazonaws.com/evergreenshowpic.png')
 
 listing4.picture.attach(io: file, filename: 'evergreenshow.png')
+
+listing4.save!
 
 listing5 = Listing.new(
 creator_id: user1.id,
@@ -105,6 +113,8 @@ file = open('https://rillow-seeds.s3.us-west-1.amazonaws.com/applegarageshowpic.
 
 listing5.picture.attach(io: file, filename: 'applegarageshow.jpg')
 
+listing5.save!
+
 listing6 = Listing.new(
 creator_id: user3.id,
 purchase: 'true',
@@ -121,6 +131,8 @@ zipcode: 98109)
 file = open('https://rillow-seeds.s3.us-west-1.amazonaws.com/spaceneedleshowpic.jpeg')
 
 listing6.picture.attach(io: file, filename: 'spaceneedleshow.jpg')
+
+listing6.save!
 
 listing7 = Listing.new(
 creator_id: user2.id,
@@ -139,6 +151,8 @@ file = open('https://rillow-seeds.s3.us-west-1.amazonaws.com/nikeshowpic.jpeg')
 
 listing7.picture.attach(io: file, filename: 'nikeshow.png')
 
+listing7.save!
+
 listing8 = Listing.new(
 creator_id: user2.id,
 purchase: 'false',
@@ -155,6 +169,8 @@ zipcode: 91502)
 file = open('https://rillow-seeds.s3.us-west-1.amazonaws.com/codingdojoshow.png')
 
 listing8.picture.attach(io: file, filename: 'codingdojo.png')
+
+listing8.save!
 
 listing9 = Listing.new(
 creator_id: user2.id,
@@ -173,6 +189,8 @@ file = open('https://rillow-seeds.s3.us-west-1.amazonaws.com/artintshow.png')
 
 listing9.picture.attach(io: file, filename: 'artint.png')
 
+listing9.save!
+
 listing10 = Listing.new(
 creator_id: user1.id,
 purchase: 'true',
@@ -189,6 +207,8 @@ zipcode: 90027)
 file = open('https://rillow-seeds.s3.us-west-1.amazonaws.com/disneyfirstshow.jpeg')
 
 listing10.picture.attach(io: file, filename: 'disneyfirst.jpg')
+
+listing10.save!
 
 listing11 = Listing.new(
 creator_id: user3.id,
@@ -207,6 +227,8 @@ file = open('https://rillow-seeds.s3.us-west-1.amazonaws.com/ca_gov_mansion.jpeg
 
 listing11.picture.attach(io: file, filename: 'cagovmansion.jpg')
 
+listing11.save!
+
 listing12 = Listing.new(
 creator_id: user1.id,
 purchase: 'true',
@@ -224,11 +246,9 @@ file = open('https://rillow-seeds.s3.us-west-1.amazonaws.com/kahootshow.png')
 
 listing12.picture.attach(io: file, filename: 'kahootoffice.png')
 
-listingsArr = [listing1, listing2, listing3, listing4, listing5, listing6, listing7, listing8, listing9, listing10, listing11, listing12]
+listing12.save!
 
-listingsArr.each do |listing|
-    listing.save
-end
+listingsArr = [listing1, listing2, listing3, listing4, listing5, listing6, listing7, listing8, listing9, listing10, listing11, listing12]
 
 favorite1 = Favorite.create!(listing_id: listingsArr.sample().id, favoriter_id: usersArr.sample().id)
 favorite2 = Favorite.create!(listing_id: listingsArr.sample().id, favoriter_id: usersArr.sample().id)
