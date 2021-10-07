@@ -20,7 +20,7 @@ user6 = User.create!(email: "chubbyboy@biggie.com", password: "0nTheSc3n3")
 
 usersArr = [user1, user2, user3, user4, user5, user6]
 
-listing1 = Listing.create!(
+listing1 = Listing.new(
 creator_id: user1.id,
 purchase: 'true',
 price: 5000000,
@@ -37,7 +37,7 @@ file = open('https://rillow-seeds.s3.us-west-1.amazonaws.com/aasfshowpic.png')
 
 listing1.picture.attach(io: file, filename: 'aasf.png')
 
-listing2 = Listing.create!(
+listing2 = Listing.new(
 creator_id: user3.id,
 purchase: 'false',
 price: 3456,
@@ -54,7 +54,7 @@ file = open('https://rillow-seeds.s3.us-west-1.amazonaws.com/aanyshowpic.png')
 
 listing2.picture.attach(io: file, filename: 'aany.png')
 
-listing3 = Listing.create!(
+listing3 = Listing.new(
 creator_id: user2.id,
 purchase: 'true',
 price: 18048,
@@ -71,7 +71,7 @@ file = open('https://rillow-seeds.s3.us-west-1.amazonaws.com/itttechshowpic.png'
 
 listing3.picture.attach(io: file, filename: 'itttechshow.png')
 
-listing4 = Listing.create!(
+listing4 = Listing.new(
 creator_id: user1.id,
 purchase: 'true',
 price: 5000000,
@@ -88,7 +88,7 @@ file = open('https://rillow-seeds.s3.us-west-1.amazonaws.com/evergreenshowpic.pn
 
 listing4.picture.attach(io: file, filename: 'evergreenshow.png')
 
-listing5 = Listing.create!(
+listing5 = Listing.new(
 creator_id: user1.id,
 purchase: 'false',
 price: 5928,
@@ -105,7 +105,7 @@ file = open('https://rillow-seeds.s3.us-west-1.amazonaws.com/applegarageshowpic.
 
 listing5.picture.attach(io: file, filename: 'applegarageshow.jpg')
 
-listing6 = Listing.create!(
+listing6 = Listing.new(
 creator_id: user3.id,
 purchase: 'true',
 price: 4500000,
@@ -122,7 +122,7 @@ file = open('https://rillow-seeds.s3.us-west-1.amazonaws.com/spaceneedleshowpic.
 
 listing6.picture.attach(io: file, filename: 'spaceneedleshow.jpg')
 
-listing7 = Listing.create!(
+listing7 = Listing.new(
 creator_id: user2.id,
 purchase: 'true',
 price: 2950000,
@@ -139,7 +139,7 @@ file = open('https://rillow-seeds.s3.us-west-1.amazonaws.com/nikeshowpic.jpeg')
 
 listing7.picture.attach(io: file, filename: 'nikeshow.png')
 
-listing8 = Listing.create!(
+listing8 = Listing.new(
 creator_id: user2.id,
 purchase: 'false',
 price: 3998,
@@ -156,7 +156,7 @@ file = open('https://rillow-seeds.s3.us-west-1.amazonaws.com/codingdojoshow.png'
 
 listing8.picture.attach(io: file, filename: 'codingdojo.png')
 
-listing9 = Listing.create!(
+listing9 = Listing.new(
 creator_id: user2.id,
 purchase: 'false',
 price: 4687,
@@ -173,7 +173,7 @@ file = open('https://rillow-seeds.s3.us-west-1.amazonaws.com/artintshow.png')
 
 listing9.picture.attach(io: file, filename: 'artint.png')
 
-listing10 = Listing.create!(
+listing10 = Listing.new(
 creator_id: user1.id,
 purchase: 'true',
 price: 1394700,
@@ -190,7 +190,7 @@ file = open('https://rillow-seeds.s3.us-west-1.amazonaws.com/disneyfirstshow.jpe
 
 listing10.picture.attach(io: file, filename: 'disneyfirst.jpg')
 
-listing11 = Listing.create!(
+listing11 = Listing.new(
 creator_id: user3.id,
 purchase: 'false',
 price: 1877,
@@ -207,7 +207,7 @@ file = open('https://rillow-seeds.s3.us-west-1.amazonaws.com/ca_gov_mansion.jpeg
 
 listing11.picture.attach(io: file, filename: 'cagovmansion.jpg')
 
-listing12 = Listing.create!(
+listing12 = Listing.new(
 creator_id: user1.id,
 purchase: 'true',
 price: 2464000,
@@ -225,6 +225,10 @@ file = open('https://rillow-seeds.s3.us-west-1.amazonaws.com/kahootshow.png')
 listing12.picture.attach(io: file, filename: 'kahootoffice.png')
 
 listingsArr = [listing1, listing2, listing3, listing4, listing5, listing6, listing7, listing8, listing9, listing10, listing11, listing12]
+
+[0...listingsArr.length].each do |listing|
+    listingsArr.save
+end
 
 favorite1 = Favorite.create!(listing_id: listingsArr.sample().id, favoriter_id: usersArr.sample().id)
 favorite2 = Favorite.create!(listing_id: listingsArr.sample().id, favoriter_id: usersArr.sample().id)
