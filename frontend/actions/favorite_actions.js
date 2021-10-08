@@ -1,40 +1,31 @@
-export const RECEIVE_VIDEO_LIKES = "RECEIVE_VIDEO_LIKES";
+export const RECEIVE_LISTING_LIKES = 'RECEIVE_LISTING_LIKES'
 
-export const receiveLikeIndex = (likeIndex) => {
+export const receiveFavoriteIndex = (favoriteIndex) => {
   return {
-    type: RECEIVE_VIDEO_LIKES,
-    likeIndex,
+    type: RECEIVE_LISTING_LIKES,
+    favoriteIndex,
   };
 };
 
 export const createFavorite = (favorite) => (dispatch) => {
   return $.ajax({
     method: "POST",
-    url: "/api/likes",
-    data: { like },
-  }).then((likeIndex) => dispatch(receiveLikeIndex(likeIndex)));
+    url: "/api/user/favorites",
+    data: { favorite },
+  }).then((favorites) => dispatch(receiveFavoriteIndex(favorites)));
 };
 
-export const updateLike = (like) => (dispatch) => {
-  return $.ajax({
-    method: "PUT",
-    url: `/api/likes/${like.id}`,
-    data: { like },
-  }).then((likeIndex) => dispatch(receiveLikeIndex(likeIndex)));
-};
-
-export const deleteLike = (like) => (dispatch) => {
+export const deleteFavorite = (favorite) => (dispatch) => {
   return $.ajax({
     method: "DELETE",
-    url: `/api/likes/${like.id}`,
-    data: { like },
-  }).then((likeIndex) => dispatch(receiveLikeIndex(likeIndex)));
+    url: `/api/user/favorites/${favorite.id}`
+  }).then((favoriteIndex) => dispatch(receiveFavoriteIndex(favoriteIndex)));
 };
 
-export const getVideoLikes = (videoId) => (dispatch) => {
+export const getListingLikes = (listingId) => (dispatch) => {
   return $.ajax({
-    url: "/api/likes",
+    url: "/api/favorites/",
     method: "GET",
-    data: { video_id: videoId },
-  }).then((likeIndex) => dispatch(receiveLikeIndex(likeIndex)));
+    data: { listing_id: listingId },
+  }).then((likeIndex) => dispatch(receiveFavoriteIndex(likeIndex)));
 };

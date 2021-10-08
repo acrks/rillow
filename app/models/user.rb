@@ -25,7 +25,7 @@ class User < ApplicationRecord
       class_name: :Listing
   
     has_many :favorites,
-      foreign_key: :liker,
+      foreign_key: :favoriter_id,
       class_name: :Favorite
 
     has_many :favorite_listings,

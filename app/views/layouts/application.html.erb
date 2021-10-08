@@ -2,7 +2,8 @@
 <html>
   <head>
     <title>Rillow</title>
-    <%= csrf_meta_tags %>
+    <%= javascript_include_tag "https://maps.googleapis.com/maps/api/js?key=#{ENV['MAPS_API_KEY']}" %>
+    <%= stylesheet_link_tag 'application', media: 'all' %> <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <link href="https://fonts.googleapis.com/css2?family=Lora:wght@500&family=Open+Sans:wght@100;200;400;500&family=Quattrocento+Sans:wght@700&display=swap" rel="stylesheet">
