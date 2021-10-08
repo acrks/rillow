@@ -18,9 +18,7 @@ export default () => (
       <NavBarContainer />
     </header>
     <Switch>
-      <Route exact path="/" component={HomeContainer} />
-      {/* <Route exact path="/user" component = {UserProfileContainer} /> */}
-      {/* <Route exact path="/user/favorites" component = {UserProfileContainer} /> */}
+      <Route path="/" component={HomeContainer} />
       <Route exact path="/listings/create" component={ListingFormContainer} />
       <Route exact path="/listings/:id/edit" component={EditListingFormContainer} />
       <Route exact path="/listings/:id" component={ListingShowContainer} />
