@@ -3,7 +3,14 @@
   <head>
     <title>Rillow</title>
     <%= csrf_meta_tags %>
-
+    <meta property="og:title" content="Rillow" />
+    <meta property='og:image' content="<%= image_url('project_pic.png') %>"/>
+    <meta property="og:description"
+      content="A Zillow clone that's Riiilly similar"
+    />
+    <meta property="og:url"
+      content="https://rillow.herokuapp.com/#/"
+    />
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <link href="https://fonts.googleapis.com/css2?family=Lora:wght@500&family=Open+Sans:wght@100;200;400;500&family=Quattrocento+Sans:wght@700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
