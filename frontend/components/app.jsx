@@ -19,8 +19,6 @@ export default () => (
     </header>
     <Switch>
       <Route exact path="/" component={HomeContainer} />
-      {/* <Route exact path="/user" component = {UserProfileContainer} /> */}
-      {/* <Route exact path="/user/favorites" component = {UserProfileContainer} /> */}
       <ProtectedRoute exact path="/listings/create" component={ListingFormContainer} />
       <ProtectedRoute exact path="/listings/:id/edit" component={EditListingFormContainer} />
       <ProtectedRoute exact path="/listings/:id" component={ListingShowContainer} />
