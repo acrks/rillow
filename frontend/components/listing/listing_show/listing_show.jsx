@@ -11,7 +11,8 @@ class ListingShow extends React.Component {
 
     componentDidMount() {
         this.props.fetchListing(this.props.match.params.id)
-        this.props.getListingLikes(this.props.match.params.id)
+        // this.props.getListingLikes(this.props.match.params.id)
+        this.props.getUserLikes(this.props.currentUser.id, this.props.match.params.id)
     }
     
     routeChangeEdit() {
@@ -29,8 +30,9 @@ class ListingShow extends React.Component {
                 <img className = "listing-show-item-thumbnail" src = {listing.image_url} alt = "index_item_thumbnail"></img>
                 <div className = "listing-show-page-info">
                     <div className = "listing-show-page-banner">
-                        <span className = "listing-show-page-logo logo">Rillow</span>
-                        {/* {this.props.currentUser ? <div className = "save-share-more"><Favorite listing = {listing} favoritesArr = {this.props.favorite}/></div> : <div className = "save-share-more">Please sign in to save a listing to your favorites</div> } */}
+                        <div className = "listing-show-page-logo logo"></div>
+                            <Favorite favorite = {this.props.favorite} user = {this.props.user}/>
+                            {/* {this.props.currentUser ? <div className = "save-share-more"><Favorite listing = {listing} favoritesArr = {this.props.favorite}/></div> : <div className = "save-share-more">Please sign in to save a listing to your favorites</div> } */}
                     </div>
                 
                     <span className = "listing-show-page-price">${listing.price} {listing.purchase ? null : 'per month ' }</span>

@@ -62,6 +62,12 @@ body {
     font-size: 115%;
 }
 
+i {
+    font-family: 'FontAwesome';
+    font-style: normal;
+ }
+
+
 .inspirational-message {
     font-weight: 900;
     margin-top: 80px;
@@ -277,8 +283,6 @@ h1 {
     width: 92%;
     background: #F9F9FB;
     padding-left: 4%;
-    /* padding-top: 6%;
-    padding-bottom: 5%; */
     align-items: center;
     justify-content: center;
     font-weight: 500;
@@ -514,6 +518,8 @@ h1 {
  .listing-show-page-logo {
      font-size: 30px;
      margin: 0;
+     width: 100px;
+     height: 50px;
  }
 
  .listing-show-page-price {
@@ -550,4 +556,13 @@ h1 {
      flex-direction: row;
      align-items: center;
      justify-content: space-around;
+ }
+
+ .favorite-container {
+     cursor: pointer;
+     color:#006AFF; 
+ }
+
+ .favorite-container:hover > span {
+     text-decoration: underline;
  }

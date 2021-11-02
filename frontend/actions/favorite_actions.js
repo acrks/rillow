@@ -15,10 +15,10 @@ export const createFavorite = (favorite) => (dispatch) => {
   }).then((favorites) => dispatch(receiveFavoriteIndex(favorites)));
 };
 
-export const deleteFavorite = (favorite) => (dispatch) => {
+export const deleteFavorite = (favoriteId) => (dispatch) => {
   return $.ajax({
     method: "DELETE",
-    url: `/api/user/favorites/${favorite.id}`
+    url: `/api/user/favorites/${favoriteId}`
   }).then((favoriteIndex) => dispatch(receiveFavoriteIndex(favoriteIndex)));
 };
 
@@ -27,5 +27,13 @@ export const getListingLikes = (listingId) => (dispatch) => {
     url: "/api/favorites/",
     method: "GET",
     data: { listing_id: listingId },
+  }).then((likeIndex) => dispatch(receiveFavoriteIndex(likeIndex)));
+};
+
+export const getUserLikes = (userId, listingId) => (dispatch) => {
+  return $.ajax({
+    url: "/api/favorites/",
+    method: "GET",
+    data: { favoriter_id: userId, listing_id: listingId },
   }).then((likeIndex) => dispatch(receiveFavoriteIndex(likeIndex)));
 };

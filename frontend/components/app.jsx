@@ -21,8 +21,8 @@ export default () => (
       <Route exact path="/" component={HomeContainer} />
       <ProtectedRoute exact path="/listings/create" component={ListingFormContainer} />
       <ProtectedRoute exact path="/listings/:id/edit" component={EditListingFormContainer} />
-      <ProtectedRoute exact path="/listings/:id" component={ListingShowContainer} />
-      <ProtectedRoute exact path="/listings" component={ListingIndexContainer} />
+      <Route exact path="/listings/:id" component={ListingShowContainer} />
+      <Route exact path="/listings" component={ListingIndexContainer} />
       <Route render={() => <Redirect to={{pathname: "/"}} />} />    
     </Switch>
     <footer>
