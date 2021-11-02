@@ -39,9 +39,14 @@ body {
     color: #006AFF;
     text-decoration: none;
     font-size: 40px;
+    width: 10%;
+    height: 100%;
     margin-left: 9%;
     margin-right: 9%;
-    background-image: ('');
+    /* padding-top: 10px; */
+    background: url('https://raw.githubusercontent.com/acrks/rillow/main/app/assets/images/House_logo_w_letters_4.png') no-repeat;
+    background-size: cover;
+    background-position: 0% 25%;
 }
 
 .headline {

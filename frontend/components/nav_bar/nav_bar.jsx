@@ -9,7 +9,7 @@ export default ({ currentUser, logout, openModal }) => {
       <Link to = "/listings/create" className = "nav-bar-link">Sell</Link>
       <a target="_blank" href="https://www.linkedin.com/in/alex-crooks/" className = "nav-bar-link">LinkedIn</a>
       <a target="_blank" href="https://account.venmo.com/u/acrks" className = "nav-bar-link">Home Loans</a>
-      <Link to = "/" className="logo">Rillow</Link>
+      <Link to = "/" className="logo"></Link>
       <Link to = "/" className = "nav-bar-link">Manage Rentals</Link>
       <a target="_blank" href="https://alexcrooks.net/" className = "nav-bar-link">Portfolio</a>
       <a target="_blank" href="https://stackoverflow.com/" className = "nav-bar-link">Help</a>
