@@ -2,8 +2,8 @@ import {connect} from 'react-redux'
 import Favorite from './favorite'
 import { createFavorite, deleteFavorite } from '../../actions/favorite_actions'
 
-const mapStateToProps = state => ({
-    
+const mapStateToProps = (state) => ({
+
 })
 
 const mapDispatchToProps = dispatch => ({

@@ -1,12 +1,14 @@
 class Api::FavoritesController < ApplicationController
-    def create
-        @favorite.new
-        @favorite.creator_id = current_user.id
-        @favorite.listing_id = params[:id]
+  
+  def create
+        @favorite = Favorite.new(fav_params)
+        # @favorite.favoriter_id = params[:favoriter_id]
+        # @favorite.listing_id = params[:listing_id]
+        # @favorite.listing_id = params[:id]
         unless @favorite.save
             flash[:errors] = @favorite.errors.full_messages
           end
-          redirect_to listing_url(params[:id])
+          redirect_to listing_url(params[:listing_id])
     end
 
     def index
@@ -28,11 +30,11 @@ class Api::FavoritesController < ApplicationController
     def destroy
       @favorite = Favorite.find(params[:id])
       @favorite.destroy
-      redirect_to listing_url(@favorite.listing_id)
+      redirect_to listing_url(params[:listing_id])
     end
 
       private
-      def like_params
+      def fav_params
         params.require(:favorite).permit(:favoriter_id, :listing_id)
       end
 end

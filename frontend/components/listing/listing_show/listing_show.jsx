@@ -31,7 +31,7 @@ class ListingShow extends React.Component {
                 <div className = "listing-show-page-info">
                     <div className = "listing-show-page-banner">
                         <div className = "listing-show-page-logo logo"></div>
-                            <Favorite favorite = {this.props.favorite} user = {this.props.user}/>
+                            <Favorite favorite = {this.props.favorite} user = {this.props.currentUser} listing = {listing}/>
                             {/* {this.props.currentUser ? <div className = "save-share-more"><Favorite listing = {listing} favoritesArr = {this.props.favorite}/></div> : <div className = "save-share-more">Please sign in to save a listing to your favorites</div> } */}
                     </div>
                 

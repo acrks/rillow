@@ -1,4 +1,8 @@
+import * as FavoriteAPIUtil from '../utils/favorite_api_util'
+
 export const RECEIVE_LISTING_LIKES = 'RECEIVE_LISTING_LIKES'
+export const RECEIVE_FAVORITE = "RECEIVE_FAVORITE"
+export const REMOVE_FAVORITE = "REMOVE_FAVORITE"
 
 export const receiveFavoriteIndex = (favoriteIndex) => {
   return {
@@ -7,20 +11,45 @@ export const receiveFavoriteIndex = (favoriteIndex) => {
   };
 };
 
-export const createFavorite = (favorite) => (dispatch) => {
-  return $.ajax({
-    method: "POST",
-    url: "/api/user/favorites",
-    data: { favorite },
-  }).then((favorites) => dispatch(receiveFavoriteIndex(favorites)));
-};
+export const receiveFavorite = (favorite) => {
+  return {
+    type: RECEIVE_FAVORITE,
+    favorite
+  }
+}
 
-export const deleteFavorite = (favoriteId) => (dispatch) => {
-  return $.ajax({
-    method: "DELETE",
-    url: `/api/user/favorites/${favoriteId}`
-  }).then((favoriteIndex) => dispatch(receiveFavoriteIndex(favoriteIndex)));
-};
+export const removeFavorite = (favoriteId) => {
+  return {
+    type: REMOVE_FAVORITE,
+    favoriteId
+  }
+} 
+
+// export const createFavorite = (favorite) => (dispatch) => {
+//   return $.ajax({
+//     method: "POST",
+//     url: "/api/favorites",
+//     data: { favorite },
+//   }).then((favorites) => dispatch(receiveFavoriteIndex(favorites)));
+// };
+
+export const createFavorite = (favorite) => dispatch => (
+  FavoriteAPIUtil.createFavorite(favorite).then(favorite => (
+      dispatch(receiveFavorite(favorite))
+  ))
+);
+
+export const deleteFavorite = (favoriteId) => dispatch => (
+  FavoriteAPIUtil.deleteFavorite(favoriteId).then(dispatch
+    (removeFavorite(favoriteId)))
+)
+
+// export const deleteFavorite = (favoriteId) => (dispatch) => {
+//   return $.ajax({
+//     method: "DELETE",
+//     url: `/api/favorites/${favoriteId}`
+//   }).then((favoriteIndex) => dispatch(receiveFavoriteIndex(favoriteIndex)));
+// };
 
 export const getListingLikes = (listingId) => (dispatch) => {
   return $.ajax({
