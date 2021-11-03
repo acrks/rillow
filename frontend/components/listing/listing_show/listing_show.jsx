@@ -8,30 +8,40 @@ import { faHeart as RegHeart } from '@fortawesome/free-regular-svg-icons'
 class ListingShow extends React.Component {
     constructor(props) {
         super(props)
-
+        this.state= {
+            liked: this.props.favorite,
+            like: '',
+        }
+        
         this.routeChangeEdit = this.routeChangeEdit.bind(this)
         this.handleClick = this.handleClick.bind(this)
     }
 
     componentDidMount() {
         this.props.fetchListing(this.props.match.params.id)
-        // this.props.getListingLikes(this.props.match.params.id)
         this.props.getUserLikes(this.props.currentUser.id, this.props.match.params.id)
+        if(this.props.favorite[0]) {
+            this.setState({liked: true})
+        }
     }
 
     handleClick(e) {
         e.preventDefault()
-        if(this.props.favorite.length) {
-          this.props.deleteFavorite(this.props.favorite[0])
+        if(this.state.liked) {
+          this.props.deleteFavorite(this.props.favorite[0].id)
+          this.setState({liked : false})
         }
         else {
           const favorite = {
             favoriter_id: this.props.currentUser.id,
             listing_id: this.props.listing.id
           }
+
           this.props.createFavorite(favorite)
+          this.setState({liked : true})
         }
         this.props.getUserLikes(this.props.currentUser.id, this.props.listing.id)
+        this.setState({like: this.props.favorite[0]})
       }
     
     routeChangeEdit() {
@@ -44,6 +54,7 @@ class ListingShow extends React.Component {
             return null
         }
         const {listing, deleteListing} = this.props
+        // console.log(this.props.favorite[0])
         return(
             <div className = "listing-show">
                 <img className = "listing-show-item-thumbnail" src = {listing.image_url} alt = "index_item_thumbnail"></img>
@@ -51,7 +62,7 @@ class ListingShow extends React.Component {
                     <div className = "listing-show-page-banner">
                         <div className = "listing-show-page-logo logo"></div>
                         <div className="favorite-container" onClick = {this.handleClick}>
-                        {this.props.favorite.length ? <><FontAwesomeIcon icon={solidHeart} /><span> Saved</span></>  : <><FontAwesomeIcon icon={RegHeart} /><span> Save</span></>}
+                        {this.state.liked ? <><FontAwesomeIcon icon={solidHeart} /><span> Saved</span></>  : <><FontAwesomeIcon icon={RegHeart} /><span> Save</span></>}
                         </div>                        
                     </div>
                 
