@@ -16,6 +16,10 @@ class ListingIndex extends React.Component {
         window.scrollTo(0, 0)
     }
 
+    componentWillUnmount() {
+        // this.props.removeListings
+    }
+
     routeChangeCreate() {
         let path = `/listings/create`;
         this.props.history.push(path);

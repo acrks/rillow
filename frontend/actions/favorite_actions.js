@@ -27,9 +27,9 @@ export const removeFavorite = (favoriteId) => {
 
 export const createFavorite = (favorite) => dispatch => (
   FavoriteAPIUtil.createFavorite(favorite)
-  // .then(favorite => (
-  //     dispatch(receiveFavorite(favorite))
-  // ))
+  .then(favorite => (
+      dispatch(receiveFavorite(favorite))
+  ))
 );
 
 export const deleteFavorite = (favoriteId) => dispatch => (

@@ -1,5 +1,9 @@
 import React from 'react'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {withRouter} from 'react-router-dom'
+import { faHeart  as solidHeart } from '@fortawesome/free-solid-svg-icons'
+import { faHeart as RegHeart } from '@fortawesome/free-regular-svg-icons'
+
 
 class ListingShow extends React.Component {
     constructor(props) {
@@ -47,8 +51,8 @@ class ListingShow extends React.Component {
                     <div className = "listing-show-page-banner">
                         <div className = "listing-show-page-logo logo"></div>
                         <div className="favorite-container" onClick = {this.handleClick}>
-                        {this.props.favorite.length ? <><i className="fas fa-heart" ></i> <span>Saved</span></>  : <><i className="far fa-heart"></i><span> Save</span></>}
-                        </div>                            {/* {this.props.currentUser ? <div className = "save-share-more"><Favorite listing = {listing} favoritesArr = {this.props.favorite}/></div> : <div className = "save-share-more">Please sign in to save a listing to your favorites</div> } */}
+                        {this.props.favorite.length ? <><FontAwesomeIcon icon={solidHeart} /><span> Saved</span></>  : <><FontAwesomeIcon icon={RegHeart} /><span> Save</span></>}
+                        </div>                        
                     </div>
                 
                     <span className = "listing-show-page-price">${listing.price} {listing.purchase ? null : 'per month ' }</span>
