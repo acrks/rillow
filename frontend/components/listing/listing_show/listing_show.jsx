@@ -1,12 +1,12 @@
 import React from 'react'
 import {withRouter} from 'react-router-dom'
-import Favorite from '../../favorite/favorite_container'
 
 class ListingShow extends React.Component {
     constructor(props) {
         super(props)
 
         this.routeChangeEdit = this.routeChangeEdit.bind(this)
+        this.handleClick = this.handleClick.bind(this)
     }
 
     componentDidMount() {
@@ -14,6 +14,21 @@ class ListingShow extends React.Component {
         // this.props.getListingLikes(this.props.match.params.id)
         this.props.getUserLikes(this.props.currentUser.id, this.props.match.params.id)
     }
+
+    handleClick(e) {
+        e.preventDefault()
+        if(this.props.favorite.length) {
+          this.props.deleteFavorite(this.props.favorite[0])
+        }
+        else {
+          const favorite = {
+            favoriter_id: this.props.currentUser.id,
+            listing_id: this.props.listing.id
+          }
+          this.props.createFavorite(favorite)
+        }
+        this.props.getUserLikes(this.props.currentUser.id, this.props.listing.id)
+      }
     
     routeChangeEdit() {
         let path = `/listings/${this.props.listing.id}/edit`;
@@ -31,8 +46,9 @@ class ListingShow extends React.Component {
                 <div className = "listing-show-page-info">
                     <div className = "listing-show-page-banner">
                         <div className = "listing-show-page-logo logo"></div>
-                            <Favorite favorite = {this.props.favorite} user = {this.props.currentUser} listing = {listing}/>
-                            {/* {this.props.currentUser ? <div className = "save-share-more"><Favorite listing = {listing} favoritesArr = {this.props.favorite}/></div> : <div className = "save-share-more">Please sign in to save a listing to your favorites</div> } */}
+                        <div className="favorite-container" onClick = {this.handleClick}>
+                        {this.props.favorite.length ? <><i className="fas fa-heart" ></i> <span>Saved</span></>  : <><i className="far fa-heart"></i><span> Save</span></>}
+                        </div>                            {/* {this.props.currentUser ? <div className = "save-share-more"><Favorite listing = {listing} favoritesArr = {this.props.favorite}/></div> : <div className = "save-share-more">Please sign in to save a listing to your favorites</div> } */}
                     </div>
                 
                     <span className = "listing-show-page-price">${listing.price} {listing.purchase ? null : 'per month ' }</span>

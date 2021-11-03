@@ -25,31 +25,17 @@ export const removeFavorite = (favoriteId) => {
   }
 } 
 
-// export const createFavorite = (favorite) => (dispatch) => {
-//   return $.ajax({
-//     method: "POST",
-//     url: "/api/favorites",
-//     data: { favorite },
-//   }).then((favorites) => dispatch(receiveFavoriteIndex(favorites)));
-// };
-
 export const createFavorite = (favorite) => dispatch => (
-  FavoriteAPIUtil.createFavorite(favorite).then(favorite => (
-      dispatch(receiveFavorite(favorite))
-  ))
+  FavoriteAPIUtil.createFavorite(favorite)
+  // .then(favorite => (
+  //     dispatch(receiveFavorite(favorite))
+  // ))
 );
 
 export const deleteFavorite = (favoriteId) => dispatch => (
   FavoriteAPIUtil.deleteFavorite(favoriteId).then(dispatch
     (removeFavorite(favoriteId)))
-)
-
-// export const deleteFavorite = (favoriteId) => (dispatch) => {
-//   return $.ajax({
-//     method: "DELETE",
-//     url: `/api/favorites/${favoriteId}`
-//   }).then((favoriteIndex) => dispatch(receiveFavoriteIndex(favoriteIndex)));
-// };
+);
 
 export const getListingLikes = (listingId) => (dispatch) => {
   return $.ajax({

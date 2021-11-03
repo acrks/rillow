@@ -8,16 +8,11 @@ class Api::FavoritesController < ApplicationController
         unless @favorite.save
             flash[:errors] = @favorite.errors.full_messages
           end
-          redirect_to listing_url(params[:listing_id])
+          # render `/api/listings/#{params[:listing_id]}`
     end
 
     def index
       @favorites = Favorite.all
-      # if (params[:listing_id])
-      #   @favorites = @favorites.where(listing_id: params[:listing_id])
-      # else (params[:favoriter_id])
-      #   @favorites = @favorites.where(favoriter_id: params[:favoriter_id])
-      # end
       if(params[:favoriter_id])
         @favorites = @favorites.where(favoriter_id: params[:favoriter_id])
       end
@@ -30,7 +25,7 @@ class Api::FavoritesController < ApplicationController
     def destroy
       @favorite = Favorite.find(params[:id])
       @favorite.destroy
-      redirect_to listing_url(params[:listing_id])
+      # render `/api/listings/#{params[:listing_id]}`
     end
 
       private
