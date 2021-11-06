@@ -45,6 +45,14 @@ export const getListingLikes = (listingId) => (dispatch) => {
   }).then((likeIndex) => dispatch(receiveFavoriteIndex(likeIndex)));
 };
 
+export const getUserIdLikes = (userId) => (dispatch) => {
+  return $.ajax({
+    url: "/api/favorites/",
+    method: "GET",
+    data: { favoriter_id: userId},
+  }).then((likeIndex) => dispatch(receiveFavoriteIndex(likeIndex)));
+};
+
 export const getUserLikes = (userId, listingId) => (dispatch) => {
   return $.ajax({
     url: "/api/favorites/",

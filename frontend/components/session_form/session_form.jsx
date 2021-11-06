@@ -56,8 +56,6 @@ class SessionForm extends React.Component {
     else {
       currentTab = <button className = "subheader tab-header tab-header-selected change-modal-tab">New account</button>
     }
-    const {otherForm} = this.props
-    console.log({otherForm})
     return (
       <div className = "session-form">
         <div onClick={this.props.closeModal} className="close-x">X</div>

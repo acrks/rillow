@@ -7,7 +7,7 @@ import { getListingLikes, getUserLikes, createFavorite, deleteFavorite } from '.
 const mapStateToProps = (state, ownProps) => ({
     listing: state.entities.listings[ownProps.match.params.id],
     currentUser: state.session.currentUser,
-    favorite: Object.values(state.entities.favorites)
+    favorite: state.entities.favorites
 })
 
 const mapDispatchToProps = (dispatch) => ({

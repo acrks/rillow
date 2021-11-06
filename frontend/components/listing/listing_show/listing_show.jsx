@@ -9,7 +9,7 @@ class ListingShow extends React.Component {
     constructor(props) {
         super(props)
         this.state= {
-            liked: this.props.favorite,
+            liked: this.props.favorite.length,
             like: '',
         }
         
@@ -19,7 +19,9 @@ class ListingShow extends React.Component {
 
     componentDidMount() {
         this.props.fetchListing(this.props.match.params.id)
-        this.props.getUserLikes(this.props.currentUser.id, this.props.match.params.id)
+        if(this.props.currentUser) {
+            this.props.getUserLikes(this.props.currentUser.id, this.props.match.params.id)
+        }
         if(this.props.favorite[0]) {
             this.setState({liked: true})
         }
@@ -54,7 +56,6 @@ class ListingShow extends React.Component {
             return null
         }
         const {listing, deleteListing} = this.props
-        // console.log(this.props.favorite[0])
         return(
             <div className = "listing-show">
                 <img className = "listing-show-item-thumbnail" src = {listing.image_url} alt = "index_item_thumbnail"></img>
@@ -62,7 +63,10 @@ class ListingShow extends React.Component {
                     <div className = "listing-show-page-banner">
                         <div className = "listing-show-page-logo logo"></div>
                         <div className="favorite-container" onClick = {this.handleClick}>
-                        {this.state.liked ? <><FontAwesomeIcon icon={solidHeart} /><span> Saved</span></>  : <><FontAwesomeIcon icon={RegHeart} /><span> Save</span></>}
+                        {this.props.currentUser ? 
+                        (this.state.liked ? <><FontAwesomeIcon icon={solidHeart} /><span> Saved</span></>  : <><FontAwesomeIcon icon={RegHeart} /><span> Save</span></>)
+                        : <p>Please login to save a listing </p>
+                        }
                         </div>                        
                     </div>
                 

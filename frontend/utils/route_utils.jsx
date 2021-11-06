@@ -28,7 +28,7 @@ const mapTrigger = dispatch => ({
 const ModalTriggerContainer = connect(null, mapTrigger)(ModalTrigger);
 
 const mapStateToProps = state => ({
-  loggedIn: Boolean(state.session.id)
+  loggedIn: Boolean(state.session.currentUser)
 });
 
 const Protected = ({loggedIn, path, component: Component}) => { 
