@@ -1,5 +1,5 @@
 import React from 'react'
-import ListingItem from '.././listing_item_container'
+import LikedListingIndexItem from './liked_listing_item_container'
 
 class LikedListingIndex extends React.Component {
     componentDidMount() {
@@ -10,29 +10,21 @@ class LikedListingIndex extends React.Component {
         if(!this.props.favorites) {
             return null
         }
+        
         const {favorites} = this.props
-        let listingArr = []
-        // for(let i = 0; i < favorites.length; i++) {
-        //     let listing = this.props.fetchListing(favorites[i].listing_id)
-        //     listingArr.push(listing)
-        // }
-        console.log(listingArr)
+        // console.log(listings)
         return (
             <div className = "listing-index-container">
-                <div className = "index-map-container">
-                    <br/>
-                <div className = "index-map"></div>
-                </div>
+                Saved Homes<br/>
+                {this.props.listings.length} saved homes
                 <ul className = "listing-index">
-                    {favorites.map(fav => (
-                        <p>{fav.listing_id}</p>
-                    ))}
-                    {/* {listingArr.map(listing =>( 
-                        <ListingItem 
-                        key = {listing.id} 
-                        listing = {listing} 
+                    {favorites.map((fav, i) => (
+                        <LikedListingIndexItem
+                        key = {fav.id}
+                        index = {i}
+                        listingId = {fav.listing_id}
                         />
-                        ))} */}
+                    ))}
                 </ul>
             </div>
         )
