@@ -45,7 +45,7 @@ body {
     /* padding-top: 10px; */
     background: url('https://raw.githubusercontent.com/acrks/rillow/main/app/assets/images/House_logo_w_letters_4.png') no-repeat;
     background-size: cover;
-    background-position: 0% 25%;
+    background-position: 50% 25%;
 }
 
 .logo-text {
