@@ -2,6 +2,10 @@
 <html>
   <head>
     <title>Rillow: Not Real Estate</title>
+    <%= javascript_include_tag "https://maps.googleapis.com/maps/api/js?key=#{ENV['MAPS_API_KEY']}" %>
+    <%= stylesheet_link_tag 'application', media: 'all' %>
+    <%= javascript_include_tag 'application' %>
+
     <%= csrf_meta_tags %>
     <meta property="og:title" content="Rillow" />
     <meta property='og:image' content="<%= image_url('/rillow/app/assets/images/ghpic.png') %>"/>
@@ -11,11 +15,9 @@
     <meta property="og:url"
       content="https://rillow.herokuapp.com/#/"
     />
-    <%= stylesheet_link_tag    'application', media: 'all' %>
     <link href="https://fonts.googleapis.com/css2?family=Lora:wght@500&family=Open+Sans:wght@100;200;400;500&family=Quattrocento+Sans:wght@700&display=swap" rel="stylesheet">
     <%= favicon_link_tag asset_path('favicon_io/android-chrome-512x512.png') %>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <%= javascript_include_tag 'application' %>
     <% if current_user %>
     <script>
       window.currentUser = {
