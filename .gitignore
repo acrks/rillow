@@ -33,7 +33,9 @@ bundle.js.map
 .byebug_history
 .DS_Store
 npm-debug.log
+
 # Ignore application configuration
+/Users/aic/Desktop/Coding/rillow/config/application.yml
 
 # Ignore application configuration
 /config/application.yml

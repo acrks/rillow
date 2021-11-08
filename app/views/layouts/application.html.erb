@@ -4,9 +4,9 @@
     <title>Rillow: Not Real Estate</title>
     <%= javascript_include_tag "https://maps.googleapis.com/maps/api/js?key=#{ENV['MAPS_API_KEY']}" %>
     <%= stylesheet_link_tag 'application', media: 'all' %>
-    <%= javascript_include_tag 'application' %>
-
+    
     <%= csrf_meta_tags %>
+    <%= javascript_include_tag 'application' %>
     <meta property="og:title" content="Rillow" />
     <meta property='og:image' content="<%= image_url('/rillow/app/assets/images/ghpic.png') %>"/>
     <meta property="og:description"
