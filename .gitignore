@@ -25,6 +25,7 @@
 
 # Ignore master key for decrypting credentials and more.
 /config/master.key
+/config/application.yml
 
 node_modules/
 bundle.js
@@ -33,4 +34,3 @@ bundle.js.map
 .DS_Store
 npm-debug.log
 # Ignore application configuration
-/config/application.yml
