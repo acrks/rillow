@@ -11,12 +11,12 @@ Listing.delete_all
 User.delete_all
 Favorite.delete_all
 
-user1 = User.create!(email: "chumbawumba@gmail.com", password: "password")
-user2 = User.create!(email: "alexcrooks@gmail.com", password: "Th1sI$IMp0$si3Le")
-user3 = User.create!(email: "demo@gmail.com", password: "greatasset")
-user4 = User.create!(email: "spencertest@aaopen.com", password: "cApta1nN3m0")
-user5 = User.create!(email: "peskyraccoon@gmail.com", password: "canIgetAn000000hy3h")
-user6 = User.create!(email: "chubbyboy@biggie.com", password: "0nTheSc3n3")
+user1 = User.create!(email: "chumbawumba@gmail.com", password: "password", first_name: 'Chummy', last_name: "Wummy")
+user2 = User.create!(email: "alexcrooks@gmail.com", password: "Th1sI$IMp0$si3Le", first_name: 'Alex', last_name: "Crooks")
+user3 = User.create!(email: "demo@gmail.com", password: "greatasset" , first_name: 'Demo', last_name: "User")
+user4 = User.create!(email: "spencertest@aaopen.com", password: "cApta1nN3m0", first_name: 'Spencer', last_name: "Iascone")
+user5 = User.create!(email: "peskyraccoon@gmail.com", password: "canIgetAn000000hy3h", first_name: 'Rocket', last_name: "Raccoon")
+user6 = User.create!(email: "chubbyboy@biggie.com", password: "0nTheSc3n3", first_name: 'Christopher', last_name: "Wallace")
 
 usersArr = [user1, user2, user3, user4, user5, user6]
 
@@ -31,7 +31,9 @@ street_number: '900',
 street_name: 'Battery St.',
 city_name: 'San Francisco',
 state: 'California',
-zipcode: 94111)
+zipcode: 94111,
+longitude: -122.40155,
+latitude: 37.801022)
 
 file = open('https://rillow-seeds.s3.us-west-1.amazonaws.com/aasfshowpic.png')
 
@@ -50,7 +52,9 @@ street_number: 90,
 street_name: '5th Avenue',
 city_name: 'New York',
 state: 'New York',
-zipcode: 10011)
+zipcode: 10011,
+longitude: -73.993385,
+latitude: 40.736316)
 
 file = open('https://rillow-seeds.s3.us-west-1.amazonaws.com/aanyshowpic.png')
 
@@ -69,7 +73,9 @@ street_number: 401,
 street_name: 'Mile of Cars Way',
 city_name: 'National City',
 state: 'California',
-zipcode: 91950)
+zipcode: 91950,
+longitude: -117.106119,
+latitude: 32.66182)
 
 file = open('https://rillow-seeds.s3.us-west-1.amazonaws.com/itttechshowpic.png')
 
@@ -80,15 +86,17 @@ listing3.save!
 listing4 = Listing.new(
 creator_id: user1.id,
 purchase: 'true',
-price: 5000000,
+price: 371900,
 num_bedrooms: 4,
 sqft: 2500,
 num_bathrooms: 3,
-street_number: 742,
-street_name: 'Evergreen Terrace',
-city_name: 'Springfield',
-state: 'Oregon',
-zipcode: 97403)
+street_number: 712,
+street_name: 'Red Bark Ln',
+city_name: 'Henderson',
+state: 'Nevada',
+zipcode: 97403,
+longitude: -115.01548,
+latitude: 36.077121)
 
 file = open('https://rillow-seeds.s3.us-west-1.amazonaws.com/evergreenshowpic.png')
 
@@ -107,7 +115,9 @@ street_number: 2066,
 street_name: 'Crist Drive',
 city_name: 'Los Altos',
 state: 'California',
-zipcode: 94024)
+zipcode: 94024,
+longitude: -122.068832,
+latitude: 37.340091)
 
 file = open('https://rillow-seeds.s3.us-west-1.amazonaws.com/applegarageshowpic.jpeg')
 
@@ -126,7 +136,9 @@ street_number: 400,
 street_name: 'Broad St',
 city_name: 'Seattle',
 state: 'Washington',
-zipcode: 98109)
+zipcode: 98109,
+latitude: 47.619747,
+longitude: -122.348869)
 
 file = open('https://rillow-seeds.s3.us-west-1.amazonaws.com/spaceneedleshowpic.jpeg')
 
@@ -145,7 +157,9 @@ street_number: 1,
 street_name: 'Bowerton Drive',
 city_name: 'Beaverton',
 state: 'Oregon',
-zipcode: 97005)
+zipcode: 97005,
+latitude: 45.496289,
+longitude: -122.800146)
 
 file = open('https://rillow-seeds.s3.us-west-1.amazonaws.com/nikeshowpic.jpeg')
 
@@ -164,7 +178,9 @@ street_number: 175,
 street_name: 'Olive Avenue',
 city_name: 'Burbank',
 state: 'California',
-zipcode: 91502)
+zipcode: 91502,
+latitude: 34.180825,
+longitude: -118.309185)
 
 file = open('https://rillow-seeds.s3.us-west-1.amazonaws.com/codingdojoshow.png')
 
@@ -183,7 +199,9 @@ street_number: 7650,
 street_name: 'Mission Valley Road',
 city_name: 'San Diego',
 state: 'California',
-zipcode: 92108)
+zipcode: 92108,
+latitude: 32.779218,
+longitude: -117.155302)
 
 file = open('https://rillow-seeds.s3.us-west-1.amazonaws.com/artintshow.png')
 
@@ -202,7 +220,9 @@ street_number: 4406,
 street_name: 'Kingswell Avenue',
 city_name: 'Los Angeles',
 state: 'California',
-zipcode: 90027)
+zipcode: 90027,
+latitude: 34.1026217,
+longitude: -118.2854865)
 
 file = open('https://rillow-seeds.s3.us-west-1.amazonaws.com/disneyfirstshow.jpeg')
 
@@ -221,7 +241,9 @@ street_number: 1526,
 street_name: 'H Street',
 city_name: 'Sacramento',
 state: 'California',
-zipcode: 95814)
+zipcode: 95814,
+latitude: 38.580459,
+longitude: -121.4852067)
 
 file = open('https://rillow-seeds.s3.us-west-1.amazonaws.com/ca_gov_mansion.jpeg')
 
@@ -237,10 +259,12 @@ num_bedrooms: 3,
 sqft: 1750,
 num_bathrooms: 3,
 street_number: 823,
-street_name: 'H Street',
+street_name: 'Congress Ave',
 city_name: 'Austin',
 state: 'Texas',
-zipcode: 78701)
+zipcode: 78701,
+latitude: 30.2703774,
+longitude: -97.7417053)
 
 file = open('https://rillow-seeds.s3.us-west-1.amazonaws.com/kahootshow.png')
 

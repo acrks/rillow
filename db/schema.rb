@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_10_07_222215) do
+ActiveRecord::Schema.define(version: 2021_11_08_191917) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -60,6 +60,9 @@ ActiveRecord::Schema.define(version: 2021_10_07_222215) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "sqft"
+    t.float "longitude"
+    t.float "latitude"
+    t.string "unit_number"
     t.index ["street_number", "street_name", "zipcode"], name: "index_listings_on_street_number_and_street_name_and_zipcode"
   end
 
@@ -69,6 +72,8 @@ ActiveRecord::Schema.define(version: 2021_10_07_222215) do
     t.string "session_token"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "first_name"
+    t.string "last_name"
     t.index ["email"], name: "index_users_on_email"
   end
 
