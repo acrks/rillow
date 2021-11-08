@@ -321,10 +321,17 @@ h1 {
 
   .index-map-container {
       width: 50%;
+      height: 100%;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
   }
 
   .index-map {
       height: 90%;
+      width: 90%;
   }
 
   .listing-form {

@@ -23,19 +23,20 @@ class ListingIndex extends React.Component {
     routeChangeCreate() {
         let path = `/listings/create`;
         this.props.history.push(path);
-
     }
 
+    
+
     render() {
+
         const { listings, updateListing} = this.props
-        // console.log(listings)
         return (
             <div className = "listing-index-container">
                 <div className = "index-map-container">
                 <button onClick = {this.routeChangeCreate} className = "sign-in-button show-page-outreach-button">Create A Listing</button>
                     <br/>
                     
-                <div className = "index-map"><MapContainer /></div>
+                <MapContainer listings={listings}/>
                 </div>
                 <ul className = "listing-index">
                     {listings.map(listing =>( 
