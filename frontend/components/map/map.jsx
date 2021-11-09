@@ -50,14 +50,12 @@ class BenchMap extends React.Component {
     this.props.listings.map((listing, i) => {
       new google.maps.Marker({
         position: {lat: listing.latitude, lng: listing.longitude},
+        label: i,
         map: this.map,
-        title: "Hello World!",
+        title: `${listing.street_number} ${listing.street_name}`,
         animation: google.maps.Animation.DROP,
       });  
     })
-    
-    const myLatLng = { lat: 37.7758, lng: -122.435 };
-    this.geocoder = new google.maps.Geocoder();
     
     // new google.maps.Marker({
     //   position: myLatLng,
