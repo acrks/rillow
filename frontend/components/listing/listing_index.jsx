@@ -30,12 +30,14 @@ class ListingIndex extends React.Component {
         const { listings, updateListing} = this.props
         return (
             <div className = "listing-index-container">
-                <div className = "index-map-container">
-                <button onClick = {this.routeChangeCreate} className = "sign-in-button show-page-outreach-button">Create A Listing</button>
-                    <br/>
                     
+                <div className = "index-map-container">
                 <MapContainer listings={listings}/>
                 </div>
+                <div className = "listing-index-items">
+                <button onClick = {this.routeChangeCreate} className = "sign-in-button show-page-outreach-button">Create A Listing</button>
+                    <br/>
+                {listings.length} listings total
                 <ul className = "listing-index">
                     {listings.map(listing =>( 
                         <ListingItem 
@@ -45,6 +47,7 @@ class ListingIndex extends React.Component {
                         />
                         ))}
                 </ul>
+                </div>
             </div>
         )
     }

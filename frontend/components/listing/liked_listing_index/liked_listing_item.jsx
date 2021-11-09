@@ -28,13 +28,14 @@ class LikedListingItem extends React.Component {
         let likedListing = listing[index]
         return (
             <div className = "liked-listing-item" onClick = {this.directToPage}>
-                <div className = "liked-listing-item-thumbnail" style = {{backgroundImage : `url(${likedListing.image_url})`}}></div>
+                <div className = "liked-listing-item-thumbnail" style = {{backgroundImage : `url(${likedListing.image_url})`}} />
+                <div className = "liked-listing-item-info">
                 ${likedListing.price} {likedListing.purchase ? `per month` : null}<br/>
                 {likedListing.num_bedrooms} beds<br/>
                 {likedListing.num_bathrooms} baths<br/>
                 {likedListing.sqft} sqft<br/>
-                {likedListing.street_number} {likedListing.street_name}, {likedListing.city_name}, {likedListing.state} {likedListing.zipcode}<br/>
-                {likedListing.longitude}
+                {likedListing.street_number} {likedListing.street_name}, {likedListing.city_name}, {likedListing.state} {likedListing.zipcode}
+                </div>
             </div>
         )
     }

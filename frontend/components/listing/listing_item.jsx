@@ -20,11 +20,13 @@ render() {
     <li className = "listing-index-item" onClick = {this.handleClick}>
             <img className = "listing-index-item-thumbnail" src = {listing.image_url} alt = "index_item_thumbnail"></img>
             <div className = "listing-index-item-info">
-            <h3>${listing.price} {listing.purchase ? null : 'per month' }</h3>
-            <p>{listing.num_bedrooms} bd | {listing.num_bathrooms} ba | {listing.sqft} sqft</p>
-            <p className = "index-item-address">{listing.street_number} {listing.street_name}
+            <p>
+            <span className = "listing-index-item-price">${listing.price} {listing.purchase ? null : 'per month' }</span>
             <br/>
+            {listing.num_bedrooms} bd {listing.num_bathrooms} ba {listing.sqft}sqft<br/>
+            <span className = "index-item-address">{listing.street_number} {listing.street_name}
             {listing.city_name}, {listing.state}, {listing.zipcode}
+            </span>
             </p>
             </div>
     </li>

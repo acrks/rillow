@@ -38,7 +38,7 @@ class BenchMap extends React.Component {
   componentDidUpdate(prevProps) {
     // Typical usage (don't forget to compare props):
     if (this.props.listings !== prevProps.listings) {
-      this.MarkerManager.updateMarkers()
+      // this.MarkerManager.updateMarkers()
     }
   }
 
@@ -50,19 +50,11 @@ class BenchMap extends React.Component {
     this.props.listings.map((listing, i) => {
       new google.maps.Marker({
         position: {lat: listing.latitude, lng: listing.longitude},
-        label: i,
         map: this.map,
         title: `${listing.street_number} ${listing.street_name}`,
         animation: google.maps.Animation.DROP,
       });  
     })
-    
-    // new google.maps.Marker({
-    //   position: myLatLng,
-    //   map: this.map,
-    //   title: "Hello World!",
-    //   animation: google.maps.Animation.DROP,
-    // });
 
     return (
       // ...

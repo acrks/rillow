@@ -34,22 +34,30 @@ body {
 }
 
 .logo {
-    font-family: 'Quattrocento Sans', sans-serif;
-    color: #006AFF;
-    text-decoration: none;
-    font-size: 40px;
+
+
     width: 10%;
     height: 100%;
-    margin-left: 9%;
-    margin-right: 9%;
+    margin-left: 5%;
+    margin-right: 5%;
+    /* padding: 5%; */
     /* padding-top: 10px; */
-    background: url('https://raw.githubusercontent.com/acrks/rillow/main/app/assets/images/House_logo_w_letters_4.png') no-repeat;
-    background-size: cover;
-    background-position: 50% 25%;
+    background: url('https://raw.githubusercontent.com/acrks/rillow/favorites/app/assets/images/House_logo_w_letters_4.png') no-repeat;
+    background-size: contain;
+    background-position: center center;
 }
 
 .logo-text {
     background: none;
+    width: 15%;
+    font-size: 30px;
+    margin-left: 5%; 
+    margin-right: 5%; 
+    font-size: 40px;
+    font-family: 'Quattrocento Sans', sans-serif;
+    color: #006AFF;
+    text-decoration: none;
+
 }
 
 .headline {
@@ -319,8 +327,9 @@ h1 {
     display: flex;
     flex-direction: row;
     width: 100%;
+    height: 100%;
     background-color: white;
-    height: 800px;
+    height: 100vh;
 }
 
   .index-map-container {
@@ -331,11 +340,12 @@ h1 {
       flex-direction: column;
       justify-content: center;
       align-items: center;
+      z-index: 14;
   }
 
   .index-map {
-      height: 90%;
-      width: 90%;
+      height: 100%;
+      width: 100%;
   }
 
   .listing-form {
@@ -399,7 +409,7 @@ h1 {
   }
 
   .listing-index {
-    width: 50%;
+    width: 100%;
     list-style: none;
     display: flex;
     flex-direction: row;
@@ -410,21 +420,47 @@ h1 {
   }
 
   .listing-index-item-thumbnail {
-      width: 40%;
-
+      width: 100%;
+      height: 50%;
       object-fit: cover;
   }
 
   .listing-index-item-info {
-      width: 60%;
+      padding: 10px;
+      height: 50%;
+      width: 100%;
+  }
+
+  .listing-index-items {
+      width: 50%;
+      text-align: left;
+      overflow: scroll;
+      padding-top: 2.5%;
+      box-shadow: -5px 0px 12px -5px #000000;
+      z-index: 15;
   }
 
   .listing-index-item {
-      text-decoration: none;
-      width: 48%;
-      display: flex;
-      flex-direction: row;
-        height: 200px;
+    text-decoration: none;
+    width: 49%;
+    display: flex;
+    flex-direction: column;
+    height: 250px;
+    border: 1px solid rgb(237, 237, 237);
+    box-shadow: 1px 0px 5px -3px #000000;
+    margin: 0.25%;
+    text-align: left;
+    align-items: flex-start;
+    border-bottom: 5px solid #006AFF;
+  }
+
+  .listing-index-item-price {
+      font-weight: 600;
+  }
+
+  .index-item-address {
+      font-size: 12px;
+      text-align: left;
   }
 
   .options-links {
@@ -563,7 +599,7 @@ h1 {
      border-bottom: 1px solid lightgray;
      padding: 15px;
      width: 100vw;
-     margin-top: 10%;
+     /* margin-top: 10%; */
      display:flex;
      flex-direction: row;
      align-items: center;
@@ -577,4 +613,22 @@ h1 {
 
  .favorite-container:hover > span {
      text-decoration: underline;
+ }
+
+ .liked-listing-item {
+     border: 1px solid blue;
+ }
+
+ .liked-listing-item-info {
+    border: 1px solid salmon;
+    text-align: justify;
+ }
+
+ .liked-listing-item-thumbnail {
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 50%;
+    background-size: contain;
+    border: 1px solid black;
+    background-position: center;
  }
