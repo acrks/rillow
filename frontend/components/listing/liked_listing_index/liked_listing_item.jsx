@@ -34,6 +34,7 @@ class LikedListingItem extends React.Component {
                 {likedListing.num_bathrooms} baths<br/>
                 {likedListing.sqft} sqft<br/>
                 {likedListing.street_number} {likedListing.street_name}, {likedListing.city_name}, {likedListing.state} {likedListing.zipcode}<br/>
+                {likedListing.longitude}
             </div>
         )
     }

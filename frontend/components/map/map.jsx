@@ -4,7 +4,7 @@ import MarkerManager from '../../utils/marker_manager';
 class BenchMap extends React.Component {
   constructor(props){
     super(props)
-    this.map = google.maps.Map;
+    // this.map = google.maps.Map;
     this.state = {
       listings: this.props.listings
     }
@@ -28,51 +28,43 @@ class BenchMap extends React.Component {
                 }
             ]
     };
-    console.log(this.props.listings)
     // wrap this.mapNode in a Google Map
     this.map = new google.maps.Map(this.mapNode, mapOptions);
     // this.geoCoder = google.maps.Geocoder.geocode()
     this.MarkerManager = new MarkerManager(this.map);
     // this.MarkerManager.updateMarkers()
-    const myLatLng = { lat: 37.7758, lng: -122.435 };
-    this.geocoder = new google.maps.Geocoder();
-    
-    new google.maps.Marker({
-      position: myLatLng,
-      map: this.map,
-      title: "Hello World!",
-      animation: google.maps.Animation.DROP,
-    });
-    console.log(this.props.listings[0])
-
   }
 
-
-
-  createAddress(listing) {
-    const {street_number, street_name, city_name, state, zipcode} = listing
-    return street_number + " " + street_name + " " + city_name  + " " + state + " " + zipcode
+  componentDidUpdate(prevProps) {
+    // Typical usage (don't forget to compare props):
+    if (this.props.listings !== prevProps.listings) {
+      this.MarkerManager.updateMarkers()
+    }
   }
-
-  // codeAddress() {
-  //   var address = document.getElementById('address').value;
-  //   geocoder.geocode( { 'address': address}, function(results, status) {
-  //     if (status == 'OK') {
-  //       map.setCenter(results[0].geometry.location);
-  //       var marker = new google.maps.Marker({
-  //           map: map,
-  //           position: results[0].geometry.location
-  //       });
-  //     } else {
-  //       alert('Geocode was not successful for the following reason: ' + status);
-  //     }
-  //   });
-  // }
 
   render() {
     if(!this.props.listings) {
       return null
     }
+
+    this.props.listings.map((listing, i) => {
+      new google.maps.Marker({
+        position: {lat: listing.latitude, lng: listing.longitude},
+        map: this.map,
+        title: "Hello World!",
+        animation: google.maps.Animation.DROP,
+      });  
+    })
+    
+    const myLatLng = { lat: 37.7758, lng: -122.435 };
+    this.geocoder = new google.maps.Geocoder();
+    
+    // new google.maps.Marker({
+    //   position: myLatLng,
+    //   map: this.map,
+    //   title: "Hello World!",
+    //   animation: google.maps.Animation.DROP,
+    // });
 
     return (
       // ...

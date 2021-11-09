@@ -25,8 +25,6 @@ class ListingIndex extends React.Component {
         this.props.history.push(path);
     }
 
-    
-
     render() {
 
         const { listings, updateListing} = this.props
