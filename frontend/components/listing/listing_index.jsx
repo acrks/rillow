@@ -35,10 +35,20 @@ class ListingIndex extends React.Component {
                 <MapContainer listings={listings}/>
                 </div>
                 <div className = "listing-index-items">
-                <button onClick = {this.routeChangeCreate} className = "sign-in-button show-page-outreach-button">Create A Listing</button>
-                    <br/>
+                    <div className = "listing-index-item-navbar">
                 {listings.length} listings total
+                    <br/>
+                <button onClick = {this.routeChangeCreate} className = "sign-in-button show-page-outreach-button">Create A Listing</button>
+                    </div>
                 <ul className = "listing-index">
+                {/* {
+            this.props.stylists.filter((val) => {
+              if (searchTerm === '') {
+                return val
+              } else if (val.handle.toLowerCase().includes(searchTerm.toLowerCase()) || val.firstName.toLowerCase().includes(searchTerm.toLowerCase()) || val.address.toLowerCase().includes(searchTerm.toLowerCase()))
+                return val
+            }).map( (stylist, i) => <StylistIndexItem key={i} stylist={stylist}/> )
+          } */}
                     {listings.map(listing =>( 
                         <ListingItem 
                         key = {listing.id} 

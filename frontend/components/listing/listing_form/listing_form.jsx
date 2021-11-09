@@ -68,6 +68,7 @@ class ListingForm extends React.Component {
         this.handleChange = this.handleChange.bind(this)
         this.handleSubmit = this.handleSubmit.bind(this)
         this.formRender = this.formRender.bind(this)
+        this.changeAddress = this.changeAddress.bind(this)
     }
 
     componentDidMount() {
@@ -81,10 +82,44 @@ class ListingForm extends React.Component {
 
     handleFile(e) {
         this.setState({picture: e.currentTarget.files[0]})
+        const reader = new FileReader();
+        const file = e.currentTarget.files[0];
+        reader.onloadend = () =>
+        this.setState({ image_url: reader.result, imageFile: file });
+
+        if (file) {
+        reader.readAsDataURL(file);
+        } else {
+        this.setState({ image_url: "", imageFile: null });
+        }
+    }
+
+    changeAddress() {
+        String.prototype.replaceAt = function(index, replacement) {
+            return this.substr(0, index) + replacement + this.substr(index + replacement.length);
+        }
+        let result = ""
+        let street_name_copy = this.state.street_name
+        let city_name_copy = this.state.city_name
+        while(street_name_copy.includes(' ')) {
+            let index = street_name_copy.indexOf(' ')
+            street_name_changed = street_name.replaceAt(index, '%20')
+        }
+        while(city_name_copy.includes(' ')) {
+            let index = city_name_copy.indexOf(' ')
+            city_name_copy = street_name.replaceAt(index, '%20')
+        }
+        result = `${this.state.street_number}%20${street_name_copy}%20${city_name_copy}%20${this.state.state}%20${this.state.zipcode}`
+        return result
     }
 
     handleSubmit(e) {
         e.preventDefault()
+        let googleApiAddress = this.changeAddress()
+        fetch(`https://maps.googleapis.com/maps/api/geocode/json?address=${googleApiAddress}%20San%20Francisco&key=${process.env.REACT_APP_GOOGLE_API_KEY}`)
+        .then(response=>response.json())
+        .then(data=> {
+          let latLng = data.results[0].geometry.location
         const formData = new FormData();
         formData.append('listing[street_number]', this.state.street_number)
         formData.append('listing[street_name]', this.state.street_name)
@@ -97,7 +132,9 @@ class ListingForm extends React.Component {
         formData.append('listing[sqft]', this.state.sqft)
         formData.append('listing[price]', this.state.price)
         formData.append('listing[picture]', this.state.picture)
-
+        formData.append('listing[latitude]', latLng.lat)
+        formData.append('listing[longitude]', latLng.lng)
+        })
         const listing = Object.assign({}, this.state)
         if(this.props.formType === 'Create Listing') {
             this.props.action(formData)
@@ -125,9 +162,10 @@ class ListingForm extends React.Component {
         return(
             // Add place holders
         <div className = "listing-form">
-            <div className = "listing-form-picture">
-                <img src = {this.state.image_url} alt = "listing-form-picture"/>
-            </div>
+            {/* <div className = "listing-form-picture"> */}
+                {/* <img src = {this.state.image_url} alt = "listing-form-picture"/> */}
+                {!this.state.image_url ? <div className = "listing-form-picture">Pictures of your listing</div> : <div className = "listing-form-picture" style = {{backgroundImage : `url(${this.state.image_url})`}} />}
+            {/* </div> */}
         <div className = "listing-form-info">
         <form className = "listing-form-forms" onSubmit = {this.handleSubmit}>
         <h1>{this.props.formType}</h1>
@@ -143,7 +181,7 @@ class ListingForm extends React.Component {
         </label>
         {/* Consider a dropdown */}
         <label>State
-            <select placeholder = "Any State" value = {this.state.state} onChange = {this.handleChange('state')}>
+            <select value = {this.state.state} onChange = {this.handleChange('state')}>
                 <option value="" disabled defaultValue>Select a state</option>
                 {this.stateList.map((state, index) => <option value={state} key = {index}>{state}</option>)}
             </select>
