@@ -7,7 +7,12 @@ import MapContainer from '../map/map'
 class ListingIndex extends React.Component {
     constructor(props) {
         super(props)
-        this.state = {search: ''}
+        if(this.props.location.searchTerm) {
+            this.state = {search: this.props.location.searchTerm}
+        }
+        else {
+            this.state = {search: ''}
+        }
         this.updateSearch = this.updateSearch.bind(this)
         this.routeChangeCreate = this.routeChangeCreate.bind(this)
     }
@@ -37,7 +42,7 @@ class ListingIndex extends React.Component {
         return (
             <>
             <div className = "listing-index-search-bar" >
-            <input className = "input-search" type="text" placeholder="search..." onChange={this.updateSearch}/>
+            <input className = "input-search" type="text" placeholder="search..." value = {this.state.search} onChange={this.updateSearch}/>
             </div> 
             <div className = "listing-index-container">
                 <div className = "index-map-container">
