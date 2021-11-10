@@ -63,13 +63,6 @@ class ListingIndex extends React.Component {
                     return val
                 }).map(listing => <ListingItem key={listing.id} listing={listing} updateListing={updateListing}/> )
                 }
-                    {/* {listings.map(listing =>( 
-                        <ListingItem 
-                        key = {listing.id} 
-                        listing = {listing} 
-                        updateListing = {updateListing} 
-                        />
-                        ))} */}
                 </ul>
                 </div>
             </div>

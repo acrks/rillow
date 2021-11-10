@@ -37,12 +37,12 @@ class BenchMap extends React.Component {
     // this.MarkerManager.updateMarkers()
   }
 
-  componentDidUpdate(prevProps) {
-    // Typical usage (don't forget to compare props):
-    if (this.props.listings !== prevProps.listings) {
-      // this.MarkerManager.updateMarkers()
-    }
-  }
+  // componentDidUpdate(prevProps) {
+  //   // Typical usage (don't forget to compare props):
+  //   if (this.props.listings !== prevProps.listings) {
+  //     // this.MarkerManager.updateMarkers()
+  //   }
+  // }
 
   bindInfoWindow(marker, map, infowindow, html, listingId) { 
     google.maps.event.addListener(marker, 'mouseover', function() { 
