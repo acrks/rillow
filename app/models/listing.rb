@@ -21,12 +21,12 @@
 #  unit_number   :string
 #
 class Listing < ApplicationRecord
-    validates :creator_id, :price, :sqft, :num_bedrooms, :num_bathrooms, :street_number, :street_name, :city_name, :state, :zipcode, :picture, presence: true
+    validates :creator_id, :price, :sqft, :num_bedrooms, :num_bathrooms, :street_number, :street_name, :city_name, :state, :zipcode, presence: true
     validates :purchase, inclusion: { in: [true, false] }
     validates :zipcode, numericality: { greater_than_or_equal_to: 10000, less_than_or_equal_to: 99999, only_integer: true }
     validates :street_number, :num_bathrooms, :num_bedrooms, :price, :sqft, :creator_id, numericality: {greater_than_or_equal_to: 1}
-    
-    has_one_attached :picture
+    validate :ensure_photo
+    has_many_attached :pictures
 
     belongs_to :creator,
         primary_key: :id,
@@ -40,5 +40,11 @@ class Listing < ApplicationRecord
     has_many :favorite_users,
         through: :favorites,
         source: :favoriter
+
+    def ensure_photo
+        unless self.picture.attached?
+            errors[:picture] << "Must be attached"
+        end
+    end
 
 end

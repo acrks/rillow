@@ -54,7 +54,7 @@ class Api::ListingsController < ApplicationController
             :city_name,
             :state,
             :zipcode,
-            :picture,
+            :pictures: [],
             :longitude,
             :latitude,
             :creator_id
