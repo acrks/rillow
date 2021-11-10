@@ -328,6 +328,13 @@ h1 {
     height: 100vh;
 }
 
+.listing-index-search-bar {
+    width: 100%;
+    height: 75px;
+    z-index: 20;
+    background-color: white;
+}
+
 .listing-index-item-navbar {
     /* border: 1px solid red; */
     text-align: center;

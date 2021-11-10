@@ -7,7 +7,8 @@ import MapContainer from '../map/map'
 class ListingIndex extends React.Component {
     constructor(props) {
         super(props)
-
+        this.state = {search: ''}
+        this.updateSearch = this.updateSearch.bind(this)
         this.routeChangeCreate = this.routeChangeCreate.bind(this)
     }
 
@@ -20,17 +21,25 @@ class ListingIndex extends React.Component {
         // this.props.removeListings
     }
 
+    updateSearch(e) {
+        this.setState({search: e.target.value})
+      }
+
     routeChangeCreate() {
         let path = `/listings/create`;
         this.props.history.push(path);
     }
 
     render() {
+        const searchTerm = this.state.search
 
         const { listings, updateListing} = this.props
         return (
+            <>
+            <div className = "listing-index-search-bar" >
+            <input className = "input-search" type="text" placeholder="search..." onChange={this.updateSearch}/>
+            </div> 
             <div className = "listing-index-container">
-                    
                 <div className = "index-map-container">
                 <MapContainer listings={listings}/>
                 </div>
@@ -41,24 +50,25 @@ class ListingIndex extends React.Component {
                 <button onClick = {this.routeChangeCreate} className = "sign-in-button show-page-outreach-button">Create A Listing</button>
                     </div>
                 <ul className = "listing-index">
-                {/* {
-            this.props.stylists.filter((val) => {
-              if (searchTerm === '') {
-                return val
-              } else if (val.handle.toLowerCase().includes(searchTerm.toLowerCase()) || val.firstName.toLowerCase().includes(searchTerm.toLowerCase()) || val.address.toLowerCase().includes(searchTerm.toLowerCase()))
-                return val
-            }).map( (stylist, i) => <StylistIndexItem key={i} stylist={stylist}/> )
-          } */}
-                    {listings.map(listing =>( 
+                {
+                this.props.listings.filter((val) => {
+                if (searchTerm === '') {
+                    return val
+                } else if (val.street_name.toLowerCase().includes(searchTerm.toLowerCase()) || val.city_name.toLowerCase().includes(searchTerm.toLowerCase()) || (val.zipcode).toString().includes(searchTerm))
+                    return val
+                }).map(listing => <ListingItem key={listing.id} listing={listing} updateListing={updateListing}/> )
+                }
+                    {/* {listings.map(listing =>( 
                         <ListingItem 
                         key = {listing.id} 
                         listing = {listing} 
                         updateListing = {updateListing} 
                         />
-                        ))}
+                        ))} */}
                 </ul>
                 </div>
             </div>
+            </>
         )
     }
 }
