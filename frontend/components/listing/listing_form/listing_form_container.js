@@ -5,21 +5,26 @@ import ListingForm from './listing_form'
 
 const mapStateToProps = (state) => ({
     listing: {
-        purchase: true,
-        price: '',
-        sqft: '',
-        num_bedrooms: 1,
-        num_bathrooms: 1,
-        street_number: "",
         street_name: '',
+        street_number: '',
         city_name: '',
         state: '',
         zipcode: '',
-        picture: null,
+        unit_number: '',
+        creator_id: state.session.currentUser.id,
+        price: '',
+        num_bathrooms: 1,
+        num_bedrooms: 1,
+        sqft: '',
+        longitude: 0,
+        latitude: 0,
+        picture: '',
+        purchase: true,
+        unit_number: '',
     },
     formType: 'Create Listing',
     currentUser: state.session.currentUser,
-    errors: state.errors.listing
+    errors: Object.values(state.errors.listing)
 })
 
 const mapDispatchToProps = (dispatch) => ({

@@ -16,9 +16,12 @@
 #  created_at    :datetime         not null
 #  updated_at    :datetime         not null
 #  sqft          :integer
+#  longitude     :float
+#  latitude      :float
+#  unit_number   :string
 #
 class Listing < ApplicationRecord
-    validates :creator_id, :price, :sqft, :num_bedrooms, :num_bathrooms, :street_number, :street_name, :city_name, :state, :zipcode, presence: true
+    validates :creator_id, :price, :sqft, :num_bedrooms, :num_bathrooms, :street_number, :street_name, :city_name, :state, :zipcode, :picture, presence: true
     validates :purchase, inclusion: { in: [true, false] }
     validates :zipcode, numericality: { greater_than_or_equal_to: 10000, less_than_or_equal_to: 99999, only_integer: true }
     validates :street_number, :num_bathrooms, :num_bedrooms, :price, :sqft, :creator_id, numericality: {greater_than_or_equal_to: 1}

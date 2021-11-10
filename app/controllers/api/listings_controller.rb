@@ -1,13 +1,12 @@
 class Api::ListingsController < ApplicationController
-    before_action :require_logged_in, only: [:create, :delete]
+    
 
     def create
         @listing = Listing.new(listing_params)
-        @listing.creator_id = current_user.id
         if @listing.save
           render :show
         else
-          render json: @listing.errors.full_messages, status: 422
+          render json: @listing.errors.full_messages, status: 401
         end
       end
 
@@ -55,8 +54,10 @@ class Api::ListingsController < ApplicationController
             :city_name,
             :state,
             :zipcode,
-            :picture
+            :picture,
+            :longitude,
+            :latitude,
+            :creator_id
         )
     end
-
 end 

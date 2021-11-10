@@ -16,6 +16,9 @@
 #  created_at    :datetime         not null
 #  updated_at    :datetime         not null
 #  sqft          :integer
+#  longitude     :float
+#  latitude      :float
+#  unit_number   :string
 #
 require 'test_helper'
 
