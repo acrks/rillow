@@ -1,5 +1,4 @@
 class Api::ListingsController < ApplicationController
-    
 
     def create
         @listing = Listing.new(listing_params)
@@ -53,8 +52,8 @@ class Api::ListingsController < ApplicationController
             :street_name,
             :city_name,
             :state,
+            :picture,
             :zipcode,
-            :pictures: [],
             :longitude,
             :latitude,
             :creator_id

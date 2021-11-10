@@ -86,12 +86,19 @@ class ListingForm extends React.Component {
       }
 
     handleFile(e) {
-        this.setState({picture: e.currentTarget.files[0]})
+        // this.setState({picture: e.currentTarget.files[0]})
+        this.setState({listing: {
+            ...this.state.listing,
+            picture: e.currentTarget.files[0]
+        }})
+        console.log(this.state)
         const reader = new FileReader();
         const file = e.currentTarget.files[0];
-        reader.onloadend = () =>
-        this.setState({ image_url: reader.result, imageFile: file });
-
+        reader.onloadend = () => {
+        this.setState({
+            image_url: reader.result, imageFile: file }
+            );
+        }
         if (file) {
         reader.readAsDataURL(file);
         } else {
@@ -132,9 +139,7 @@ class ListingForm extends React.Component {
         formData.append('listing[num_bathrooms]', this.state.listing.num_bathrooms)
         formData.append('listing[sqft]', this.state.listing.sqft)
         formData.append('listing[creator_id]', this.state.listing.creator_id)
-        if (this.state.listing.picture) {
-            formData.append('listing[picture]', this.state.listing.picture);
-          }
+        formData.append('listing[picture]', this.state.imageFile);
         if (this.state.listing.unit_number) {
             formData.append('listing[unit_number]', this.state.listing.unit_number);
         }
@@ -172,7 +177,7 @@ class ListingForm extends React.Component {
         <div className = "listing-form">
             {/* <div className = "listing-form-picture"> */}
                 {/* <img src = {this.state.image_url} alt = "listing-form-picture"/> */}
-                {!this.state.listing.image_url ? <div className = "listing-form-picture">Pictures of your listing</div> : <div className = "listing-form-picture" style = {{backgroundImage : `url(${this.state.image_url})`}} />}
+                {!this.state.image_url ? <div className = "listing-form-picture">Picture of your listing</div> : <div className = "listing-form-picture" style = {{backgroundImage : `url(${this.state.image_url})`}} />}
             {/* </div> */}
         <div className = "listing-form-info">
         <form className = "listing-form-forms" onSubmit = {this.handleSubmit}>
@@ -185,7 +190,7 @@ class ListingForm extends React.Component {
             <input type = "text" placeholder = "Any Street" value = {this.state.listing.street_name} onChange = {this.handleChange('street_name')}/>
         </label>
         <label>Unit Number
-            <input type = "text" placeholder = "If applicable" value = {this.state.listing.unit_number} onChange = {this.handleChange('unit_number')}/>
+            <input type = "text" placeholder = "if applicable" value = {this.state.listing.unit_number} onChange = {this.handleChange('unit_number')}/>
         </label>
         <label>City
             <input type = "text" placeholder = "Any Town" value = {this.state.listing.city_name} onChange = {this.handleChange('city_name')}/>

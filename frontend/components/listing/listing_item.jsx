@@ -24,8 +24,7 @@ render() {
             <span className = "listing-index-item-price">${listing.price} {listing.purchase ? null : 'per month' }</span>
             <br/>
             {listing.num_bedrooms} bd {listing.num_bathrooms} ba {listing.sqft}sqft<br/>
-            <span className = "index-item-address">{listing.street_number} {listing.street_name}
-            {listing.city_name}, {listing.state}, {listing.zipcode}
+            <span className = "index-item-address">{listing.street_number} {listing.street_name}, {listing.city_name}, {listing.state}, {listing.zipcode}
             </span>
             </p>
             </div>
