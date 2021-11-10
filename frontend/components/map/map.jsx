@@ -1,5 +1,7 @@
 import React from 'react'
 import MarkerManager from '../../utils/marker_manager';
+import { withRouter } from 'react-router-dom';
+
 
 class BenchMap extends React.Component {
   constructor(props){
@@ -9,7 +11,7 @@ class BenchMap extends React.Component {
       listings: this.props.listings
     }
     // this.createAddress = this.createAddress.bind(this)
-    
+    this.bindInfoWindow = this.bindInfoWindow.bind(this)
     // geocoder = new google.maps.Geocoder();
 }
   //...
@@ -42,19 +44,39 @@ class BenchMap extends React.Component {
     }
   }
 
+  bindInfoWindow(marker, map, infowindow, html, listingId) { 
+    google.maps.event.addListener(marker, 'mouseover', function() { 
+      infowindow.setContent(html); 
+      infowindow.open(map, marker); 
+    }); 
+
+    google.maps.event.addDomListener(infowindow, 'click', function() { 
+      console.log("This works")
+      let path = `/listings/${listingId}`;
+      this.props.history.push(path);
+    }); 
+  } 
+
   render() {
     if(!this.props.listings) {
       return null
     }
 
+    var infowindow =  new google.maps.InfoWindow({
+      content: ''
+    });
+
     this.props.listings.map((listing, i) => {
-      new google.maps.Marker({
+      var marker = new google.maps.Marker({
         position: {lat: listing.latitude, lng: listing.longitude},
         map: this.map,
         title: `${listing.street_number} ${listing.street_name}`,
         animation: google.maps.Animation.DROP,
       });  
+      this.bindInfoWindow(marker, this.map, infowindow, "<p>" + `${listing.street_number} ${listing.street_name}` + "</p>", listing.id);  
+
     })
+
 
     return (
       // ...
@@ -65,4 +87,4 @@ class BenchMap extends React.Component {
   //...
 }
 
-export default BenchMap
+export default withRouter(BenchMap)
