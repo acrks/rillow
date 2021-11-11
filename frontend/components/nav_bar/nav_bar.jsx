@@ -8,9 +8,8 @@ export default ({ currentUser, logout, openModal }) => {
       <Link to = "/listings" className = "nav-bar-link">Rent</Link>
       <Link to = "/listings/create" className = "nav-bar-link">Sell</Link>
       <a target="_blank" href="https://www.linkedin.com/in/alex-crooks/" className = "nav-bar-link">LinkedIn</a>
-      <a target="_blank" href="https://angel.co/u/alex-crooks" className = "nav-bar-link">AngelList</a>
       <Link to = "/" className="logo"></Link>
-      <Link to = "/" className = "nav-bar-link">Manage Rentals</Link>
+      <a target="_blank" href="https://angel.co/u/alex-crooks" className = "nav-bar-link">AngelList</a>
       <a target="_blank" href="https://alexcrooks.net/" className = "nav-bar-link">Portfolio</a>
       {currentUser ? 
       <><Link to = "/favorites" className = "nav-bar-link">Saved Listings</Link>

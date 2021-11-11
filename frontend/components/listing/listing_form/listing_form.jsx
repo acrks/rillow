@@ -248,10 +248,8 @@ class ListingForm extends React.Component {
     render() {
         //If the formType is update listing
         if(this.props.formType === 'Update Listing') {
-            //If the user is logged in
-            if(this.props.currentUser !== null) {
                 //If the user is not the creator
-                if(this.props.currentUser.email !== this.state.creator.email) {
+                if(this.props.currentUser.email !== this.state.listing.creator.email) {
                     //Message
                     return(<p>Cannot edit a post you did not create</p>)
                 }
@@ -261,12 +259,6 @@ class ListingForm extends React.Component {
                     return(this.formRender())
                 }
             }
-            //Else the user is not logged in
-            else {
-                // Cannot edit unless logged in
-                return(<p>Must be logged in to edit a listing</p>)
-            }
-        }
         //If the formType is create listing
         else {
             // If the user is logged in
@@ -274,9 +266,9 @@ class ListingForm extends React.Component {
                 return(this.formRender())
             }
             // Else the user is not logged in
-            else{
-                return(<p>You must be logged in to create a listing</p>)
-            }
+            // else{
+            //     return(<p>You must be logged in to create a listing</p>)
+            // }
         }
     }
 }
