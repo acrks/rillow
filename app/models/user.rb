@@ -12,10 +12,9 @@
 #  last_name       :string
 #
 class User < ApplicationRecord
-
     attr_reader :password
   
-    validates :email, presence: true, uniqueness: true
+    validates :email, presence: true, uniqueness: true, format: { with: URI::MailTo::EMAIL_REGEXP } 
     validates :password_digest, :session_token, presence: true
     validates :password, length: { minimum: 8 }, allow_nil: true
   
@@ -72,10 +71,6 @@ class User < ApplicationRecord
         self.session_token = new_session_token
       end
       self.session_token
-    end
-
-    def addFavorite(newListing)
-      
     end
   end
   

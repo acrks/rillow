@@ -101,6 +101,8 @@ GEM
     concurrent-ruby (1.1.9)
     crass (1.0.6)
     debug_inspector (1.1.0)
+    email_validator (2.2.3)
+      activemodel
     erubi (1.10.0)
     execjs (2.8.1)
     ffi (1.15.4)
@@ -238,6 +240,7 @@ DEPENDENCIES
   capybara (>= 2.15)
   chromedriver-helper
   coffee-rails (~> 4.2)
+  email_validator
   figaro
   jbuilder (~> 2.5)
   jquery-rails
