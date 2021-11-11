@@ -51,6 +51,14 @@ export const createListing = listing => dispatch => (
   ))
 );
 
+export const fetchUserListings = userId => dispatch => (
+  $.ajax({
+    url: "/api/listings/",
+    method: "GET",
+    data: { creator_id: userId}
+  }).then((listings) => dispatch(receiveListings(listings)))
+)
+
 export const updateListing = listing => dispatch => (
   APIUtil.updateListing(listing)
   .then(listing => dispatch(receiveListing(listing)))

@@ -15,6 +15,9 @@ class Api::ListingsController < ApplicationController
 
     def index
         @listings = Listing.all
+        if params[:creator_id] 
+          @listings = @listings.where(creator_id: params[:creator_id])
+        end
         # @listings = listings.includes(:favorite_users)
         render :index
     end
