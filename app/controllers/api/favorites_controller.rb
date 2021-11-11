@@ -29,9 +29,9 @@ class Api::FavoritesController < ApplicationController
       if(params[:favoriter_id])
         @favorites = @favorites.where(favoriter_id: params[:favoriter_id])
       end
-      # if(params[:listing_id] && params[:favoriter_id])
-      #   @favorites = @favorites.where(listing_id: params[:listing_id], favoriter_id: params[:favoriter_id])
-      # end
+      if(params[:listing_id] && params[:favoriter_id])
+         @favorites = @favorites.where(listing_id: params[:listing_id], favoriter_id: params[:favoriter_id])
+      end
       render "/api/favorites/index"
     end
 

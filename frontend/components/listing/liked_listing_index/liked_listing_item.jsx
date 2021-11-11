@@ -5,7 +5,9 @@ import {withRouter} from 'react-router-dom'
 class LikedListingItem extends React.Component {
     constructor(props) {
         super(props)
-
+        this.state = {
+            favorites: this.props.favorites
+        }
         this.directToPage = this.directToPage.bind(this)
     }
 

@@ -23,7 +23,7 @@ class ListingIndex extends React.Component {
     }
 
     componentWillUnmount() {
-        // this.props.removeListings()
+        this.props.clearListings()
     }
 
     updateSearch(e) {
