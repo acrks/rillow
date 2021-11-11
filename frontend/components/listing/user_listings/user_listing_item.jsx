@@ -5,9 +5,6 @@ import {withRouter} from 'react-router-dom'
 class userListingItem extends React.Component {
     constructor(props) {
         super(props)
-        // this.state = {
-        //     favorites: this.props.favorites
-        // }
         this.directToPage = this.directToPage.bind(this)
     }
 
@@ -16,11 +13,6 @@ class userListingItem extends React.Component {
         let path = `/listings/${this.props.listing.id}`;
         this.props.history.push(path);
     }
-
-
-    // componentDidMount() {
-    //     this.props.fetchListing(this.props.listingId)
-    // } 
     
     render(){
         if(!this.props.listing) {

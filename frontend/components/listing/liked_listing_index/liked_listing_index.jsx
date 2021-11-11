@@ -6,6 +6,10 @@ class LikedListingIndex extends React.Component {
         this.props.getUserLikes(this.props.currentUser.id)
     }
 
+    componentWillUnmount() {
+        this.props.clearListings()
+    }
+
     render() {
         if(!this.props.favorites) {
             return null

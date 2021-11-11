@@ -1,7 +1,7 @@
 import {connect} from 'react-redux'
 import LikedListingIndex from './liked_listing_index'
-import { fetchListings } from "../../../actions/listing_actions"
-import { getUserLikes } from '../../../actions/favorite_actions'
+import { fetchListings, clearListings  } from "../../../actions/listing_actions"
+import { getUserLikes} from '../../../actions/favorite_actions'
 
 const mapStateToProps = (state) => ({
     currentUser: state.session.currentUser,
@@ -12,6 +12,7 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = (dispatch) => ({
     fetchListings: listing => (dispatch(fetchListings(listing))),
     getUserLikes: (userId) => dispatch(getUserLikes(userId)),
+    clearListings: () => dispatch(clearListings())
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(LikedListingIndex)

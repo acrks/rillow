@@ -1,9 +1,13 @@
 import React from 'react'
-import UserListingIndexItem from './user_listing_item_container'
+import UserListingIndexItem from './user_listing_item'
 
 class UserListingIndex extends React.Component {
     componentDidMount() {
         this.props.getUserListings(this.props.currentUser.id)
+    }
+
+    componentWillUnmount() {
+        this.props.clearListings()
     }
 
     render() {
