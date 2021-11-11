@@ -4,10 +4,12 @@ import UserListingIndexItem from './user_listing_item'
 class UserListingIndex extends React.Component {
     componentDidMount() {
         this.props.getUserListings(this.props.currentUser.id)
+        document.title = 'Your listings'
     }
 
     componentWillUnmount() {
         this.props.clearListings()
+        document.title = 'Rillow Not Real Estate'
     }
 
     render() {
