@@ -85,7 +85,7 @@ listing3.save!
 
 listing4 = Listing.new(
 creator_id: user1.id,
-purchase: 'true',
+purchase: 'false',
 price: 371900,
 num_bedrooms: 4,
 sqft: 2500,

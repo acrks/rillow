@@ -92,12 +92,12 @@ class SessionForm extends React.Component {
           </div>
             {this.props.formType === 'signup' ? 
             <><div className = "label-container">
-            <label className = "label-header">First Name
+            <label className = "label-header">First Name (not required)
               <input type = "text" value = {this.state.firstName} onChange = {this.update('firstName')} placeholder = "Enter first name" className = "subheader input-field"/>
               </label>
           </div>
                     <div className = "label-container">
-            <label className = "label-header">Last Name
+            <label className = "label-header">Last Name (not required)
               <input type = "text" value = {this.state.lastName} onChange = {this.update('lastName')} placeholder = "Enter last name" className = "subheader input-field"/>
               </label>
           </div>

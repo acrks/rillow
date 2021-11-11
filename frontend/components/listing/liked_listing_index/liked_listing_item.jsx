@@ -32,11 +32,9 @@ class LikedListingItem extends React.Component {
             <div className = "liked-listing-item" onClick = {this.directToPage}>
                 <div className = "liked-listing-item-thumbnail" style = {{backgroundImage : `url(${likedListing.image_url})`}} />
                 <div className = "liked-listing-item-info">
-                ${likedListing.price} {likedListing.purchase ? `per month` : null}<br/>
-                {likedListing.num_bedrooms} beds<br/>
-                {likedListing.num_bathrooms} baths<br/>
-                {likedListing.sqft} sqft<br/>
-                {likedListing.street_number} {likedListing.street_name}, {likedListing.city_name}, {likedListing.state} {likedListing.zipcode}
+                <span className = "listing-index-item-price">${likedListing.price} {likedListing.purchase ? `per month` : null}</span>
+                {likedListing.num_bedrooms} bds   {likedListing.num_bathrooms} ba   {likedListing.sqft} sqft<br/>
+                <span className = "liked-listing-item-address">{likedListing.street_number} {likedListing.street_name}, {likedListing.city_name}, {likedListing.state} {likedListing.zipcode}</span>
                 </div>
             </div>
         )

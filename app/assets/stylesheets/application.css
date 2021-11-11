@@ -625,20 +625,95 @@ h1 {
      text-decoration: underline;
  }
 
+ .liked-listing-index-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    height: 100vh;
+    align-items: center;
+}
+
+.liked-listing-index-header {
+    text-align: left;
+    font-size: 25px;
+    font-family: 'Lora', serif;
+    padding: 10px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.liked-listing-index-subheader {
+    width: 70%;
+    font-size: 35px;
+    margin-top: 25px;
+}
+
+.liked-listing-index-commcentral {
+    font-size: 15px;
+    font-weight: 900px;
+    width: 70%;
+    height: 75px;
+    display: flex;
+    flex-direction: row;
+    background-color: white;
+    /* justify-content: center; */
+    align-items: center;
+    padding: 10px;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.liked-listing-index {
+    width: 70%;
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding: 0px;
+    overflow: scroll;
+
+}
+
  .liked-listing-item {
-     border: 1px solid blue;
- }
+     width: 30%;
+     height: 300px;
+     margin-left: 1%;
+     margin-right: 1%;
+     background-color: white;
+     box-shadow: 1px 0px 5px -3px #000000;
+     border-bottom: 5px solid #006AFF;
+
+    }
 
  .liked-listing-item-info {
-    border: 1px solid salmon;
     text-align: justify;
+    padding-bottom: 5%;
+    padding-left: 3%;
+    height: 40%;
+    display: flex;
+    font-size: 14px;
+    flex-direction: column;
+    justify-content: center;
+ }
+
+ .liked-listing-item-info > .listing-index-item-price  {
+    font-size: 20px;
+ }
+
+ .liked-listing-item-address {
+     font-size: 10px;
  }
 
  .liked-listing-item-thumbnail {
     background-repeat: no-repeat;
     width: 100%;
-    height: 50%;
-    background-size: contain;
+    height: 60%;
+    background-size: cover;
     /* border: 1px solid black; */
     background-position: center;
  }

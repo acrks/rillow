@@ -14,10 +14,14 @@ class LikedListingIndex extends React.Component {
         const {favorites} = this.props
         // console.log(listings)
         return (
-            <div className = "listing-index-container">
-                Saved Homes<br/>
-                {favorites.length} saved homes
-                <ul className = "listing-index">
+            <div className = "liked-listing-index-container">
+            <div className = "liked-listing-index-header">
+                <div className = "liked-listing-index-subheader">Saved homes</div><br/>
+                <div className = "liked-listing-index-commcentral">
+                    {favorites.length} saved homes
+                </div>
+            </div>
+                <ul className = "liked-listing-index">
                     {favorites.map((fav, i) => (
                         <LikedListingIndexItem
                         key = {fav.id}
