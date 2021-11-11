@@ -57,7 +57,7 @@ class ListingShow extends React.Component {
         const {listing, deleteListing} = this.props
         return(
             <div className = "listing-show">
-                <img className = "listing-show-item-thumbnail" src = {listing.image_url} alt = "index_item_thumbnail"></img>
+                <div className = "listing-form-picture" style = {{backgroundImage : `url(${listing.image_url})`}} />
                 <div className = "listing-show-page-info">
                     <div className = "listing-show-page-banner">
                         <div className = "listing-show-page-logo logo"></div>
@@ -86,9 +86,10 @@ class ListingShow extends React.Component {
                     <>{this.props.currentUser.email === listing.creator.email ? 
                     <>
                     <br/>
-                    <button onClick={this.routeChangeEdit}>Edit Listing</button>
-                    <br/>
-                    <button onClick={() => deleteListing(listing.id).then(() => this.props.history.push('/listings'))}>Delete Listing</button>
+                    <div className = "listing-show-outreach">
+                    <button onClick={this.routeChangeEdit} className = "show-page-outreach-button sign-in-button">Edit Listing</button>
+                    <button onClick={() => deleteListing(listing.id).then(() => this.props.history.push('/listings'))} className = "show-page-outreach-button  sign-in-button white-zillow-button">Delete Listing</button>
+                    </div>
                     </> : null} 
                     </>
                     </> : `Please sign in to schedule a tour or make changes to the listing`}
