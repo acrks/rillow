@@ -1,6 +1,5 @@
 import React from 'react'
 import { withRouter } from 'react-router-dom';
-// import MAPS_API_KEY from '../../../config/application.yml'
 
 
 class ListingForm extends React.Component {
@@ -72,6 +71,7 @@ class ListingForm extends React.Component {
         this.handleChange = this.handleChange.bind(this)
         this.handleSubmit = this.handleSubmit.bind(this)
         this.formRender = this.formRender.bind(this)
+        this.getLngLat = this.getLngLat.bind(this)
     }
 
     componentDidMount() {
@@ -98,35 +98,42 @@ class ListingForm extends React.Component {
         this.setState({
             image_url: reader.result, imageFile: file }
             );
+            this.setState({listing: {
+            ...this.state.listing,
+            image_url: reader.result,
+            imageFile: file
+        }})
         }
         if (file) {
-        reader.readAsDataURL(file);
+        image_url.readAsDataURL(file);
         } else {
         this.setState({ image_url: "", imageFile: null });
         }
     }
 
-    handleSubmit(e) {
-        e.preventDefault()
+    async getLngLat() {
         let geocoder = new google.maps.Geocoder();
-        let that = this;
-        geocoder.geocode( {address:`${this.state.listing.street_number}, ${this.state.listing.street_name} ${this.state.listing.city_name}, ${this.state.listing.state}, ${this.state.listing.zipcode}`}, 
-        function(results, status) 
-        {
-            if (status === google.maps.GeocoderStatus.OK) 
-            {
-                that.setState({listing: {
-                    ...that.state.listing,
-                    latitude: results[0].geometry.location.lat()
-                }})
-                that.setState({listing: {
-                    ...that.state.listing,
-                    longitude: results[0].geometry.location.lng()
-                }})     
-            } else {
-                alert('Geocode was not successful for the following reason: ' + status);
-            }
-        })
+        try {
+            const response = await geocoder.geocode( {address:`${this.state.listing.street_number}, ${this.state.listing.street_name} ${this.state.listing.city_name}, ${this.state.listing.state}, ${this.state.listing.zipcode}`}) 
+            return response.results[0].geometry.location
+        }
+        catch {
+            alert('Could not find that address!')
+        }
+    }
+
+    async handleSubmit(e) {
+        e.preventDefault()
+        var geocodedAddress = await this.getLngLat()
+        
+        // console.log(geocodedAddress.lat())
+        this.setState({listing: {
+            ...this.state.listing,
+            latitude: geocodedAddress.lat(),
+            longitude: geocodedAddress.lng()
+        }})
+        
+        // if(geocodedAddress.lat)
         const formData = new FormData();
         //   let latLng = data.results[0].geometry.location
         formData.append('listing[street_number]', this.state.listing.street_number)
@@ -139,7 +146,9 @@ class ListingForm extends React.Component {
         formData.append('listing[num_bathrooms]', this.state.listing.num_bathrooms)
         formData.append('listing[sqft]', this.state.listing.sqft)
         formData.append('listing[creator_id]', this.state.listing.creator_id)
-        formData.append('listing[picture]', this.state.imageFile);
+        if (this.state.listing.image_url) {
+        formData.append('listing[picture]', this.state.listing.imageFile);
+        }
         if (this.state.listing.unit_number) {
             formData.append('listing[unit_number]', this.state.listing.unit_number);
         }
@@ -177,7 +186,7 @@ class ListingForm extends React.Component {
         <div className = "listing-form">
             {/* <div className = "listing-form-picture"> */}
                 {/* <img src = {this.state.image_url} alt = "listing-form-picture"/> */}
-                {!this.state.image_url ? <div className = "listing-form-picture">Picture of your listing</div> : <div className = "listing-form-picture" style = {{backgroundImage : `url(${this.state.image_url})`}} />}
+                {!this.state.listing.image_url ? <div className = "listing-form-picture">Picture of your listing</div> : <div className = "listing-form-picture" style = {{backgroundImage : `url(${this.state.image_url})`}} />}
             {/* </div> */}
         <div className = "listing-form-info">
         <form className = "listing-form-forms" onSubmit = {this.handleSubmit}>

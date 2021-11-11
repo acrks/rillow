@@ -16,12 +16,11 @@ const receiveListing = listing => ({
   listing
 });
 
-export const receiveListingErrors = errors => {
-  return ({
+export const receiveListingErrors = errors => ({
     type: RECEIVE_LISTING_ERRORS,
     errors
-  });
-}
+})
+  
 
 export const clearListings = () => ({
     type: CLEAR_LISTINGS
