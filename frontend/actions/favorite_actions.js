@@ -58,5 +58,5 @@ export const getUserLikes = (userId, listingId) => (dispatch) => {
     url: "/api/favorites/",
     method: "GET",
     data: { favoriter_id: userId, listing_id: listingId },
-  }).then((likeIndex) => dispatch(receiveFavoriteIndex(likeIndex)));
+  }).then((favorite) => dispatch(receiveFavorite(favorite)));
 };

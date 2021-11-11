@@ -16,7 +16,7 @@ class LikedListingIndex extends React.Component {
         return (
             <div className = "listing-index-container">
                 Saved Homes<br/>
-                {this.props.listings.length} saved homes
+                {this.props.favorites.length} saved homes
                 <ul className = "listing-index">
                     {favorites.map((fav, i) => (
                         <LikedListingIndexItem

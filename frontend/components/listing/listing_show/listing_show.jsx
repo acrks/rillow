@@ -9,8 +9,7 @@ class ListingShow extends React.Component {
     constructor(props) {
         super(props)
         this.state= {
-            liked: this.props.favorite.length,
-            like: '',
+            liked: '',
         }
         
         this.routeChangeEdit = this.routeChangeEdit.bind(this)
@@ -22,14 +21,15 @@ class ListingShow extends React.Component {
         if(this.props.currentUser) {
             this.props.getUserLikes(this.props.currentUser.id, this.props.match.params.id)
         }
-        if(this.props.favorite[0]) {
-            this.setState({liked: true})
-        }
+        // if(this.props.favorite) {
+        //     this.setState({liked: true})
+        // }
     }
 
     handleClick(e) {
         e.preventDefault()
-        if(this.state.liked) {
+        if(this.state.liked || this.props.favorite[0]) {
+        //   this.props.getUserLikes(this.props.currentUser.id, this.props.listing.id)
           this.props.deleteFavorite(this.props.favorite[0].id)
           this.setState({liked : false})
         }
@@ -38,12 +38,11 @@ class ListingShow extends React.Component {
             favoriter_id: this.props.currentUser.id,
             listing_id: this.props.listing.id
           }
-
           this.props.createFavorite(favorite)
           this.setState({liked : true})
         }
-        this.props.getUserLikes(this.props.currentUser.id, this.props.listing.id)
-        this.setState({like: this.props.favorite[0]})
+        // this.props.getUserLikes(this.props.currentUser.id, this.props.listing.id)
+        // this.setState({like: this.props.favorite[0]})
       }
     
     routeChangeEdit() {
@@ -64,7 +63,7 @@ class ListingShow extends React.Component {
                         <div className = "listing-show-page-logo logo"></div>
                         <div className="favorite-container" onClick = {this.handleClick}>
                         {this.props.currentUser ? 
-                        (this.state.liked ? <><FontAwesomeIcon icon={solidHeart} /><span> Saved</span></>  : <><FontAwesomeIcon icon={RegHeart} /><span> Save</span></>)
+                        (this.props.favorite[0] ? <><FontAwesomeIcon icon={solidHeart} /><span> Saved</span></>  : <><FontAwesomeIcon icon={RegHeart} /><span> Save</span></>)
                         : <p>Please login to save a listing </p>
                         }
                         </div>                        

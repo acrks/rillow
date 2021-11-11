@@ -1,4 +1,4 @@
-import { RECEIVE_LISTING_LIKES } from "../actions/favorite_actions";
+import { RECEIVE_LISTING_LIKES, RECEIVE_FAVORITE, REMOVE_FAVORITE } from "../actions/favorite_actions";
 
 const favoritesReducer = (state = {}, action) => {
   Object.freeze(state);
@@ -7,6 +7,12 @@ const favoritesReducer = (state = {}, action) => {
     case RECEIVE_LISTING_LIKES:
       nextState = action.favoriteIndex;
       return nextState;
+    case RECEIVE_FAVORITE:
+      nextState = action.favorite
+      return nextState
+    case REMOVE_FAVORITE:
+      delete nextState[action.favoriteId]
+      return nextState
     default:
       return state;
   }

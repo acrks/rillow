@@ -11,7 +11,7 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => ({
     getListings: listings => dispatch(fetchListings(listings)),
     createListing: listing => dispatch(createListing(listing)),
-    updateListing: listing => dispatch(updateListing(listing))
+    updateListing: listing => dispatch(updateListing(listing)),
     // deleteListing: () => dispatch(deleteListing(listingId))
 })
 
