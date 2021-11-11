@@ -104,7 +104,12 @@ class ListingForm extends React.Component {
         if (file) {
             reader.readAsDataURL(file);
         } else {
-        this.setState({ image_url: "", imageFile: null });
+            this.setState({listing: {
+            ...this.state.listing,
+            image_url: "",
+            imageFile: null
+        }})
+        // this.setState({ image_url: "", imageFile: null });
         }
     }
 
@@ -115,7 +120,7 @@ class ListingForm extends React.Component {
             return response.results[0].geometry.location
         }
         catch {
-            alert('Could not find that address!')
+            alert('That address is invalid. Please enter the listing address again')
         }
     }
 

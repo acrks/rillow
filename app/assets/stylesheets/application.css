@@ -242,6 +242,10 @@ h1 {
 
   .error-message {
     list-style-type: none;
+    text-align: center;
+    font-size: 15px;
+    color: red;
+    width: 100%;
   }
   
   .home-page {

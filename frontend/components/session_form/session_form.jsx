@@ -8,11 +8,22 @@ class SessionForm extends React.Component {
       username: '',
       password: '',
       firstName: '',
-      lastName: ''
+      lastName: '',
+      errors: {}
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
     this.demoLogin = this.demoLogin.bind(this)
+  }
+
+  // componentDidUpdate(prevProps) {
+  //   if(this.prevProps.formType !== this.props.formType) {
+  //     this.props.clearErrors()
+  //   }
+  // }
+
+  componentDidMount() {
+    this.props.clearErrors()
   }
 
   update(field) {
@@ -35,10 +46,10 @@ class SessionForm extends React.Component {
     }
     this.props.login(user)
     .then(this.props.closeModal)
-    // .then(() => this.props.history.push('/'))
 }
 
   renderErrors() {
+    if(this.props.errors.length) {
     return(
       <ul className = "error-list">
         {this.props.errors.map((error, i) => (
@@ -48,6 +59,7 @@ class SessionForm extends React.Component {
         ))}
       </ul>
     );
+    }
   }
 
   render() {
@@ -81,13 +93,13 @@ class SessionForm extends React.Component {
           <div className = "label-container">
             <label className = "label-header">Email
               <br/>
-                <input type = "text" value = {this.state.email} onChange = {this.update('email')} placeholder = "Enter email" className = "subheader input-field"/>
+                <input required type = "text" value = {this.state.email} onChange = {this.update('email')} placeholder = "Enter email" className = "subheader input-field"/>
               </label>
             </div>
           
           <div className = "label-container">
             <label className = "label-header">Password
-              <input type = "password" value = {this.state.password} onChange = {this.update('password')} placeholder = "Enter password" className = "subheader input-field"/>
+              <input required type = "password" value = {this.state.password} onChange = {this.update('password')} placeholder = "Enter password" className = "subheader input-field"/>
               </label>
           </div>
             {this.props.formType === 'signup' ? 
