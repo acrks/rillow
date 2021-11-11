@@ -95,9 +95,6 @@ class ListingForm extends React.Component {
         const reader = new FileReader();
         const file = e.currentTarget.files[0];
         reader.onloadend = () => {
-        this.setState({
-            image_url: reader.result, imageFile: file }
-            );
             this.setState({listing: {
             ...this.state.listing,
             image_url: reader.result,
@@ -105,7 +102,7 @@ class ListingForm extends React.Component {
         }})
         }
         if (file) {
-        image_url.readAsDataURL(file);
+            reader.readAsDataURL(file);
         } else {
         this.setState({ image_url: "", imageFile: null });
         }
@@ -186,7 +183,7 @@ class ListingForm extends React.Component {
         <div className = "listing-form">
             {/* <div className = "listing-form-picture"> */}
                 {/* <img src = {this.state.image_url} alt = "listing-form-picture"/> */}
-                {!this.state.listing.image_url ? <div className = "listing-form-picture">Picture of your listing</div> : <div className = "listing-form-picture" style = {{backgroundImage : `url(${this.state.image_url})`}} />}
+                {!this.state.listing.image_url ? <div className = "listing-form-picture">Picture of your listing</div> : <div className = "listing-form-picture" style = {{backgroundImage : `url(${this.state.listing.image_url})`}} />}
             {/* </div> */}
         <div className = "listing-form-info">
         <form className = "listing-form-forms" onSubmit = {this.handleSubmit}>
