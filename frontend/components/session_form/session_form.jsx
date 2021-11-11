@@ -16,12 +16,6 @@ class SessionForm extends React.Component {
     this.demoLogin = this.demoLogin.bind(this)
   }
 
-  // componentDidUpdate(prevProps) {
-  //   if(this.prevProps.formType !== this.props.formType) {
-  //     this.props.clearErrors()
-  //   }
-  // }
-
   componentDidMount() {
     this.props.clearErrors()
   }
@@ -35,7 +29,14 @@ class SessionForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     const user = Object.assign({}, this.state);
-    this.props.processForm(user).then(this.props.closeModal);
+    // this.props.clearErrors()
+    
+      this.props.processForm(user).then(this.props.closeModal)
+    // else {
+    //   this.setState({errors:this.props.errors})
+    // }
+    
+    
   }
 
   demoLogin(e) {
@@ -70,6 +71,31 @@ class SessionForm extends React.Component {
     else {
       currentTab = <button className = "subheader tab-header tab-header-selected change-modal-tab">New account</button>
     }
+
+    let emailErrorLabel,
+    passwordErrorLabel = <label></label>
+
+    let errorsArr = Object.values(this.props.errors)
+
+    if (errorsArr.length) {
+        errorsArr.forEach(error => {
+          if (error === 'Email can\'t be blank') {
+            emailErrorLabel = <label  className="error-message">An email address is required</label>
+          }
+          if (error === 'Email is invalid') {
+            emailErrorLabel = <label  className="error-message">The email address you entered has an invalid format</label>
+          }
+          if (error === 'Email has already been taken') {
+            emailErrorLabel = <label  className="error-message">There is already an account with that email address</label>
+        }
+        
+        if (error === 'Password is too short (minimum is 8 characters)') {
+            passwordErrorLabel = <label className="error-message">Your email address must be at least eight characters long</label>
+        }
+      })
+    }
+  
+
     return (
       <div className = "session-form">
         <div onClick={this.props.closeModal} className="close-x">X</div>
@@ -94,12 +120,14 @@ class SessionForm extends React.Component {
             <label className = "label-header">Email
               <br/>
                 <input required type = "text" value = {this.state.email} onChange = {this.update('email')} placeholder = "Enter email" className = "subheader input-field"/>
+                {emailErrorLabel}
               </label>
             </div>
           
           <div className = "label-container">
             <label className = "label-header">Password
               <input required type = "password" value = {this.state.password} onChange = {this.update('password')} placeholder = "Enter password" className = "subheader input-field"/>
+                {passwordErrorLabel}
               </label>
           </div>
             {this.props.formType === 'signup' ? 
@@ -116,8 +144,8 @@ class SessionForm extends React.Component {
           </>
             : 
             null}
-              {this.renderErrors()}
-              <br/>
+            {this.props.formType === 'login' ? this.renderErrors() : null}
+              {/* {this.renderErrors()} */}
               <br/>
 
           {this.props.formType === 'signup' ? 
