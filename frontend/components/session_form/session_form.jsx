@@ -80,13 +80,13 @@ class SessionForm extends React.Component {
     if (errorsArr.length) {
         errorsArr.forEach(error => {
           if (error === 'Email can\'t be blank') {
-            emailErrorLabel = <label  className="error-message">An email address is required</label>
+            emailErrorLabel = <label className="error-message">An email address is required</label>
           }
           if (error === 'Email is invalid') {
-            emailErrorLabel = <label  className="error-message">The email address you entered has an invalid format</label>
+            emailErrorLabel = <label className="error-message">The email address you entered has an invalid format</label>
           }
           if (error === 'Email has already been taken') {
-            emailErrorLabel = <label  className="error-message">There is already an account with that email address</label>
+            emailErrorLabel = <label className="error-message">There is already an account with that email address</label>
         }
         
         if (error === 'Password is too short (minimum is 8 characters)') {

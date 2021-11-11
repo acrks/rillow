@@ -72,6 +72,7 @@ class BenchMap extends React.Component {
         map: this.map,
         title: `${listing.street_number} ${listing.street_name}`,
         animation: google.maps.Animation.DROP,
+        
       });  
       this.bindInfoWindow(marker, this.map, infowindow, "<p>" + `${listing.street_number} ${listing.street_name}` + "</p>", listing.id);  
 
