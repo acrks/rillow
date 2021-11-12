@@ -12,15 +12,15 @@ class ListingIndex extends React.Component {
                 search: this.props.location.searchTerm,
                 lat: 37.7758, 
                 lng: -122.435
-                }
-        }
+                }    
+            }
         else {
             this.state = {
                 search: '',
                 lat: 37.7758, 
                 lng: -122.435
                 }
-        }
+            }
         this.updateSearch = this.updateSearch.bind(this)
         this.routeChangeCreate = this.routeChangeCreate.bind(this)
     }
@@ -32,6 +32,10 @@ class ListingIndex extends React.Component {
 
     componentWillUnmount() {
         this.props.clearListings()
+        this.setState({ filterTerm: '',
+                search: '',
+                lat: 37.7758, 
+                lng: -122.435})
     }
 
     updateSearch(e) {
@@ -46,12 +50,12 @@ class ListingIndex extends React.Component {
 
     render() {
         const searchTerm = this.state.search
-        const { listings, updateListing} = this.props
-
+        const {listings, updateListing} = this.props
+        
         return (
             <>
             <div className = "listing-index-search-bar" >
-            <input className = "input-search" type="text" placeholder="search..." value = {this.state.search} onChange={this.updateSearch}/>
+            <input className = "input-search" type="text" placeholder="Search..." value = {this.state.search} onChange={this.updateSearch}/>
             </div> 
             <div className = "listing-index-container">
                 <div className = "index-map-container">
@@ -70,6 +74,7 @@ class ListingIndex extends React.Component {
                     return val
                 } else if (val.street_name.toLowerCase().includes(searchTerm.toLowerCase()) || val.city_name.toLowerCase().includes(searchTerm.toLowerCase()) || (val.zipcode).toString().includes(searchTerm))
                     return val
+                
                 }).map(
                 listing => <ListingItem key={listing.id} listing={listing} updateListing={updateListing} /> 
                 )

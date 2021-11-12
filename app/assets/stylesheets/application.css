@@ -344,6 +344,20 @@ h1 {
     height: 75px;
     z-index: 16;
     background-color: white;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+}
+
+.input-search {
+    width: 20%;
+    height: 40px;
+    font-family: 'Open Sans', sans-serif;
+    border-radius: 5px;
+    border: 1px solid lightgray;
+    padding: 10px;
 }
 
 .listing-index-item-navbar {

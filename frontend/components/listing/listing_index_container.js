@@ -5,6 +5,7 @@ import { fetchListings, updateListing, createListing, clearListings } from '../.
 
 const mapStateToProps = state => ({
     listings: Object.values(state.entities.listings),
+    
     // searchTerm: this.props.location.searchTerm
 })
 
