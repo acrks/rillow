@@ -183,6 +183,72 @@ class ListingForm extends React.Component {
       }
 
     formRender() {
+        let priceErrorLabel,
+        streetNumErrorLabel,
+        streetNameErrorLabel,
+        cityNameErrorLabel,
+        zipcodeErrorLabel,
+        stateErrorLabel,
+        picErrorLabel,
+        sqftErrorLabel = <label></label>
+
+        let errorsArr = Object.values(this.props.errors)
+
+        if (errorsArr.length) {
+        errorsArr.forEach(error => {
+          if (error === `Price is not a number`) {
+            priceErrorLabel = <label className="error-message">Please enter the listing price in the valid format</label>
+          }
+          if (error === `Price can't be blank`) {
+            priceErrorLabel = <label className="error-message">The listing price cannot be empty</label>
+          }
+          if (error === `Sqft can't be blank`) {
+            sqftErrorLabel = <label className="error-message">The square footage of the property must be entered</label>
+          }
+          if (error === `Street number can't be blank`) {
+            streetNumErrorLabel = <label className="error-message">You must enter a street number for a listing</label>
+          }
+          if (error === `Street number must be greater than or equal to 1`) {
+            streetNumErrorLabel = <label className="error-message">The street number must be a number greater than or equal to 1</label>
+          }
+          if (error === `Street number is not a number`) {
+            streetNumErrorLabel = <label className="error-message">Please enter the street number in a valid format</label>
+          }
+          if (error === `Street name can't be blank`) {
+            streetNameErrorLabel = <label className="error-message">The street name of the property must be entered</label>
+          }
+          if (error === 'Picture must be attached') {
+            picErrorLabel = <label className="error-message">At least one picture is required for every listing</label>
+        }
+          if (error === `Zipcode can't be blank`) {
+            zipcodeErrorLabel = <label className="error-message">The zipcode for a property must be entered</label>
+        
+        }
+          if (error === `Zipcode is not a number`) {
+            zipcodeErrorLabel = <label className="error-message">The zipcode for a property must be entered in the correct format</label>
+        
+        }
+          if (error === `State can't be blank`) {
+            stateErrorLabel = <label className="error-message">Please select a state from the dropdown menu</label>
+        
+        }
+        if (error === `City name can't be blank`) {
+            cityNameErrorLabel = <label className="error-message">The city name for a property must be entered</label>
+        
+        }
+          if (error === `Zipcode must be greater than or equal to 10000` || `Zipcode must be less than or equal to 99999`) {
+            zipcodeErrorLabel = <label className="error-message">The zipcode must be a number between 10000 and 99999</label>
+        }
+          if (error === `Price must be greater than or equal to 1`) {
+            priceErrorLabel = <label className="error-message">The price must be a positive number greater than or equal to 1</label>
+        }
+        if (error === `Sqft must be greater than or equal to 1`) {
+            sqftErrorLabel = <label className="error-message">The square footage must be a positive number greater than or equal to 1</label>
+        }
+        })
+        }
+
+
         return(
             // Add place holders
         <div className = "listing-form">
@@ -196,24 +262,34 @@ class ListingForm extends React.Component {
         <div className = "listing-form-labels">
         <label>Street Number
             <input type = "text" placeholder = "1000" value = {this.state.listing.street_number} onChange = {this.handleChange('street_number')}/>
+        <br/>
+        {streetNumErrorLabel}
         </label>
         <label>Street Name
             <input type = "text" placeholder = "Any Street" value = {this.state.listing.street_name} onChange = {this.handleChange('street_name')}/>
+            <br/>
+            {streetNameErrorLabel}
         </label>
         <label>Unit Number
             <input type = "text" placeholder = "if applicable" value = {this.state.listing.unit_number} onChange = {this.handleChange('unit_number')}/>
         </label>
         <label>City
             <input type = "text" placeholder = "Any Town" value = {this.state.listing.city_name} onChange = {this.handleChange('city_name')}/>
+        <br/>
+        {cityNameErrorLabel}
         </label>
         <label>State
             <select value = {this.state.listing.state} onChange = {this.handleChange('state')}>
                 <option value="" disabled defaultValue>Select a state</option>
                 {this.stateList.map((state, index) => <option value={state} key = {index}>{state}</option>)}
             </select>
+        <br/>
+        {stateErrorLabel}
         </label>       
         <label>Zipcode
             <input type = "text" placeholder = "10000" value = {this.state.listing.zipcode} onChange = {this.handleChange('zipcode')}/>
+        <br/>
+        {zipcodeErrorLabel}
         </label>
         <label>For Purchase?
             <input 
@@ -231,9 +307,13 @@ class ListingForm extends React.Component {
         </label>
         <label>Price
             <input type = "number" placeholder = "0" value = {this.state.listing.price} onChange = {this.handleChange('price')}/>
+            <br/>
+            {priceErrorLabel}
         </label>
         <label>Square Footage
             <input type = "number" placeholder = "0" value = {this.state.listing.sqft} onChange = {this.handleChange('sqft')}/>
+        <br/>
+        {sqftErrorLabel}
         </label>
         <label>Number of Bedrooms: {this.state.listing.num_bedrooms}
             {/* <p>Number of bedrooms{this.state.num_bedrooms}</p> */}
@@ -243,13 +323,13 @@ class ListingForm extends React.Component {
         <label>Number of Bathrooms: {this.state.listing.num_bathrooms}
             <br/>
             <input type="range" min="1" max="12" step = "0.5" value={this.state.listing.num_bathrooms} onChange = {this.handleChange('num_bathrooms')}/>
+        </label>
 
             {/* <input type = "number" placeholder = "0" step="0.5" value = {this.state.num_bathrooms} onChange = {this.handleChange('num_bathrooms')}/> */}
-        </label>
-        {this.props.formType === "Update Listing" ? null : <input type = 'file' onChange = {this.handleFile.bind(this)}/>} 
+        {this.props.formType === "Update Listing" ? null : <><input type = 'file' onChange = {this.handleFile.bind(this)}/><br/>{picErrorLabel}</>} 
         
         </div>
-        {this.renderErrors()}
+        {/* {this.renderErrors()} */}
         <button className = "sign-in-button listing-form-submit-button">{this.props.formType}</button>
         </form>
         </div>

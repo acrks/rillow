@@ -79,12 +79,12 @@ class ListingShow extends React.Component {
                         </div>                        
                     </div>
                 
-                    <span className = "listing-show-page-price">${listing.price} {listing.purchase ? null : 'per month ' }</span>
+                    <span className = "listing-show-page-price">${listing.price.toLocaleString()} {listing.purchase ? null : 'per month ' }</span>
                     
                     <span className = "listing-show-page-sizes">{listing.num_bedrooms} bd | {listing.num_bathrooms} ba | {listing.sqft} sqft</span>
                     {/* <h3>Agent: {listing.creator.email}</h3> */}
 
-                    <p className = "index-item-address">{listing.street_number} {listing.street_name}, {listing.city_name}, {listing.state}, {listing.zipcode}
+                    <p className = "index-item-address">{listing.street_number} {listing.street_name}, {listing.unit_number ? `Unit ${listing.unit_number}`: null}, {listing.city_name}, {listing.state}, {listing.zipcode}
                     </p>
                     <button className = "show-page-outreach-button  sign-in-button white-zillow-button" id= "agentinfobutton" onClick = {() => this.showAgentInfo()}>Contact Agent</button>
                     <div id = "agentinfowindow">

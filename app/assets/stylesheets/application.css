@@ -422,14 +422,17 @@ h1 {
   .listing-form-labels > label {
       margin: 10px;
       font-size: 20px;
+      width: 100%;
+        text-align: left;
   }
 
   .listing-form-labels > label input[type=text],
   .listing-form-labels > label input[type=number],
   .listing-form-labels > label > select
    {
-      margin-left: 20px;
+      /* margin-left: 20px; */
       font-size: 20px;
+      width: 100%;
       font-family: 'Open Sans', sans-serif;
   }
 
