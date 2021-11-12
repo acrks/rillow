@@ -34,7 +34,7 @@ class LikedListingItem extends React.Component {
                 <div className = "liked-listing-item-info">
                 <span className = "listing-index-item-price">${likedListing.price.toLocaleString()} {likedListing.purchase ? null : `per month` }</span>
                 {likedListing.num_bedrooms} bds   {likedListing.num_bathrooms} ba   {likedListing.sqft} sqft<br/>
-                <span className = "liked-listing-item-address">{likedListing.street_number} {likedListing.street_name}, {likedListing.unit_number ? `Unit ${likedListing.unit_number}`: null}, {likedListing.city_name}, {likedListing.state} {likedListing.zipcode}</span>
+                <span className = "liked-listing-item-address">{likedListing.street_number} {likedListing.street_name},{likedListing.unit_number ? ` Unit ${likedListing.unit_number},`: null} {likedListing.city_name}, {likedListing.state} {likedListing.zipcode}</span>
                 </div>
             </div>
         )
