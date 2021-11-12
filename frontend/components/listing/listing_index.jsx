@@ -8,10 +8,18 @@ class ListingIndex extends React.Component {
     constructor(props) {
         super(props)
         if(this.props.location.searchTerm) {
-            this.state = {search: this.props.location.searchTerm}
+            this.state = {
+                search: this.props.location.searchTerm,
+                lat: 37.7758, 
+                lng: -122.435
+                }
         }
         else {
-            this.state = {search: ''}
+            this.state = {
+                search: '',
+                lat: 37.7758, 
+                lng: -122.435
+                }
         }
         this.updateSearch = this.updateSearch.bind(this)
         this.routeChangeCreate = this.routeChangeCreate.bind(this)
@@ -28,17 +36,18 @@ class ListingIndex extends React.Component {
 
     updateSearch(e) {
         this.setState({search: e.target.value})
-      }
+    }
 
     routeChangeCreate() {
         let path = `/listings/create`;
         this.props.history.push(path);
     }
+    
 
     render() {
         const searchTerm = this.state.search
-
         const { listings, updateListing} = this.props
+
         return (
             <>
             <div className = "listing-index-search-bar" >
@@ -46,7 +55,7 @@ class ListingIndex extends React.Component {
             </div> 
             <div className = "listing-index-container">
                 <div className = "index-map-container">
-                <MapContainer listings={listings}/>
+                <MapContainer listings={listings} lat = {this.state.lat} lng = {this.state.lng}/>
                 </div>
                 <div className = "listing-index-items">
                     <div className = "listing-index-item-navbar">
@@ -61,7 +70,9 @@ class ListingIndex extends React.Component {
                     return val
                 } else if (val.street_name.toLowerCase().includes(searchTerm.toLowerCase()) || val.city_name.toLowerCase().includes(searchTerm.toLowerCase()) || (val.zipcode).toString().includes(searchTerm))
                     return val
-                }).map(listing => <ListingItem key={listing.id} listing={listing} updateListing={updateListing}/> )
+                }).map(
+                listing => <ListingItem key={listing.id} listing={listing} updateListing={updateListing} /> 
+                )
                 }
                 </ul>
                 </div>
