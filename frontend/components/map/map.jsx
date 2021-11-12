@@ -1,5 +1,4 @@
 import React from 'react'
-import MarkerManager from '../../utils/marker_manager';
 import { withRouter } from 'react-router-dom';
 
 
@@ -32,17 +31,7 @@ class BenchMap extends React.Component {
     };
     // wrap this.mapNode in a Google Map
     this.map = new google.maps.Map(this.mapNode, mapOptions);
-    // this.geoCoder = google.maps.Geocoder.geocode()
-    this.MarkerManager = new MarkerManager(this.map);
-    // this.MarkerManager.updateMarkers()
   }
-
-  // componentDidUpdate(prevProps) {
-  //   // Typical usage (don't forget to compare props):
-  //   if (this.props.listings !== prevProps.listings) {
-  //     // this.MarkerManager.updateMarkers()
-  //   }
-  // }
 
   bindInfoWindow(marker, map, infowindow, html, listingId) { 
     google.maps.event.addListener(marker, 'mouseover', function() { 
@@ -50,10 +39,8 @@ class BenchMap extends React.Component {
       infowindow.open(map, marker); 
     }); 
 
-    google.maps.event.addDomListener(infowindow, 'click', function() { 
-      console.log("This works")
-      let path = `/listings/${listingId}`;
-      this.props.history.push(path);
+    google.maps.event.addListener(marker, 'click', function() { 
+      window.location.href = this.url;
     }); 
   } 
 
@@ -72,10 +59,14 @@ class BenchMap extends React.Component {
         map: this.map,
         title: `${listing.street_number} ${listing.street_name}`,
         animation: google.maps.Animation.DROP,
-        
+        // TODO: CHANGE THIS ONE DEPLOYED TO HEROKU
+        url: `http://localhost:3000/#/listings/${listing.id}`,
+        icon: {
+          url: 'https://raw.githubusercontent.com/acrks/rillow/map/app/assets/images/marker2.png',
+          scaledSize: new google.maps.Size(20, 20),
+        }
       });  
-      this.bindInfoWindow(marker, this.map, infowindow, "<p>" + `${listing.street_number} ${listing.street_name}` + "</p>", listing.id);  
-
+      this.bindInfoWindow(marker, this.map, infowindow, "<div className = `info-window`>" + `${listing.street_number} ${listing.street_name}` + "</div>", listing.id);  
     })
 
 
