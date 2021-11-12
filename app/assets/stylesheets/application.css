@@ -584,6 +584,22 @@ h1 {
      height: auto;
  }
 
+ #agentinfowindow {
+    display: none;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-color: white;
+    width: 50%;
+    border-radius: 5px;
+    height: 20%;
+    color: #0D4599;
+    border: 1px solid #0D4599;
+    box-shadow: 1px 0px 5px -3px #000000;
+    font-size: 15px;
+ }
+
  .save-share-more {
     color: #006AFF;
  }
@@ -612,7 +628,8 @@ h1 {
      background-color: white;
  }
 
- .white-zillow-button:hover {
+ .white-zillow-button:hover,
+ #agentinfowindow:hover {
      color: #0D4599;
      border: 1px solid #0D4599;
      background-color: #f7fbff;

@@ -3,6 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {withRouter} from 'react-router-dom'
 import { faHeart  as solidHeart } from '@fortawesome/free-solid-svg-icons'
 import { faHeart as RegHeart } from '@fortawesome/free-regular-svg-icons'
+import Modal from '../../modal/modal'
 
 
 class ListingShow extends React.Component {
@@ -14,6 +15,7 @@ class ListingShow extends React.Component {
         
         this.routeChangeEdit = this.routeChangeEdit.bind(this)
         this.handleClick = this.handleClick.bind(this)
+        this.showAgentInfo = this.showAgentInfo.bind(this)
     }
 
     componentDidMount() {
@@ -44,6 +46,13 @@ class ListingShow extends React.Component {
         // this.props.getUserLikes(this.props.currentUser.id, this.props.listing.id)
         // this.setState({like: this.props.favorite[0]})
       }
+
+      showAgentInfo() {
+          const button = document.getElementById('agentinfobutton')
+          button.style.display = "none"
+          const agentInfo = document.getElementById('agentinfowindow')
+          agentInfo.style.display = "flex"
+      }
     
     routeChangeEdit() {
         let path = `/listings/${this.props.listing.id}/edit`;
@@ -56,6 +65,7 @@ class ListingShow extends React.Component {
         }
         const {listing, deleteListing} = this.props
         return(
+            
             <div className = "listing-show">
                 <div className = "listing-show-page-pictures" style = {{backgroundImage : `url(${listing.image_url})`}} />
                 <div className = "listing-show-page-info">
@@ -76,23 +86,27 @@ class ListingShow extends React.Component {
 
                     <p className = "index-item-address">{listing.street_number} {listing.street_name}, {listing.city_name}, {listing.state}, {listing.zipcode}
                     </p>
-
+                    <button className = "show-page-outreach-button  sign-in-button white-zillow-button" id= "agentinfobutton" onClick = {() => this.showAgentInfo()}>Contact Agent</button>
+                    <div id = "agentinfowindow">
+                    You can contact the person who listed this property at:<br/>
+                    Email: {listing.creator.email}<br/>
+                    Phone: Coming soon</div>
                     {this.props.currentUser ?
-                    <>
-                    <div className = "listing-show-outreach">
-                        <button className = "show-page-outreach-button  sign-in-button white-zillow-button">Contact Agent</button>
-                        <button className = "show-page-outreach-button sign-in-button">Take a Tour</button>
-                    </div>
-                    <>{this.props.currentUser.email === listing.creator.email ? 
-                    <>
-                    <br/>
+                    // <>
+                    // <div className = "listing-show-outreach">
+                    //     <button className = "show-page-outreach-button  sign-in-button white-zillow-button" onClick = {() => openModal('agentinfo')}>Contact Agent</button>
+                    //     <button className = "show-page-outreach-button sign-in-button">Take a Tour</button>
+                    // </div>
+                    // <>{this.props.currentUser.email === listing.creator.email ? 
+                    // <>
+                    // <br/>
                     <div className = "listing-show-outreach">
                     <button onClick={this.routeChangeEdit} className = "show-page-outreach-button sign-in-button">Edit Listing</button>
                     <button onClick={() => deleteListing(listing.id).then(() => this.props.history.push('/listings'))} className = "show-page-outreach-button  sign-in-button white-zillow-button">Delete Listing</button>
                     </div>
-                    </> : null} 
-                    </>
-                    </> : `Please sign in to schedule a tour or make changes to the listing`}
+                    : null} 
+                    {/* </>
+                    </> : `Please sign in to schedule a tour or make changes to the listing`} */}
                 </div>
             </div>
         )
