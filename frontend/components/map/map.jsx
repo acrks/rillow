@@ -54,7 +54,8 @@ class Map extends React.Component {
         map: this.map,
         title: `${listing.street_number} ${listing.street_name}`,
         animation: google.maps.Animation.DROP,
-        url: `https://rillow.herokuapp.com/#/listings/${listing.id}`,
+        url: `http://localhost:3000/#/listings/${listing.id}`,
+        // url: `https://rillow.herokuapp.com/#/listings/${listing.id}`,
         icon: {
           url: 'https://raw.githubusercontent.com/acrks/rillow/map/app/assets/images/marker2.png',
           scaledSize: new google.maps.Size(20, 20),

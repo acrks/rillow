@@ -57,7 +57,7 @@ class ListingShow extends React.Component {
         const {listing, deleteListing} = this.props
         return(
             <div className = "listing-show">
-                <div className = "listing-form-picture" style = {{backgroundImage : `url(${listing.image_url})`}} />
+                <div className = "listing-show-page-pictures" style = {{backgroundImage : `url(${listing.image_url})`}} />
                 <div className = "listing-show-page-info">
                     <div className = "listing-show-page-banner">
                         <div className = "listing-show-page-logo logo"></div>

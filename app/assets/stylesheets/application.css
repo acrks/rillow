@@ -375,7 +375,7 @@ h1 {
 
   .listing-form-picture {
       height: 500px;
-      width: 100%;
+      width: 60%;
       text-align: center;
       background-repeat: no-repeat;
       background-size: contain;
@@ -385,7 +385,7 @@ h1 {
   }
 
   .listing-form-info {
-      width: 100%;
+      width: 40%;
   }
 
   .listing-form-forms {
@@ -548,7 +548,12 @@ h1 {
     }
     
     .listing-show-page-pictures {
-        width: 60%;
+        width: 50%;
+        height: 50vh;
+        background-repeat: no-repeat;
+      background-size: contain;
+    /* border: 1px solid black; */
+    background-position: center;
         
     }
 
@@ -558,7 +563,7 @@ h1 {
 
     .listing-show-page-info {
         padding: 20px;
-        width: 40%;
+        width: 50%;
         text-align: left;
     }
 
