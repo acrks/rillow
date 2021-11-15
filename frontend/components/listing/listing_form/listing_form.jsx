@@ -7,7 +7,6 @@ class ListingForm extends React.Component {
         super(props)
         this.state = {
             listing: this.props.listing,
-            errors: {}
         }
         this.stateList = ['Alabama',
         'Alaska',
@@ -141,7 +140,7 @@ class ListingForm extends React.Component {
         formData.append('listing[street_number]', this.state.listing.street_number)
         formData.append('listing[street_name]', this.state.listing.street_name)
         formData.append('listing[city_name]', this.state.listing.city_name)
-        formData.append('listing[zipcode]', this.state.listing.zipcode)
+        formData.append('listing[zipcode]', parseInt(this.state.listing.zipcode))
         formData.append('listing[purchase]', this.state.listing.purchase)
         formData.append('listing[state]', this.state.listing.state)
         formData.append('listing[num_bedrooms]', this.state.listing.num_bedrooms)
@@ -162,7 +161,6 @@ class ListingForm extends React.Component {
         if(this.props.formType === 'Create Listing') {
             this.props.action(formData)
             .then(() => this.props.history.push(`/listings`))
-            this.setState({errors: this.props.errors})
         }
         else {
             this.props.action(listing)
@@ -192,10 +190,10 @@ class ListingForm extends React.Component {
         picErrorLabel,
         sqftErrorLabel = <label></label>
 
-        let errorsArr = Object.values(this.props.errors)
+        // let errorsArr = Object.values(this.props.errors)
 
-        if (errorsArr.length) {
-        errorsArr.forEach(error => {
+        if (this.props.errors.length) {
+        this.props.errors.forEach(error => {
           if (error === `Price is not a number`) {
             priceErrorLabel = <label className="error-message">Please enter the listing price in the valid format</label>
           }
@@ -236,8 +234,8 @@ class ListingForm extends React.Component {
             cityNameErrorLabel = <label className="error-message">The city name for a property must be entered</label>
         
         }
-          if (error === `Zipcode must be greater than or equal to 10000` || `Zipcode must be less than or equal to 99999`) {
-            zipcodeErrorLabel = <label className="error-message">The zipcode must be a number between 10000 and 99999</label>
+          if (error === "Zipcode must be greater than or equal to 10000" || "Zipcode must be less than or equal to 99999") {
+            zipcodeErrorLabel = <label className="error-message">The zipcode you entered is invalid. Please enter it again</label>
         }
           if (error === `Price must be greater than or equal to 1`) {
             priceErrorLabel = <label className="error-message">The price must be a positive number greater than or equal to 1</label>
@@ -353,13 +351,8 @@ class ListingForm extends React.Component {
         //If the formType is create listing
         else {
             // If the user is logged in
-            if(this.props.currentUser !== null) {
                 return(this.formRender())
-            }
-            // Else the user is not logged in
-            // else{
-            //     return(<p>You must be logged in to create a listing</p>)
-            // }
+            
         }
     }
 }

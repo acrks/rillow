@@ -91,7 +91,7 @@ class ListingShow extends React.Component {
                     You can contact the person who listed this property at:<br/>
                     Email: {listing.creator.email}<br/>
                     Phone: Coming soon</div>
-                    {this.props.currentUser ?
+                    {this.props.currentUser.email === listing.creator.email ?
                     // <>
                     // <div className = "listing-show-outreach">
                     //     <button className = "show-page-outreach-button  sign-in-button white-zillow-button" onClick = {() => openModal('agentinfo')}>Contact Agent</button>
@@ -105,8 +105,6 @@ class ListingShow extends React.Component {
                     <button onClick={() => deleteListing(listing.id).then(() => this.props.history.push('/listings'))} className = "show-page-outreach-button  sign-in-button white-zillow-button">Delete Listing</button>
                     </div>
                     : null} 
-                    {/* </>
-                    </> : `Please sign in to schedule a tour or make changes to the listing`} */}
                 </div>
             </div>
         )
