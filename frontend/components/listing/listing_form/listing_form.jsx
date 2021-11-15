@@ -224,7 +224,12 @@ class ListingForm extends React.Component {
         }
           if (error === `Zipcode is not a number`) {
             zipcodeErrorLabel = <label className="error-message">The zipcode for a property must be entered in the correct format</label>
-        
+        }
+        if (error === "Zipcode must be greater than or equal to 10000") {
+            zipcodeErrorLabel = <label className="error-message">The zipcode you entered is invalid. Please enter it again</label>
+        }
+        if (error === "Zipcode must be less than or equal to 99999") {
+            zipcodeErrorLabel = <label className="error-message">The zipcode you entered is invalid. Please enter it again</label>
         }
           if (error === `State can't be blank`) {
             stateErrorLabel = <label className="error-message">Please select a state from the dropdown menu</label>
@@ -233,9 +238,6 @@ class ListingForm extends React.Component {
         if (error === `City name can't be blank`) {
             cityNameErrorLabel = <label className="error-message">The city name for a property must be entered</label>
         
-        }
-          if (error === "Zipcode must be greater than or equal to 10000" || "Zipcode must be less than or equal to 99999") {
-            zipcodeErrorLabel = <label className="error-message">The zipcode you entered is invalid. Please enter it again</label>
         }
           if (error === `Price must be greater than or equal to 1`) {
             priceErrorLabel = <label className="error-message">The price must be a positive number greater than or equal to 1</label>
@@ -286,8 +288,8 @@ class ListingForm extends React.Component {
         </label>       
         <label>Zipcode
             <input type = "text" placeholder = "10000" value = {this.state.listing.zipcode} onChange = {this.handleChange('zipcode')}/>
-        <br/>
-        {zipcodeErrorLabel}
+            <br/>
+            {zipcodeErrorLabel}
         </label>
         <label>For Purchase?
             <input 
@@ -352,7 +354,6 @@ class ListingForm extends React.Component {
         else {
             // If the user is logged in
                 return(this.formRender())
-            
         }
     }
 }
