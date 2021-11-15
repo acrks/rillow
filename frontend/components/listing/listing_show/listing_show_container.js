@@ -1,6 +1,6 @@
 import {connect} from 'react-redux'
 import ListingShow from './listing_show'
-import { fetchListing, deleteListing } from '../../../actions/listing_actions'
+import { fetchListing, deleteListing, clearListings } from '../../../actions/listing_actions'
 import { getListingLikes, getUserLikes, createFavorite, deleteFavorite } from '../../../actions/favorite_actions'
 import { openModal } from '../../../actions/modal_actions';
 
@@ -18,6 +18,8 @@ const mapDispatchToProps = (dispatch) => ({
     getUserLikes: (userId, listingId) => dispatch(getUserLikes(userId, listingId)),
     createFavorite: favorite => dispatch(createFavorite(favorite)),
     deleteFavorite: (favoriteId) => dispatch(deleteFavorite(favoriteId)),
+    clearListings: () => dispatch(clearListings())
+
     // openModal: (type) => dispatch(openModal(type))
 })
 

@@ -23,9 +23,10 @@ class ListingShow extends React.Component {
         if(this.props.currentUser) {
             this.props.getUserLikes(this.props.currentUser.id, this.props.match.params.id)
         }
-        // if(this.props.favorite) {
-        //     this.setState({liked: true})
-        // }
+    }
+
+    componentWillUnmount() {
+        this.props.clearListings()
     }
 
     handleClick(e) {

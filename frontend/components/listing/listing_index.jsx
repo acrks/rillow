@@ -32,10 +32,6 @@ class ListingIndex extends React.Component {
 
     componentWillUnmount() {
         this.props.clearListings()
-        this.setState({ filterTerm: '',
-                search: '',
-                lat: 37.7758, 
-                lng: -122.435})
     }
 
     updateSearch(e) {
