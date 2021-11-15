@@ -225,10 +225,7 @@ class ListingForm extends React.Component {
           if (error === `Zipcode is not a number`) {
             zipcodeErrorLabel = <label className="error-message">The zipcode for a property must be entered in the correct format</label>
         }
-        if (error === "Zipcode must be greater than or equal to 10000") {
-            zipcodeErrorLabel = <label className="error-message">The zipcode you entered is invalid. Please enter it again</label>
-        }
-        if (error === "Zipcode must be less than or equal to 99999") {
+        if (error === "Zipcode Your zipcode must be valid") {
             zipcodeErrorLabel = <label className="error-message">The zipcode you entered is invalid. Please enter it again</label>
         }
           if (error === `State can't be blank`) {

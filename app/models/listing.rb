@@ -23,9 +23,8 @@
 class Listing < ApplicationRecord
     validates :creator_id, :price, :sqft, :num_bedrooms, :num_bathrooms, :street_number, :street_name, :city_name, :state, :zipcode, presence: true
     validates :purchase, inclusion: { in: [true, false] }
-    validates :zipcode, numericality: { greater_than_or_equal_to: 10000, less_than_or_equal_to: 99999, only_integer: true }
     validates :street_number, :num_bathrooms, :num_bedrooms, :price, :sqft, :creator_id, numericality: {greater_than_or_equal_to: 1}
-    validate :ensure_photo
+    validate :ensure_photo, :ensure_zip
     
     has_one_attached :picture
 
@@ -45,6 +44,12 @@ class Listing < ApplicationRecord
     def ensure_photo
         unless self.picture.attached?
             errors[:picture] << "must be attached"
+        end
+    end
+    
+    def ensure_zip
+        unless ValidatesZipcode.valid?(self.zipcode.to_s, 'US')
+            errors[:zipcode] << "Your zipcode must be valid"
         end
     end
 
