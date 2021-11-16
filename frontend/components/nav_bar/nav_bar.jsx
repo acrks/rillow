@@ -2,9 +2,18 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 export default ({ currentUser, logout, openModal }) => {
+  let message = ""
+  if(currentUser) {
+    message = 'Welcome back!'
+    if(currentUser.firstName) {
+      message = `Welcome back ${currentUser.firstName}!`
+    }
+  }
+  
   return (
     <div className = "nav-bar">
       {/* <Link to={{pathname: "/listings", filterTerm: 'buy'}} className = "nav-bar-link">Buy</Link> */}
+      <span className = "nav-bar-link">{message}</span>
       <Link to = "/listings" className = "nav-bar-link">All Listings</Link>
       {/* <Link to = {{pathname: "/listings", filterTerm: 'rent'}} className = "nav-bar-link">Rent</Link> */}
       <Link to = "/listings/create" className = "nav-bar-link">Sell</Link>

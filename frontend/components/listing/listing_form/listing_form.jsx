@@ -302,7 +302,7 @@ class ListingForm extends React.Component {
             checked={this.state.listing.purchase === false || this.state.listing.purchase === 'false'}
             onChange = {this.handleChange('purchase')}/>
         </label>
-        <label>Price
+        <label>Price {!this.state.listing.purchase || this.state.listing.purchase === 'false' ? ` per month` : null}
             <input type = "number" placeholder = "0" value = {this.state.listing.price} onChange = {this.handleChange('price')}/>
             <br/>
             {priceErrorLabel}
