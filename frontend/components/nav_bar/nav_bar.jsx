@@ -5,6 +5,9 @@ export default ({ currentUser, logout, openModal }) => {
   let message = ""
   if(currentUser) {
     message = 'Welcome back!'
+    if(currentUser.first_name) {
+      message = `Welcome back ${currentUser.first_name}!`
+    }
   }
   
   return (
