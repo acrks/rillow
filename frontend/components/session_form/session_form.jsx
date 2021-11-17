@@ -7,8 +7,8 @@ class SessionForm extends React.Component {
     this.state = {
       username: '',
       password: '',
-      firstName: '',
-      lastName: '',
+      first_name: '',
+      last_name: '',
       errors: {}
     };
 
